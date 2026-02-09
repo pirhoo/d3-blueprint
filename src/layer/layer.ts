@@ -76,9 +76,9 @@ export class Layer<TData = unknown> {
   draw(data: TData): Promise<void> {
     const bound = this.dataBindFn(this.base, data);
     const entering = bound.enter();
-    this.insertFn(entering as unknown as D3Selection);
+    const inserted = this.insertFn(entering as unknown as D3Selection);
 
-    const phases = buildLifecyclePhases<TData>(bound as never, this.handlers);
+    const phases = buildLifecyclePhases<TData>(bound as never, inserted as never, this.handlers);
     const transitionPromises: Promise<void>[] = [];
 
     for (const phase of phases) {

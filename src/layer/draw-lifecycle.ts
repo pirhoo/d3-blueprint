@@ -15,20 +15,24 @@ export interface LifecyclePhase<TData> {
 /**
  * Builds the ordered lifecycle phases from a data-join result.
  * Each phase maps to a D3 sub-selection (enter, update, merge, exit).
+ *
+ * @param bound - The data-join result (update selection).
+ * @param inserted - The selection of real DOM elements created by insert (enter().append()).
+ * @param handlerMap - Registered lifecycle event handlers.
  */
 export function buildLifecyclePhases<TData>(
   bound: Selection<BaseType, TData, BaseType, unknown>,
+  inserted: Selection<BaseType, TData, BaseType, unknown>,
   handlerMap: Map<string, Array<LifecycleHandler<TData> | TransitionHandler<TData>>>,
 ): LifecyclePhase<TData>[] {
-  const entering = bound.enter();
   const exiting = bound.exit<TData>();
 
   type Sel = Selection<BaseType, TData, BaseType, unknown>;
 
   const selectionMap: Record<LifecycleEventName, Sel> = {
     update: bound,
-    enter: entering as unknown as Sel,
-    merge: entering.merge(bound as never) as unknown as Sel,
+    enter: inserted,
+    merge: inserted.merge(bound as never) as unknown as Sel,
     exit: exiting,
   };
 
