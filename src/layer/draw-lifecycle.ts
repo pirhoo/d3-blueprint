@@ -23,10 +23,12 @@ export function buildLifecyclePhases<TData>(
   const entering = bound.enter();
   const exiting = bound.exit<TData>();
 
-  const selectionMap: Record<LifecycleEventName, Selection<BaseType, TData, BaseType, unknown>> = {
+  type Sel = Selection<BaseType, TData, BaseType, unknown>;
+
+  const selectionMap: Record<LifecycleEventName, Sel> = {
     update: bound,
-    enter: entering as unknown as Selection<BaseType, TData, BaseType, unknown>,
-    merge: entering.merge(bound),
+    enter: entering as unknown as Sel,
+    merge: entering.merge(bound as never) as unknown as Sel,
     exit: exiting,
   };
 

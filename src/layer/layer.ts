@@ -78,7 +78,7 @@ export class Layer<TData = unknown> {
     const entering = bound.enter();
     this.insertFn(entering as unknown as D3Selection);
 
-    const phases = buildLifecyclePhases<TData>(bound, this.handlers);
+    const phases = buildLifecyclePhases<TData>(bound as never, this.handlers);
     const transitionPromises: Promise<void>[] = [];
 
     for (const phase of phases) {
