@@ -3,3 +3,8 @@ dist/
 *.tsbuildinfo
 coverage/
 .DS_Store
+temp/
+docs/.vitepress/dist/
+docs/.vitepress/cache/
+docs/api/*.md
+!docs/api/index.md
