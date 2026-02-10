@@ -10,43 +10,28 @@ A complete, annotated bar chart built with d3compose.
 
 ## Full Source
 
-```ts
+```js
 import { D3Compose } from 'd3compose';
 import { scaleBand, scaleLinear } from 'd3-scale';
 import { axisBottom, axisLeft } from 'd3-axis';
 import { max } from 'd3-array';
-import type { D3Selection } from 'd3compose';
 
-interface BarDatum {
-  label: string;
-  value: number;
-}
+class BarChart extends D3Compose {
+  initialize() {
+    this.xScale = scaleBand().padding(0.1);
+    this.yScale = scaleLinear();
+    this.innerWidth = 0;
+    this.innerHeight = 0;
 
-interface Margin {
-  top: number;
-  right: number;
-  bottom: number;
-  left: number;
-}
-
-class BarChart extends D3Compose<BarDatum[]> {
-  private xScale = scaleBand<string>().padding(0.1);
-  private yScale = scaleLinear();
-  private innerWidth = 0;
-  private innerHeight = 0;
-  private xAxisGroup: any;
-  private yAxisGroup: any;
-
-  protected initialize(): void {
     // Define configurable properties
     this.configDefine('width', { defaultValue: 600 });
     this.configDefine('height', { defaultValue: 400 });
     this.configDefine('margin', {
-      defaultValue: { top: 20, right: 20, bottom: 30, left: 40 } as Margin,
+      defaultValue: { top: 20, right: 20, bottom: 30, left: 40 },
     });
 
     // Create SVG structure
-    const margin = this.config('margin') as Margin;
+    const margin = this.config('margin');
     const chart = this.base
       .append('g')
       .attr('transform', `translate(${margin.left},${margin.top})`);
@@ -57,22 +42,20 @@ class BarChart extends D3Compose<BarDatum[]> {
     const barsGroup = chart.append('g').classed('bars', true);
 
     // Define the bars layer
-    this.layer('bars', barsGroup as unknown as D3Selection, {
+    this.layer('bars', barsGroup, {
       dataBind: (selection, data) => {
-        return selection
-          .selectAll('rect')
-          .data(data, (d: any) => d.label) as unknown as D3Selection;
+        return selection.selectAll('rect').data(data, (d) => d.label);
       },
 
       insert: (selection) => {
-        return selection.append('rect') as unknown as D3Selection;
+        return selection.append('rect');
       },
 
       events: {
         // Set initial state for entering bars
         enter: (selection) => {
           selection
-            .attr('x', (d: any) => this.xScale(d.label)!)
+            .attr('x', (d) => this.xScale(d.label))
             .attr('width', this.xScale.bandwidth())
             .attr('y', this.innerHeight)
             .attr('height', 0)
@@ -83,18 +66,18 @@ class BarChart extends D3Compose<BarDatum[]> {
         'enter:transition': (transition) => {
           transition
             .duration(750)
-            .attr('y', (d: any) => this.yScale(d.value))
-            .attr('height', (d: any) => this.innerHeight - this.yScale(d.value));
+            .attr('y', (d) => this.yScale(d.value))
+            .attr('height', (d) => this.innerHeight - this.yScale(d.value));
         },
 
         // Update position and size for existing + new bars
         'merge:transition': (transition) => {
           transition
             .duration(750)
-            .attr('x', (d: any) => this.xScale(d.label)!)
+            .attr('x', (d) => this.xScale(d.label))
             .attr('width', this.xScale.bandwidth())
-            .attr('y', (d: any) => this.yScale(d.value))
-            .attr('height', (d: any) => this.innerHeight - this.yScale(d.value));
+            .attr('y', (d) => this.yScale(d.value))
+            .attr('height', (d) => this.innerHeight - this.yScale(d.value));
         },
 
         // Fade out removed bars
@@ -108,10 +91,10 @@ class BarChart extends D3Compose<BarDatum[]> {
     });
   }
 
-  protected preDraw(data: BarDatum[]): void {
-    const width = this.config('width') as number;
-    const height = this.config('height') as number;
-    const margin = this.config('margin') as Margin;
+  preDraw(data) {
+    const width = this.config('width');
+    const height = this.config('height');
+    const margin = this.config('margin');
 
     this.innerWidth = width - margin.left - margin.right;
     this.innerHeight = height - margin.top - margin.bottom;
@@ -142,7 +125,7 @@ class BarChart extends D3Compose<BarDatum[]> {
 
 ## Usage
 
-```ts
+```js
 import { select } from 'd3-selection';
 
 const chart = new BarChart(
