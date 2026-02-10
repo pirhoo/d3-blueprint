@@ -45,6 +45,7 @@ export default defineConfig({
           items: [
             { text: 'Bar Chart', link: '/examples/bar-chart' },
             { text: 'Multi-Layer Bar Chart', link: '/examples/multi-layer-bar-chart' },
+            { text: 'Responsive Bar Chart', link: '/examples/responsive-bar-chart' },
           ],
         },
       ],
