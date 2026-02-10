@@ -33,3 +33,26 @@ jobs:
 
       - name: Build
         run: make build
+
+  docs:
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v4
+
+      - name: Use Node.js 22
+        uses: actions/setup-node@v4
+        with:
+          node-version: 22
+          cache: npm
+
+      - name: Install dependencies
+        run: make install
+
+      - name: Build
+        run: make build
+
+      - name: Generate API docs
+        run: make docs-api
+
+      - name: Build docs site
+        run: npx vitepress build docs
