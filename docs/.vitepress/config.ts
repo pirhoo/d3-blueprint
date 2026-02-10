@@ -44,6 +44,7 @@ export default defineConfig({
           text: 'Examples',
           items: [
             { text: 'Bar Chart', link: '/examples/bar-chart' },
+            { text: 'Multi-Layer Bar Chart', link: '/examples/multi-layer-bar-chart' },
           ],
         },
       ],
