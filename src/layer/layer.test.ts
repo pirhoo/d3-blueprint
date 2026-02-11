@@ -115,8 +115,8 @@ describe('Layer', () => {
       const base = createBase();
       const layer = new Layer(base, defaultOptions());
 
-      expect(() => layer.on('bogus' as never, jest.fn())).toThrow('[d3compose]');
-      expect(() => layer.off('bogus' as never)).toThrow('[d3compose]');
+      expect(() => layer.on('bogus' as never, jest.fn())).toThrow('[d3-blueprint]');
+      expect(() => layer.off('bogus' as never)).toThrow('[d3-blueprint]');
     });
   });
 

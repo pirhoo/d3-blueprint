@@ -37,7 +37,7 @@ describe('assertLifecycleEvent', () => {
   });
 
   it('throws with descriptive message for invalid events', () => {
-    expect(() => assertLifecycleEvent('bogus')).toThrow('[d3compose]');
+    expect(() => assertLifecycleEvent('bogus')).toThrow('[d3-blueprint]');
     expect(() => assertLifecycleEvent('bogus')).toThrow('"bogus" is not a valid lifecycle event');
   });
 });

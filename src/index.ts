@@ -1,4 +1,4 @@
-export { D3Compose } from './d3-compose.js';
+export { D3Blueprint, type Plugin } from './d3-blueprint.js';
 export { Layer } from './layer/index.js';
 export { ConfigManager, type ConfigDefineOptions } from './config/index.js';
 export {
