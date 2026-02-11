@@ -51,8 +51,5 @@ jobs:
       - name: Build
         run: make build
 
-      - name: Generate API docs
-        run: make docs-api
-
-      - name: Build docs site
-        run: npx vitepress build docs
+      - name: Generate docs
+        run: make docs-build
