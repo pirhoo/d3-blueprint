@@ -16,7 +16,7 @@ describe('ConfigManager', () => {
     it('throws if property is already defined', () => {
       const manager = new ConfigManager();
       manager.define('width', { defaultValue: 100 });
-      expect(() => manager.define('width', { defaultValue: 200 })).toThrow('[d3compose]');
+      expect(() => manager.define('width', { defaultValue: 200 })).toThrow('[d3-blueprint]');
     });
 
     it('applies setter transform to the default value', () => {
@@ -47,7 +47,7 @@ describe('ConfigManager', () => {
 
     it('throws for undefined properties', () => {
       const manager = new ConfigManager();
-      expect(() => manager.get('missing')).toThrow('[d3compose]');
+      expect(() => manager.get('missing')).toThrow('[d3-blueprint]');
     });
   });
 

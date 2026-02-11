@@ -21,7 +21,7 @@ export function handleLayerOverloads<TData>(
 
   const existing = layers.get(name);
   if (!existing) {
-    throw new Error(`[d3compose] layer "${name}" is not defined`);
+    throw new Error(`[d3-blueprint] layer "${name}" is not defined`);
   }
   return existing;
 }

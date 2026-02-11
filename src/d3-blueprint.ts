@@ -7,21 +7,37 @@ import {
   handleConfigOverloads,
   drawLayers,
   drawAttachments,
-} from './d3-compose-helpers.js';
+} from './d3-blueprint-helpers.js';
 
 /** Chart-level dispatch event names. */
 const CHART_EVENTS = ['preDraw', 'postDraw', 'postTransition'] as const;
+
+/** A plugin object that hooks into the chart lifecycle. */
+export interface Plugin<TData = unknown> {
+  /** Used as the event namespace (e.g. `postDraw.tooltip`). */
+  name?: string;
+  /** Called once immediately when the plugin is installed. */
+  install(chart: D3Blueprint<TData>): void;
+  /** Called on every preDraw event. */
+  preDraw?(chart: D3Blueprint<TData>, data: TData): void;
+  /** Called on every postDraw event. */
+  postDraw?(chart: D3Blueprint<TData>, data: TData): void;
+  /** Called after all transitions have completed. */
+  postTransition?(chart: D3Blueprint<TData>, data: TData): void;
+  /** Called when the chart is destroyed. */
+  destroy?(chart: D3Blueprint<TData>): void;
+}
 
 /**
  * Base class for composable D3 charts.
  * Subclass and override lifecycle hooks (`initialize`, `transform`, `preDraw`, `postDraw`, `postTransition`).
  */
-export class D3Compose<TData = unknown> {
+export class D3Blueprint<TData = unknown> {
   /** The root D3 selection this chart is attached to. */
   protected readonly base: D3Selection;
 
   private readonly layers = new Map<string, Layer<TData>>();
-  private readonly attachments = new Map<string, D3Compose<TData>>();
+  private readonly attachments = new Map<string, D3Blueprint<TData>>();
   private readonly configs: ConfigManager = new ConfigManager();
   private readonly dispatcher: Dispatch<object>;
 
@@ -68,7 +84,7 @@ export class D3Compose<TData = unknown> {
   }
 
   /** Attaches a sub-chart that will be drawn alongside this chart. */
-  attach(name: string, chart: D3Compose<TData>): this {
+  attach(name: string, chart: D3Blueprint<TData>): this {
     this.attachments.set(name, chart);
     return this;
   }
@@ -98,6 +114,39 @@ export class D3Compose<TData = unknown> {
   /** Removes an event listener. Pass `null` to remove. */
   off(event: string): this {
     this.dispatcher.on(event, null);
+    return this;
+  }
+
+  /**
+   * Wires a plugin into this chart.
+   *
+   * 1. Calls `plugin.install(this)` immediately
+   * 2. Hooks `preDraw` / `postDraw` / `postTransition` via namespaced events
+   * 3. Wraps `destroy()` to call `plugin.destroy(this)` before the original teardown
+   */
+  usePlugin(plugin: Plugin<TData>, name?: string): this {
+    const ns = name || plugin.name || 'plugin';
+
+    plugin.install(this);
+
+    if (plugin.preDraw) {
+      this.on(`preDraw.${ns}`, (data: unknown) => plugin.preDraw!(this, data as TData));
+    }
+    if (plugin.postDraw) {
+      this.on(`postDraw.${ns}`, (data: unknown) => plugin.postDraw!(this, data as TData));
+    }
+    if (plugin.postTransition) {
+      this.on(`postTransition.${ns}`, (data: unknown) => plugin.postTransition!(this, data as TData));
+    }
+
+    if (plugin.destroy) {
+      const origDestroy = this.destroy.bind(this);
+      this.destroy = () => {
+        plugin.destroy!(this);
+        origDestroy();
+      };
+    }
+
     return this;
   }
 

@@ -1,7 +1,7 @@
 import { jest } from '@jest/globals';
 import { select } from 'd3-selection';
 import 'd3-transition';
-import { D3Compose } from './d3-compose.js';
+import { D3Blueprint } from './d3-blueprint.js';
 import { Layer } from './layer/index.js';
 
 function createBase(): ReturnType<typeof select> {
@@ -16,7 +16,7 @@ function cleanupBody(): void {
   }
 }
 
-describe('D3Compose', () => {
+describe('D3Blueprint', () => {
   afterEach(() => {
     cleanupBody();
   });
@@ -24,14 +24,14 @@ describe('D3Compose', () => {
   describe('constructor', () => {
     it('stores the base selection', () => {
       const base = createBase();
-      const chart = new D3Compose(base);
-      expect(chart).toBeInstanceOf(D3Compose);
+      const chart = new D3Blueprint(base);
+      expect(chart).toBeInstanceOf(D3Blueprint);
     });
 
     it('calls initialize on construction', () => {
       const spy = jest.fn();
 
-      class TestChart extends D3Compose {
+      class TestChart extends D3Blueprint {
         protected override initialize(): void {
           spy();
         }
@@ -45,7 +45,7 @@ describe('D3Compose', () => {
   describe('layer', () => {
     it('creates and retrieves a layer', () => {
       const base = createBase();
-      const chart = new D3Compose<number[]>(base);
+      const chart = new D3Blueprint<number[]>(base);
       const g = base.append('g');
 
       const layer = chart.layer('bars', g, {
@@ -58,18 +58,18 @@ describe('D3Compose', () => {
     });
 
     it('throws for unknown layer name', () => {
-      const chart = new D3Compose(createBase());
-      expect(() => chart.layer('nope')).toThrow('[d3compose]');
+      const chart = new D3Blueprint(createBase());
+      expect(() => chart.layer('nope')).toThrow('[d3-blueprint]');
     });
   });
 
   describe('attach', () => {
     it('attaches a sub-chart and draws it', async () => {
       const base = createBase();
-      const chart = new D3Compose<number[]>(base);
+      const chart = new D3Blueprint<number[]>(base);
       const drawSpy = jest.fn<() => Promise<void>>().mockResolvedValue(undefined);
 
-      const subChart = new D3Compose<number[]>(base);
+      const subChart = new D3Blueprint<number[]>(base);
       subChart.draw = drawSpy;
 
       chart.attach('sub', subChart);
@@ -81,14 +81,14 @@ describe('D3Compose', () => {
 
   describe('config', () => {
     it('defines and retrieves a config value', () => {
-      const chart = new D3Compose(createBase());
+      const chart = new D3Blueprint(createBase());
       chart.configDefine('width', { defaultValue: 500 });
 
       expect(chart.config('width')).toBe(500);
     });
 
     it('sets a config value by name', () => {
-      const chart = new D3Compose(createBase());
+      const chart = new D3Blueprint(createBase());
       chart.configDefine('height', { defaultValue: 100 });
       chart.config('height', 200);
 
@@ -96,7 +96,7 @@ describe('D3Compose', () => {
     });
 
     it('sets multiple config values with an object', () => {
-      const chart = new D3Compose(createBase());
+      const chart = new D3Blueprint(createBase());
       chart.configDefine('width', { defaultValue: 0 });
       chart.configDefine('height', { defaultValue: 0 });
 
@@ -107,7 +107,7 @@ describe('D3Compose', () => {
     });
 
     it('returns the chart for chaining when setting', () => {
-      const chart = new D3Compose(createBase());
+      const chart = new D3Blueprint(createBase());
       chart.configDefine('x', { defaultValue: 0 });
 
       expect(chart.config('x', 10)).toBe(chart);
@@ -115,7 +115,7 @@ describe('D3Compose', () => {
     });
 
     it('supports getter/setter transforms', () => {
-      const chart = new D3Compose(createBase());
+      const chart = new D3Blueprint(createBase());
       chart.configDefine('margin', {
         defaultValue: 5,
         setter: (v: number) => Math.max(0, v),
@@ -128,7 +128,7 @@ describe('D3Compose', () => {
 
   describe('on / off', () => {
     it('registers and fires preDraw event', async () => {
-      const chart = new D3Compose(createBase());
+      const chart = new D3Blueprint(createBase());
       const spy = jest.fn();
 
       chart.on('preDraw', spy);
@@ -138,7 +138,7 @@ describe('D3Compose', () => {
     });
 
     it('registers and fires postDraw event', async () => {
-      const chart = new D3Compose(createBase());
+      const chart = new D3Blueprint(createBase());
       const spy = jest.fn();
 
       chart.on('postDraw', spy);
@@ -148,7 +148,7 @@ describe('D3Compose', () => {
     });
 
     it('registers and fires postTransition event', async () => {
-      const chart = new D3Compose(createBase());
+      const chart = new D3Blueprint(createBase());
       const spy = jest.fn();
 
       chart.on('postTransition', spy);
@@ -158,7 +158,7 @@ describe('D3Compose', () => {
     });
 
     it('removes listeners with off', async () => {
-      const chart = new D3Compose(createBase());
+      const chart = new D3Blueprint(createBase());
       const spy = jest.fn();
 
       chart.on('preDraw', spy);
@@ -169,7 +169,7 @@ describe('D3Compose', () => {
     });
 
     it('supports namespaced events', async () => {
-      const chart = new D3Compose(createBase());
+      const chart = new D3Blueprint(createBase());
       const spy = jest.fn();
 
       chart.on('preDraw.myPlugin', spy);
@@ -183,7 +183,7 @@ describe('D3Compose', () => {
     it('calls transform with the data', async () => {
       const spy = jest.fn((d: string) => d);
 
-      class TestChart extends D3Compose<string> {
+      class TestChart extends D3Blueprint<string> {
         protected override transform(data: string): string {
           spy(data);
           return data;
@@ -199,7 +199,7 @@ describe('D3Compose', () => {
     it('uses transformed data in lifecycle hooks', async () => {
       const preDrawSpy = jest.fn();
 
-      class TestChart extends D3Compose<number> {
+      class TestChart extends D3Blueprint<number> {
         protected override transform(data: number): number {
           return data * 2;
         }
@@ -218,7 +218,7 @@ describe('D3Compose', () => {
     it('calls hooks in correct order', async () => {
       const order: string[] = [];
 
-      class TestChart extends D3Compose<string> {
+      class TestChart extends D3Blueprint<string> {
         protected override transform(data: string): string {
           order.push('transform');
           return data;
@@ -244,7 +244,7 @@ describe('D3Compose', () => {
     });
 
     it('draws layers during the draw cycle', async () => {
-      class TestChart extends D3Compose<number[]> {
+      class TestChart extends D3Blueprint<number[]> {
         protected override initialize(): void {
           const g = this.base.append('g');
           this.layer('items', g, {
@@ -264,7 +264,7 @@ describe('D3Compose', () => {
 
   describe('destroy', () => {
     it('clears layers and attachments', async () => {
-      class TestChart extends D3Compose<number[]> {
+      class TestChart extends D3Blueprint<number[]> {
         protected override initialize(): void {
           const g = this.base.append('g');
           this.layer('items', g, {
@@ -277,7 +277,7 @@ describe('D3Compose', () => {
       const chart = new TestChart(createBase());
       chart.destroy();
 
-      expect(() => chart.layer('items')).toThrow('[d3compose]');
+      expect(() => chart.layer('items')).toThrow('[d3-blueprint]');
     });
   });
 });
