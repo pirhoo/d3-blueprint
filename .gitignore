@@ -2,6 +2,7 @@ node_modules/
 dist/
 *.tsbuildinfo
 coverage/
+.playwright-mcp/
 .DS_Store
 temp/
 docs/.vitepress/dist/
