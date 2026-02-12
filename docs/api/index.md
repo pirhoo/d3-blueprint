@@ -1,10 +1,10 @@
 # API Reference
 
-This section contains the auto-generated API reference for d3compose, plus this hand-written overview.
+This section contains the auto-generated API reference for d3-blueprint, plus this hand-written overview.
 
 ## Core Classes
 
-### [D3Compose](/api/d3compose.d3compose)
+### [D3Blueprint](/api/d3compose.d3compose)
 
 The base class for all charts. Subclass it, define layers in `initialize()`, and call `draw(data)` to render. Provides lifecycle hooks (`transform`, `preDraw`, `postDraw`, `postTransition`), config management, event dispatch, and attachment composition.
 
@@ -14,7 +14,7 @@ Manages a single D3 data-join lifecycle. Created via `chart.layer(name, selectio
 
 ### [ConfigManager](/api/d3compose.configmanager)
 
-Manages named configuration properties with optional getter/setter transforms. Used internally by `D3Compose` — you typically interact with it through `chart.config()` and `chart.configDefine()`.
+Manages named configuration properties with optional getter/setter transforms. Used internally by `D3Blueprint`, but you typically interact with it through `chart.config()` and `chart.configDefine()`.
 
 ## Key Types
 

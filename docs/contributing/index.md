@@ -3,8 +3,8 @@
 ## Development Setup
 
 ```bash
-git clone https://github.com/nicmosc/d3compose.git
-cd d3compose
+git clone https://github.com/pirhoo/d3-blueprint.git
+cd d3-blueprint
 make install
 ```
 
@@ -25,16 +25,16 @@ make install
 
 ## Coding Conventions
 
-- **TypeScript** — all source code is in `src/` with strict mode enabled
-- **Small files** — split code into small, focused modules
-- **Small functions** — prefer functions under 10 lines
-- **Explicit names** — use descriptive function and variable names
-- **Shorthand properties** — prefer `{ foo }` over `{ foo: foo }`
-- **No inline `if`** — use block `if` statements
-- **Composable functions** — prefer pure, composable functions
-- **JSDoc** — document public API with JSDoc comments
-- **Tests alongside source** — test files live next to source files as `*.test.ts`
-- **lodash-es** — use lodash for common array/object manipulations (tree-shaken)
+- **TypeScript**: all source code is in `src/` with strict mode enabled
+- **Small files**: split code into small, focused modules
+- **Small functions**: prefer functions under 10 lines
+- **Explicit names**: use descriptive function and variable names
+- **Shorthand properties**: prefer `{ foo }` over `{ foo: foo }`
+- **No inline `if`**: use block `if` statements
+- **Composable functions**: prefer pure, composable functions
+- **JSDoc**: document public API with JSDoc comments
+- **Tests alongside source**: test files live next to source files as `*.test.ts`
+- **lodash-es**: use lodash for common array/object manipulations (tree-shaken)
 
 ## Project Structure
 
@@ -44,7 +44,7 @@ src/
   layer/            # Layer class and lifecycle events
   types/            # Shared TypeScript type definitions
   utils/            # Assertion and general utilities
-  d3-compose.ts     # Main D3Compose base class
+  d3-blueprint.ts   # Main D3Blueprint base class
   index.ts          # Public API exports
 ```
 
