@@ -100,4 +100,4 @@ protected preDraw(data: Datum[]): void {
 
 Under the hood, config properties are managed by `ConfigManager`. While you typically interact with config through the `D3Blueprint` methods (`config()` and `configDefine()`), the `ConfigManager` class is also exported for advanced use cases.
 
-See the [API Reference](/api/d3blueprint.configmanager) for full details.
+See the [API Reference](/api/d3-blueprint.configmanager) for full details.
