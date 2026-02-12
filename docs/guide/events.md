@@ -1,6 +1,6 @@
 # Events
 
-d3compose has two levels of events: **chart-level** events on `D3Compose` and **layer-level** lifecycle events on `Layer`.
+d3-blueprint has two levels of events: **chart-level** events on `D3Blueprint` and **layer-level** lifecycle events on `Layer`.
 
 ## Chart-Level Events
 
@@ -19,6 +19,10 @@ chart.on('postTransition', (data) => {
   console.log('All transitions complete');
 });
 ```
+
+<ClientOnly>
+  <GuideEventsDemo />
+</ClientOnly>
 
 ### Available Events
 
@@ -80,7 +84,7 @@ See [Layers](./layers.md) for the full lifecycle event reference.
 The valid base lifecycle event names are exported as a constant:
 
 ```ts
-import { LIFECYCLE_EVENT_NAMES } from 'd3compose';
+import { LIFECYCLE_EVENT_NAMES } from 'd3-blueprint';
 
 console.log(LIFECYCLE_EVENT_NAMES);
 // ['update', 'enter', 'merge', 'exit']
@@ -91,7 +95,7 @@ console.log(LIFECYCLE_EVENT_NAMES);
 Use `isValidLifecycleEvent()` to check if a string is a valid lifecycle event key:
 
 ```ts
-import { isValidLifecycleEvent } from 'd3compose';
+import { isValidLifecycleEvent } from 'd3-blueprint';
 
 isValidLifecycleEvent('enter');            // true
 isValidLifecycleEvent('enter:transition'); // true
@@ -101,7 +105,7 @@ isValidLifecycleEvent('click');            // false
 Use `assertLifecycleEvent()` to throw if a string is invalid:
 
 ```ts
-import { assertLifecycleEvent } from 'd3compose';
+import { assertLifecycleEvent } from 'd3-blueprint';
 
 assertLifecycleEvent('enter');   // OK
 assertLifecycleEvent('invalid'); // throws Error

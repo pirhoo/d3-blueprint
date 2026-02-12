@@ -1,6 +1,6 @@
 # Layers
 
-Layers are the core building block in d3compose. Each layer manages a D3 data-join lifecycle — binding data, inserting elements, and handling enter/update/merge/exit phases.
+Layers are the core building block in d3-blueprint. Each layer manages a D3 data-join lifecycle: binding data, inserting elements, and handling enter/update/merge/exit phases.
 
 ## Creating a Layer
 
@@ -28,6 +28,10 @@ protected initialize(): void {
   });
 }
 ```
+
+<ClientOnly>
+  <GuideLayersDemo />
+</ClientOnly>
 
 ## Layer Options
 

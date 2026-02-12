@@ -1,17 +1,17 @@
 # Core Concepts
 
-## What is d3compose?
+## What is d3-blueprint?
 
-d3compose (pronounced "decompose") is a modern micro-framework for building reusable D3 charts. It's heavily inspired by [Koto.js](https://github.com/kotojs/kotojs) and leverages ES6 classes and TypeScript to offer a friendly experience when building charts.
+d3-blueprint (pronounced "decompose") is a modern micro-framework for building reusable D3 charts. It's heavily inspired by [Koto.js](https://github.com/kotojs/kotojs) and leverages ES6 classes and TypeScript to offer a friendly experience when building charts.
 
 ## The Subclassing Pattern
 
-Every chart extends `D3Compose`. The constructor receives a D3 selection (the root element), and you override lifecycle hooks to define behavior:
+Every chart extends `D3Blueprint`. The constructor receives a D3 selection (the root element), and you override lifecycle hooks to define behavior:
 
 ```ts
-import { D3Compose } from 'd3compose';
+import { D3Blueprint } from 'd3-blueprint';
 
-class MyChart extends D3Compose<MyData> {
+class MyChart extends D3Blueprint<MyData> {
   protected initialize(): void {
     // Set up layers, configs, DOM structure
   }
@@ -55,6 +55,10 @@ draw(data)
   ├── postTransition(transformedData)
   └── emit "postTransition" event
 ```
+
+<ClientOnly>
+  <GuideLifecycleDemo />
+</ClientOnly>
 
 ### Phase Details
 

@@ -8,7 +8,7 @@ Use `attach(name, chart)` to register a sub-chart:
 
 ```ts
 import { select } from 'd3-selection';
-import type { D3Selection } from 'd3compose';
+import type { D3Selection } from 'd3-blueprint';
 
 const root = select('#app') as unknown as D3Selection;
 
@@ -20,6 +20,10 @@ main.attach('legend', legend);
 // Drawing main also draws the legend
 await main.draw(data);
 ```
+
+<ClientOnly>
+  <GuideAttachmentsDemo />
+</ClientOnly>
 
 ## How It Works
 
@@ -44,7 +48,7 @@ Each attachment's `draw()` method is called with the same transformed data. Thei
 Attached charts must accept the same data type as the parent:
 
 ```ts
-class Dashboard extends D3Compose<DashboardData> {
+class Dashboard extends D3Blueprint<DashboardData> {
   protected initialize(): void {
     // Both sub-charts receive DashboardData
     const header = new HeaderChart(this.base.append('div') as unknown as D3Selection);
@@ -68,6 +72,10 @@ mini.config({ width: 200, height: 100 });
 
 main.attach('minimap', mini);
 ```
+
+## Real-World Example
+
+See the [Reusable Components](/examples/reusable-components) example for a complete walkthrough of `AxisChart` and `BarsChart` composed via `attach()`. Every chart example in this documentation uses this pattern.
 
 ## Cleanup
 

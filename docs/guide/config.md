@@ -1,6 +1,10 @@
 # Config
 
-d3compose provides a configuration system for defining typed properties with optional getter/setter transforms. This enables a consistent, chainable API for all charts.
+d3-blueprint provides a configuration system for defining typed properties with optional getter/setter transforms. This enables a consistent, chainable API for all charts.
+
+<ClientOnly>
+  <GuideConfigDemo />
+</ClientOnly>
 
 ## Defining Config Properties
 
@@ -56,7 +60,7 @@ const margin = this.config('margin'); // { top: 20, ... }
 
 ## Setting Config Values
 
-Set a single value — returns `this` for chaining:
+Set a single value. Returns `this` for chaining:
 
 ```ts
 chart
@@ -94,6 +98,6 @@ protected preDraw(data: Datum[]): void {
 
 ## ConfigManager
 
-Under the hood, config properties are managed by `ConfigManager`. While you typically interact with config through the `D3Compose` methods (`config()` and `configDefine()`), the `ConfigManager` class is also exported for advanced use cases.
+Under the hood, config properties are managed by `ConfigManager`. While you typically interact with config through the `D3Blueprint` methods (`config()` and `configDefine()`), the `ConfigManager` class is also exported for advanced use cases.
 
 See the [API Reference](/api/d3compose.configmanager) for full details.
