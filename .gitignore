@@ -4,7 +4,9 @@ dist/
 coverage/
 .playwright-mcp/
 .DS_Store
+.claude/
 temp/
+test-results/
 docs/.vitepress/dist/
 docs/.vitepress/cache/
 docs/api/*.md
