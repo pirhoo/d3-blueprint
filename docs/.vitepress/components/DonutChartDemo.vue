@@ -82,8 +82,6 @@ class DonutChart extends D3Blueprint {
 
     this.usePlugin(tooltipPlugin({
       parent: this.chart,
-      width: WIDTH,
-      height: HEIGHT,
       bind: (chart, tooltip, data) => {
         const total = data.reduce((sum, d) => sum + d.value, 0);
 
@@ -92,7 +90,7 @@ class DonutChart extends D3Blueprint {
             select(this).transition().duration(100).attr('d', chart.hoverArc);
             const pct = ((d.data.value / total) * 100).toFixed(1);
             const [cx, cy] = chart.arcFn.centroid(d);
-            tooltip.show(cx + WIDTH / 2, cy + HEIGHT / 2, `${d.data.label}: ${d.data.value} (${pct}%)`);
+            tooltip.show(cx, cy, `${d.data.label}: ${d.data.value} (${pct}%)`);
           })
           .on('mouseleave', function () {
             select(this).transition().duration(100).attr('d', chart.arcFn);
