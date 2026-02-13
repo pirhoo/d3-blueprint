@@ -111,7 +111,7 @@ class MultilineChart extends D3Blueprint {
       .attr('stroke-width', 1)
       .style('display', 'none');
 
-    this.tooltip = new Tooltip(this.chart, { width: innerWidth, height: innerHeight });
+    this.tooltip = new Tooltip(this.chart);
 
     this.overlay = this.chart
       .append('rect')

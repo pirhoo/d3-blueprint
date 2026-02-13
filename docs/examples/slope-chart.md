@@ -167,7 +167,7 @@ class SlopeChart extends D3Blueprint {
       .attr('font-weight', '600')
       .text('After');
 
-    this.tooltip = new Tooltip(this.chart, { width: innerWidth, height: innerHeight });
+    this.tooltip = new Tooltip(this.chart);
   }
 
   preDraw(data) {

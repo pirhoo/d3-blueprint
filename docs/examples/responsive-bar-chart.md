@@ -41,11 +41,6 @@ class ResponsiveBarChart extends D3Blueprint {
     this.usePlugin(tooltipPlugin({
       parent: this.chart,
       bind: (chart, tooltip) => {
-        const w = chart.config('width');
-        const m = chart.config('margin');
-        tooltip.containerWidth = w - m.left - m.right;
-        tooltip.containerHeight = chart.config('height') - m.top - m.bottom;
-
         chart.bars.base.selectAll('rect')
           .on('mouseenter', function (event, d) {
             select(this).attr('opacity', 0.8);
