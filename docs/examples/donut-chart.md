@@ -89,7 +89,7 @@ class DonutChart extends D3Blueprint {
       .attr('dy', '0.35em')
       .attr('font-size', '14px');
 
-    this.tooltip = new Tooltip(this.chart, { width: WIDTH, height: HEIGHT });
+    this.tooltip = new Tooltip(this.chart);
   }
 
   preDraw(data) {
@@ -109,7 +109,7 @@ class DonutChart extends D3Blueprint {
         select(this).transition().duration(100).attr('d', hoverArc);
         const pct = ((d.data.value / total) * 100).toFixed(1);
         const [cx, cy] = arcFn.centroid(d);
-        tooltip.show(cx + WIDTH / 2, cy + HEIGHT / 2, `${d.data.label}: ${d.data.value} (${pct}%)`);
+        tooltip.show(cx, cy, `${d.data.label}: ${d.data.value} (${pct}%)`);
       })
       .on('mouseleave', function () {
         select(this).transition().duration(100).attr('d', arcFn);
