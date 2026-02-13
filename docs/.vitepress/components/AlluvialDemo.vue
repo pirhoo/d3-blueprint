@@ -124,8 +124,6 @@ class AlluvialDiagram extends D3Blueprint {
 
     this.usePlugin(tooltipPlugin({
       parent: this.chart,
-      width: innerWidth,
-      height: innerHeight,
       bind: (chart, tooltip) => {
         chart.chart.selectAll('.links path')
           .on('mouseenter', function (event, d) {

@@ -42,8 +42,6 @@ class LineChart extends D3Blueprint {
 
     this.usePlugin(tooltipPlugin({
       parent: this.chart,
-      width: innerWidth,
-      height: innerHeight,
       bind: (chart, tooltip) => {
         chart.chart.selectAll('.dots circle')
           .on('mouseenter', function (event, d) {
