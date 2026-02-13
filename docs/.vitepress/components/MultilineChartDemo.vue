@@ -129,8 +129,6 @@ class MultilineChart extends D3Blueprint {
 
     this.usePlugin(tooltipPlugin({
       parent: this.chart,
-      width: innerWidth,
-      height: innerHeight,
       bind: (chart, tooltip, data) => {
         chart.overlay
           .on('mousemove', function (event) {

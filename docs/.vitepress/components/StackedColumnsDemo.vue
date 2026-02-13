@@ -89,8 +89,6 @@ class StackedColumnsChart extends D3Blueprint {
 
     this.usePlugin(tooltipPlugin({
       parent: this.chart,
-      width: innerWidth,
-      height: innerHeight,
       bind: (chart, tooltip) => {
         chart.chart.selectAll('.stacks rect')
           .on('mouseenter', function (event, d) {
