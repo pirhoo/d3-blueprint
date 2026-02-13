@@ -44,3 +44,21 @@
   --vp-button-brand-hover-text: #fff;
   --vp-button-brand-active-text: #fff;
 }
+
+.d3bp-tooltip {
+  position: fixed;
+  pointer-events: none;
+  opacity: 0;
+  transition: opacity 0.15s;
+  z-index: 9999;
+  background: rgba(0, 0, 0, 0.85);
+  color: #fff;
+  font-size: 12px;
+  font-family: sans-serif;
+  line-height: 1.5;
+  padding: 6px 10px;
+  border-radius: 4px;
+  white-space: nowrap;
+  top: 0;
+  left: 0;
+}
