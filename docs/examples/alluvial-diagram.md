@@ -130,7 +130,7 @@ class AlluvialDiagram extends D3Blueprint {
       },
     });
 
-    this.tooltip = new Tooltip(this.chart, { width: innerWidth, height: innerHeight });
+    this.tooltip = new Tooltip(this.chart);
   }
 
   ribbonPath(d) {

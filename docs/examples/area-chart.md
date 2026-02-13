@@ -86,7 +86,7 @@ class AreaChart extends D3Blueprint {
       .attr('stroke-dasharray', '4,3')
       .style('display', 'none');
 
-    this.tooltip = new Tooltip(this.chart, { width: innerWidth, height: innerHeight });
+    this.tooltip = new Tooltip(this.chart);
 
     this.overlay = this.chart
       .append('rect')

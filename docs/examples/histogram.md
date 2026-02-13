@@ -73,7 +73,7 @@ class Histogram extends D3Blueprint {
     });
 
     const innerWidth = 600 - MARGIN.left - MARGIN.right;
-    this.tooltip = new Tooltip(this.chart, { width: innerWidth, height: innerHeight });
+    this.tooltip = new Tooltip(this.chart);
   }
 
   transform(data) {

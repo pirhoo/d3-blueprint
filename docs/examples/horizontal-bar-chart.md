@@ -69,7 +69,7 @@ class HorizontalBarChart extends D3Blueprint {
 
     const innerWidth = 600 - MARGIN.left - MARGIN.right;
     const innerHeight = 380 - MARGIN.top - MARGIN.bottom;
-    this.tooltip = new Tooltip(this.chart, { width: innerWidth, height: innerHeight });
+    this.tooltip = new Tooltip(this.chart);
   }
 
   preDraw(data) {
