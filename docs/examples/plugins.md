@@ -59,8 +59,6 @@ class BarChart extends D3Blueprint {
 
     this.usePlugin(tooltipPlugin({
       parent: this.chart,
-      width: innerWidth,
-      height: innerHeight,
       bind: (chart, tooltip) => {
         chart.bars.base.selectAll('rect')
           .on('mouseenter', function (event, d) {
@@ -87,9 +85,7 @@ class BarChart extends D3Blueprint {
 
 | Option | Type | Description |
 |---|---|---|
-| `parent` | d3 selection | The SVG group to append the tooltip to |
-| `width` | number | Container width for edge-aware positioning |
-| `height` | number | Container height for edge-aware positioning |
+| `parent` | d3 selection | The SVG group used for coordinate conversion |
 | `bind` | function | `bind(chart, tooltip, data)`, called on every `postDraw` to wire DOM events |
 
 The `bind` callback runs after layers draw, giving full access to:
@@ -97,25 +93,9 @@ The `bind` callback runs after layers draw, giving full access to:
 - **`tooltip`**: the `Tooltip` instance (call `.show()` / `.hide()`)
 - **`data`**: the current dataset
 
-### Dynamic Dimensions
+### Automatic Positioning
 
-For responsive charts where dimensions change on resize, update the tooltip's container bounds inside `bind`:
-
-```js
-this.usePlugin(tooltipPlugin({
-  parent: this.chart,
-  bind: (chart, tooltip) => {
-    const width = chart.config('width') - MARGIN.left - MARGIN.right;
-    const height = chart.config('height') - MARGIN.top - MARGIN.bottom;
-    tooltip.containerWidth = width;
-    tooltip.containerHeight = height;
-
-    chart.bars.base.selectAll('rect')
-      .on('mouseenter', function (event, d) { /* ... */ })
-      .on('mouseleave', function () { tooltip.hide(); });
-  },
-}));
-```
+The tooltip uses [floating-ui](https://floating-ui.com) under the hood. It converts SVG-local coordinates to screen coordinates via `getScreenCTM()`, then uses `computePosition` with `flip()`, `shift()`, and `offset()` middleware to ensure the tooltip always stays within the viewport. No manual width/height configuration is needed, even for responsive charts.
 
 ## Before & After
 
@@ -127,7 +107,7 @@ import { Tooltip } from './charts/Tooltip.js';
 class MyChart extends D3Blueprint {
   initialize() {
     // ... layers, axes, etc.
-    this.tooltip = new Tooltip(this.chart, { width, height });
+    this.tooltip = new Tooltip(this.chart);
   }
 
   postDraw(data) {
@@ -152,8 +132,6 @@ class MyChart extends D3Blueprint {
 
     this.usePlugin(tooltipPlugin({
       parent: this.chart,
-      width,
-      height,
       bind: (chart, tooltip) => {
         chart.chart.selectAll('.dots circle')
           .on('mouseenter', function (event, d) {
@@ -246,7 +224,7 @@ Compose multiple plugins on the same chart:
 
 ```js
 this.usePlugin(crosshairPlugin({ parent: this.chart, height: innerHeight }));
-this.usePlugin(tooltipPlugin({ parent: this.chart, width, height, bind: ... }));
+this.usePlugin(tooltipPlugin({ parent: this.chart, bind: ... }));
 ```
 
 Each plugin gets its own namespaced event listeners, so they don't interfere with each other.

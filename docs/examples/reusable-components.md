@@ -221,15 +221,16 @@ The parent chart owns the data and scales. The attachments own their rendering. 
 
 ## Tooltip
 
-A standalone helper class for hover tooltips. Unlike AxisChart and BarsChart, Tooltip is **not** a D3Blueprint subclass because tooltips don't participate in the data lifecycle. It appends an SVG `<g>` with a rounded `<rect>` background and `<text>` lines, and handles edge-aware positioning automatically.
+A standalone helper class for hover tooltips. Unlike AxisChart and BarsChart, Tooltip is **not** a D3Blueprint subclass because tooltips don't participate in the data lifecycle. It renders an HTML `<div>` positioned with [floating-ui](https://floating-ui.com), converting SVG-local coordinates to screen coordinates via `getScreenCTM()`. Edge-aware positioning is handled automatically by floating-ui's `flip()` and `shift()` middleware.
 
 ### API
 
 | Method | Description |
 |---|---|
-| `constructor(parent, { width, height })` | `parent` is a d3 selection (e.g. the chart group). `width`/`height` are the chart area bounds used for edge-aware positioning. |
-| `show(x, y, lines)` | Positions and reveals the tooltip. `lines` is a string or array of `{ text, color? }`. Flips horizontally near the right edge, clamps vertically to stay within bounds. |
+| `constructor(context)` | `context` is a d3 selection or raw SVG element used for coordinate conversion. |
+| `show(x, y, lines)` | Positions and reveals the tooltip. `x`/`y` are SVG-local coordinates. `lines` is a string or array of `{ text, color? }`. |
 | `hide()` | Hides the tooltip. |
+| `destroy()` | Removes the tooltip element from the DOM. |
 
 ### Recommended Usage
 
