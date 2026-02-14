@@ -6,7 +6,7 @@ hero:
   text: Composable D3 Charts
   tagline: A modern micro-framework for building reusable, composable D3 charts with TypeScript
   image:
-    src: /images/logo.svg
+    src: /images/hero.svg
     alt: d3-blueprint logo
   actions:
     - theme: brand

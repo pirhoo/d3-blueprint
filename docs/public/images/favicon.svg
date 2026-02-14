@@ -1,0 +1,101 @@
+<?xml version="1.0" encoding="UTF-8" standalone="no"?>
+<svg
+   viewBox="0 0 32 32"
+   width="32"
+   height="32"
+   version="1.1"
+   id="svg19"
+   sodipodi:docname="favicon.svg"
+   inkscape:version="1.2.2 (b0a8486541, 2022-12-01)"
+   xmlns:inkscape="http://www.inkscape.org/namespaces/inkscape"
+   xmlns:sodipodi="http://sodipodi.sourceforge.net/DTD/sodipodi-0.dtd"
+   xmlns="http://www.w3.org/2000/svg"
+   xmlns:svg="http://www.w3.org/2000/svg">
+  <sodipodi:namedview
+     id="namedview21"
+     pagecolor="#ffffff"
+     bordercolor="#000000"
+     borderopacity="0.25"
+     inkscape:showpageshadow="2"
+     inkscape:pageopacity="0.0"
+     inkscape:pagecheckerboard="0"
+     inkscape:deskcolor="#d1d1d1"
+     showgrid="false"
+     inkscape:zoom="32.09375"
+     inkscape:cx="15.984421"
+     inkscape:cy="16.031159"
+     inkscape:window-width="3440"
+     inkscape:window-height="1363"
+     inkscape:window-x="0"
+     inkscape:window-y="0"
+     inkscape:window-maximized="1"
+     inkscape:current-layer="svg19" />
+  <defs
+     id="defs7">
+    <linearGradient
+       id="lg"
+       x1="0%"
+       y1="0%"
+       x2="100%"
+       y2="0%">
+      <stop
+         offset="0%"
+         stop-color="#3D8FD6"
+         id="stop2" />
+      <stop
+         offset="100%"
+         stop-color="#2ABBC8"
+         id="stop4" />
+    </linearGradient>
+  </defs>
+  <!-- 3 bars wireframe -->
+  <rect
+     x="3.9882205"
+     y="16.39937"
+     width="6.0235591"
+     height="12.61241"
+     rx="1.0039265"
+     fill="#5b5fd6"
+     fill-opacity="0.18"
+     stroke="#5b5fd6"
+     stroke-width="1.8"
+     id="rect9" />
+  <rect
+     x="12.945464"
+     y="9.9866028"
+     width="6.1090727"
+     height="19.067934"
+     rx="1.0181787"
+     fill="#5b5fd6"
+     fill-opacity="0.18"
+     stroke="#5b5fd6"
+     stroke-width="1.8"
+     id="rect11" />
+  <rect
+     x="21.996582"
+     y="12.151523"
+     width="6.0068374"
+     height="16.851896"
+     rx="1.0011395"
+     fill="#5b5fd6"
+     fill-opacity="0.18"
+     stroke="#5b5fd6"
+     stroke-width="1.8"
+     id="rect13" />
+  <!-- Trend line -->
+  <polyline
+     points="7,13 16,4 25,9"
+     fill="none"
+     stroke="url(#lg)"
+     stroke-width="2.5"
+     stroke-linecap="round"
+     stroke-linejoin="round"
+     id="polyline15" />
+  <!-- Peak dot -->
+  <circle
+     cx="16"
+     cy="4"
+     r="2.2"
+     fill="#2ABBC8"
+     id="circle17" />
+</svg>
