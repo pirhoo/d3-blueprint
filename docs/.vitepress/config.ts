@@ -5,6 +5,7 @@ import path from 'node:path';
 const root = path.resolve(fileURLToPath(import.meta.url), '../../..');
 
 export default defineConfig({
+  base: '/d3-blueprint/',
   title: 'd3-blueprint',
   description: 'A modern micro-framework for building reusable D3 charts',
 
