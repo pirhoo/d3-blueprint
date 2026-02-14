@@ -3,7 +3,7 @@ layout: home
 
 hero:
   name: d3-blueprint
-  text: Build reusable D3 Charts
+  text: Build reusable D3 charts
   tagline: A modern micro-framework to compose reusable D3 charts with TypeScript
   image:
     src: /images/hero.svg

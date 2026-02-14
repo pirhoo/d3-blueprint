@@ -6,7 +6,7 @@ const root = path.resolve(fileURLToPath(import.meta.url), '../../..');
 
 export default defineConfig({
   title: 'd3-blueprint',
-  description: 'A modern micro-framework for building reusable, composable D3 charts',
+  description: 'A modern micro-framework for building reusable D3 charts',
 
   vite: {
     resolve: {
@@ -16,7 +16,14 @@ export default defineConfig({
     },
   },
 
+  head: [
+    ['link', { rel: 'shortcut icon', href: '/images/favicon.svg' }],
+    ['link', { rel: 'icon', type: 'image/svg+xml', href: '/images/favicon.svg' }],
+    ['meta', { name: 'apple-mobile-web-app-title', content: 'd3-blueprint' }],
+  ],
+
   themeConfig: {
+    logo: '/images/favicon.svg',
 
     nav: [
       { text: 'Guide', link: '/guide/getting-started' },
