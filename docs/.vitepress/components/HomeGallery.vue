@@ -25,91 +25,91 @@ const thumbnails = [
 </script>
 
 <template>
-  <div class="gallery-wrapper">
-    <h2 class="gallery-title">Examples</h2>
-    <p class="gallery-subtitle">Interactive demos built with d3-blueprint</p>
-    <div class="gallery-grid">
+  <div class="gallery">
+    <h2 class="gallery__title">Examples</h2>
+    <p class="gallery__subtitle">Interactive demos built with d3-blueprint</p>
+    <div class="gallery__grid">
       <a
         v-for="t in thumbnails"
         :key="t.slug"
         :href="`/examples/${t.slug}`"
-        class="gallery-item"
+        class="gallery__item"
       >
         <img
           :src="`/thumbnails/${t.slug}${isDark ? '-dark' : ''}.png`"
           :alt="t.label"
           loading="lazy"
         />
-        <span class="gallery-label">{{ t.label }}</span>
+        <span class="gallery__label">{{ t.label }}</span>
       </a>
     </div>
   </div>
 </template>
 
-<style scoped>
-.gallery-wrapper {
+<style scoped lang="scss">
+.gallery {
   position: relative;
   max-width: 1152px;
   margin: 0 auto;
   padding: 16px 0;
   overflow: hidden;
-}
 
-.gallery-title {
-  font-size: 24px;
-  font-weight: 600;
-  text-align: center;
-  padding-bottom: 0;
-  margin-bottom: 0;
-  color: var(--vp-c-text-1);
-}
+  &__title {
+    font-size: 24px;
+    font-weight: 600;
+    text-align: center;
+    padding-bottom: 0;
+    margin-bottom: 0;
+    color: var(--vp-c-text-1);
+  }
 
-.gallery-subtitle {
-  font-size: 16px;
-  text-align: center;
-  margin: 0;
-  margin-bottom: 24px;
-  color: var(--vp-c-text-2);
-}
+  &__subtitle {
+    font-size: 16px;
+    text-align: center;
+    margin: 0;
+    margin-bottom: 24px;
+    color: var(--vp-c-text-2);
+  }
 
-.gallery-grid {
-  display: grid;
-  grid-template-columns: repeat(auto-fill, minmax(180px, 1fr));
-  gap: 16px;
-}
+  &__grid {
+    display: grid;
+    grid-template-columns: repeat(auto-fill, minmax(180px, 1fr));
+    gap: 16px;
+  }
 
-.gallery-item {
-  position: relative;
-  aspect-ratio: 1;
-  overflow: hidden;
-  display: block;
-  background: var(--vp-c-bg-soft);
-  border-radius: 12px;
-  transition: border-color 0.25s;
-  border: 1px solid transparent;
-}
+  &__item {
+    position: relative;
+    aspect-ratio: 1;
+    overflow: hidden;
+    display: block;
+    background: var(--vp-c-bg-soft);
+    border-radius: 12px;
+    transition: border-color 0.25s;
+    border: 1px solid transparent;
 
-.gallery-item img {
-  width: 100%;
-  height: 100%;
-  object-fit: contain;
-  display: block;
-}
+    img {
+      width: 100%;
+      height: 100%;
+      object-fit: contain;
+      display: block;
+    }
 
-.gallery-label {
-  position: absolute;
-  bottom: 0;
-  left: 0;
-  right: 0;
-  padding: 6px 8px;
-  font-size: 12px;
-  font-weight: 500;
-  text-align: center;
-  color: var(--vp-c-text-2);
-  background: var(--vp-c-bg-soft);
-}
+    &:hover {
+      border-color: var(--vp-c-brand-1);
+    }
+  }
 
-.gallery-item:hover {
-  border-color: var(--vp-c-brand-1);
+  &__label {
+    position: absolute;
+    bottom: 0;
+    left: 0;
+    right: 0;
+    padding: 6px 8px;
+    font-size: 12px;
+    font-weight: 500;
+    text-align: center;
+    color: var(--vp-c-text-2);
+    background: var(--vp-c-bg-soft);
+  }
 }
 </style>

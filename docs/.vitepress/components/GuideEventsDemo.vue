@@ -124,39 +124,51 @@ onUnmounted(() => {
 
 <template>
   <div class="chart-demo">
-    <div ref="container" class="chart-container" />
+    <div ref="container" class="chart-demo__container" />
     <div class="event-log">
-      <span class="event-log-label">Events:</span>
+      <span class="event-log__label">Events:</span>
       <span
         v-for="(evt, i) in events"
         :key="i"
-        class="event-tag"
-        :class="'event-' + evt"
+        class="event-log__tag"
+        :class="'event-log__tag--' + evt"
       >{{ evt }}</span>
     </div>
-    <p class="chart-caption">
+    <p class="chart-demo__caption">
       Chart-level events fire on each <code>draw()</code> call
     </p>
   </div>
 </template>
 
-<style scoped>
+<style scoped lang="scss">
 .chart-demo {
   margin: 24px 0;
   border: 1px solid var(--vp-c-divider);
   border-radius: 8px;
   overflow: hidden;
+
+  &__container {
+    padding: 16px;
+    display: flex;
+    justify-content: center;
+    background: var(--vp-c-bg-soft);
+
+    :deep(svg) {
+      font-family: var(--vp-font-family-base);
+      font-size: 12px;
+    }
+  }
+
+  &__caption {
+    margin: 0;
+    padding: 8px 16px;
+    font-size: 13px;
+    color: var(--vp-c-text-3);
+    border-top: 1px solid var(--vp-c-divider);
+    text-align: center;
+  }
 }
-.chart-container {
-  padding: 16px;
-  display: flex;
-  justify-content: center;
-  background: var(--vp-c-bg-soft);
-}
-.chart-container :deep(svg) {
-  font-family: var(--vp-font-family-base);
-  font-size: 12px;
-}
+
 .event-log {
   padding: 8px 16px;
   display: flex;
@@ -167,35 +179,32 @@ onUnmounted(() => {
   border-top: 1px solid var(--vp-c-divider);
   background: var(--vp-c-bg);
   min-height: 34px;
-}
-.event-log-label {
-  color: var(--vp-c-text-3);
-  margin-right: 4px;
-}
-.event-tag {
-  padding: 2px 8px;
-  border-radius: 4px;
-  font-family: var(--vp-font-family-mono);
-  font-size: 11px;
-}
-.event-preDraw {
-  background: rgba(59, 130, 246, 0.15);
-  color: #3b82f6;
-}
-.event-postDraw {
-  background: rgba(80, 160, 96, 0.15);
-  color: #50a060;
-}
-.event-postTransition {
-  background: rgba(228, 88, 88, 0.15);
-  color: #e45858;
-}
-.chart-caption {
-  margin: 0;
-  padding: 8px 16px;
-  font-size: 13px;
-  color: var(--vp-c-text-3);
-  border-top: 1px solid var(--vp-c-divider);
-  text-align: center;
+
+  &__label {
+    color: var(--vp-c-text-3);
+    margin-right: 4px;
+  }
+
+  &__tag {
+    padding: 2px 8px;
+    border-radius: 4px;
+    font-family: var(--vp-font-family-mono);
+    font-size: 11px;
+
+    &--preDraw {
+      background: rgba(59, 130, 246, 0.15);
+      color: #3b82f6;
+    }
+
+    &--postDraw {
+      background: rgba(80, 160, 96, 0.15);
+      color: #50a060;
+    }
+
+    &--postTransition {
+      background: rgba(228, 88, 88, 0.15);
+      color: #e45858;
+    }
+  }
 }
 </style>

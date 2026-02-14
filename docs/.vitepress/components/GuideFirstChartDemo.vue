@@ -68,32 +68,32 @@ onUnmounted(() => {
 
 <template>
   <div class="chart-demo">
-    <div ref="container" class="chart-container list-container" />
-    <p class="chart-caption">
+    <div ref="container" class="chart-demo__container chart-demo__container--list" />
+    <p class="chart-demo__caption">
       Live preview: data cycles every 3 s
     </p>
   </div>
 </template>
 
-<style scoped>
+<style scoped lang="scss">
 .chart-demo {
   margin: 24px 0;
   border: 1px solid var(--vp-c-divider);
   border-radius: 8px;
   overflow: hidden;
-}
 
-.chart-container {
-  padding: 16px;
-  background: var(--vp-c-bg-soft);
-}
+  &__container {
+    padding: 16px;
+    background: var(--vp-c-bg-soft);
+  }
 
-.chart-caption {
-  margin: 0;
-  padding: 8px 16px;
-  font-size: 13px;
-  color: var(--vp-c-text-3);
-  border-top: 1px solid var(--vp-c-divider);
-  text-align: center;
+  &__caption {
+    margin: 0;
+    padding: 8px 16px;
+    font-size: 13px;
+    color: var(--vp-c-text-3);
+    border-top: 1px solid var(--vp-c-divider);
+    text-align: center;
+  }
 }
 </style>

@@ -1,6 +1,6 @@
 import DefaultTheme from 'vitepress/theme';
 import type { Theme } from 'vitepress';
-import './custom.css';
+import './custom.scss';
 import BarChartDemo from '../components/BarChartDemo.vue';
 import ResponsiveBarChartDemo from '../components/ResponsiveBarChartDemo.vue';
 import LineChartDemo from '../components/LineChartDemo.vue';

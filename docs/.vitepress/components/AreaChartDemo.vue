@@ -172,43 +172,48 @@ onUnmounted(() => {
 
 <template>
   <div class="chart-demo">
-    <div ref="container" class="chart-container" />
-    <p class="chart-caption">
+    <div ref="container" class="chart-demo__container" />
+    <p class="chart-demo__caption">
       Live preview: 30 random data points, regenerated every 3 s
     </p>
   </div>
 </template>
 
-<style scoped>
+<style scoped lang="scss">
 .chart-demo {
   margin: 24px 0;
   border: 1px solid var(--vp-c-divider);
   border-radius: 8px;
   overflow: hidden;
-}
-.chart-container {
-  padding: 16px;
-  display: flex;
-  justify-content: center;
-  background: var(--vp-c-bg-soft);
-}
-.chart-container :deep(svg) {
-  font-family: var(--vp-font-family-base);
-  font-size: 12px;
-}
-.chart-container :deep(.tick line) {
-  stroke: var(--vp-c-text-3);
-  stroke-dasharray: 2,2;
-}
-.chart-container :deep(.tick text) {
-  fill: var(--vp-c-text-2);
-}
-.chart-caption {
-  margin: 0;
-  padding: 8px 16px;
-  font-size: 13px;
-  color: var(--vp-c-text-3);
-  border-top: 1px solid var(--vp-c-divider);
-  text-align: center;
+
+  &__container {
+    padding: 16px;
+    display: flex;
+    justify-content: center;
+    background: var(--vp-c-bg-soft);
+
+    :deep(svg) {
+      font-family: var(--vp-font-family-base);
+      font-size: 12px;
+    }
+
+    :deep(.tick line) {
+      stroke: var(--vp-c-text-3);
+      stroke-dasharray: 2, 2;
+    }
+
+    :deep(.tick text) {
+      fill: var(--vp-c-text-2);
+    }
+  }
+
+  &__caption {
+    margin: 0;
+    padding: 8px 16px;
+    font-size: 13px;
+    color: var(--vp-c-text-3);
+    border-top: 1px solid var(--vp-c-divider);
+    text-align: center;
+  }
 }
 </style>

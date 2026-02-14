@@ -157,36 +157,39 @@ onUnmounted(() => {
 
 <template>
   <div class="chart-demo">
-    <div ref="container" class="chart-container" />
-    <p class="chart-caption">
+    <div ref="container" class="chart-demo__container" />
+    <p class="chart-demo__caption">
       Live preview: data cycles every 3 s with animated arc transitions
     </p>
   </div>
 </template>
 
-<style scoped>
+<style scoped lang="scss">
 .chart-demo {
   margin: 24px 0;
   border: 1px solid var(--vp-c-divider);
   border-radius: 8px;
   overflow: hidden;
-}
-.chart-container {
-  padding: 16px;
-  display: flex;
-  justify-content: center;
-  background: var(--vp-c-bg-soft);
-}
-.chart-container :deep(svg) {
-  font-family: var(--vp-font-family-base);
-  font-size: 12px;
-}
-.chart-caption {
-  margin: 0;
-  padding: 8px 16px;
-  font-size: 13px;
-  color: var(--vp-c-text-3);
-  border-top: 1px solid var(--vp-c-divider);
-  text-align: center;
+
+  &__container {
+    padding: 16px;
+    display: flex;
+    justify-content: center;
+    background: var(--vp-c-bg-soft);
+
+    :deep(svg) {
+      font-family: var(--vp-font-family-base);
+      font-size: 12px;
+    }
+  }
+
+  &__caption {
+    margin: 0;
+    padding: 8px 16px;
+    font-size: 13px;
+    color: var(--vp-c-text-3);
+    border-top: 1px solid var(--vp-c-divider);
+    text-align: center;
+  }
 }
 </style>

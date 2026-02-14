@@ -47,34 +47,34 @@
 
 .VPHome {
   position: relative;
-}
 
-.VPHome::before {
-  content: '';
-  position: absolute;
-  inset: 0;
-  height: 80vh;
-  pointer-events: none;
-  z-index: 0;
-  opacity: 0.05;
-  -webkit-mask-image: linear-gradient(to bottom, black, transparent);
-  mask-image: linear-gradient(to bottom, black, transparent);
-  background-color: var(--vp-c-brand-1);
-  background-size: 100px 100px, 100px 100px, 20px 20px, 20px 20px;
-  background-position: -2px -2px, -2px -2px, -1px -1px, -1px -1px;
-  background-image:
+  &::before {
+    content: '';
+    position: absolute;
+    inset: 0;
+    height: 80vh;
+    pointer-events: none;
+    z-index: 0;
+    opacity: 0.05;
+    -webkit-mask-image: linear-gradient(to bottom, black, transparent);
+    mask-image: linear-gradient(to bottom, black, transparent);
+    background-color: var(--vp-c-brand-1);
+    background-size: 100px 100px, 100px 100px, 20px 20px, 20px 20px;
+    background-position: -2px -2px, -2px -2px, -1px -1px, -1px -1px;
+    background-image:
       linear-gradient(rgba(0, 0, 0, 0.7) 2px, transparent 2px),
       linear-gradient(90deg, rgba(0, 0, 0, 0.7) 2px, transparent 2px),
       linear-gradient(rgba(0, 0, 0, 0.3) 1px, transparent 1px),
       linear-gradient(90deg, rgba(0, 0, 0, 0.3) 1px, transparent 1px);
-}
 
-.dark .VPHome::before {
-  background-image:
-    linear-gradient(rgba(255, 255, 255, 0.7) 2px, transparent 2px),
-    linear-gradient(90deg, rgba(255, 255, 255, 0.7) 2px, transparent 2px),
-    linear-gradient(rgba(255, 255, 255, 0.3) 1px, transparent 1px),
-    linear-gradient(90deg, rgba(255, 255, 255, 0.3) 1px, transparent 1px);
+    .dark & {
+      background-image:
+        linear-gradient(rgba(255, 255, 255, 0.7) 2px, transparent 2px),
+        linear-gradient(90deg, rgba(255, 255, 255, 0.7) 2px, transparent 2px),
+        linear-gradient(rgba(255, 255, 255, 0.3) 1px, transparent 1px),
+        linear-gradient(90deg, rgba(255, 255, 255, 0.3) 1px, transparent 1px);
+    }
+  }
 }
 
 .d3bp-tooltip {
