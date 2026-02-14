@@ -32,11 +32,11 @@ const thumbnails = [
       <a
         v-for="t in thumbnails"
         :key="t.slug"
-        :href="`/examples/${t.slug}`"
+        :href="`./examples/${t.slug}`"
         class="gallery__item"
       >
         <img
-          :src="`/thumbnails/${t.slug}${isDark ? '-dark' : ''}.png`"
+          :src="`./thumbnails/${t.slug}${isDark ? '-dark' : ''}.png`"
           :alt="t.label"
           loading="lazy"
         />
