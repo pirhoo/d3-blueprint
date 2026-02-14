@@ -5,7 +5,7 @@
    height="400"
    version="1.1"
    id="svg209"
-   sodipodi:docname="d3-blueprint-logo.svg"
+   sodipodi:docname="logo-card.svg"
    inkscape:version="1.2.2 (b0a8486541, 2022-12-01)"
    xmlns:inkscape="http://www.inkscape.org/namespaces/inkscape"
    xmlns:sodipodi="http://sodipodi.sourceforge.net/DTD/sodipodi-0.dtd"
@@ -19,12 +19,12 @@
      borderopacity="0.25"
      inkscape:showpageshadow="2"
      inkscape:pageopacity="0.0"
-     inkscape:pagecheckerboard="0"
+     inkscape:pagecheckerboard="false"
      inkscape:deskcolor="#d1d1d1"
      showgrid="false"
      inkscape:zoom="1.90625"
-     inkscape:cx="157.63934"
-     inkscape:cy="185.44262"
+     inkscape:cx="157.90164"
+     inkscape:cy="185.96721"
      inkscape:window-width="3440"
      inkscape:window-height="1363"
      inkscape:window-x="0"
@@ -33,6 +33,10 @@
      inkscape:current-layer="svg209" />
   <defs
      id="defs51">
+    <pattern
+       inkscape:collect="always"
+       xlink:href="#gridLarge"
+       id="pattern389" />
     <!-- Grid pattern -->
     <pattern
        id="gridSmall"
@@ -90,10 +94,10 @@
     <!-- Subtle glow for text -->
     <filter
        id="textGlow"
-       x="-0.032814488"
-       y="-0.048319694"
-       width="1.065629"
-       height="1.0966394">
+       x="-0.031197715"
+       y="-0.047345765"
+       width="1.0623954"
+       height="1.0946915">
       <feGaussianBlur
          in="SourceGraphic"
          stdDeviation="0.8"
@@ -127,10 +131,12 @@
     </linearGradient>
     <linearGradient
        id="lineGrad"
-       x1="0"
-       y1="0"
-       x2="1"
-       y2="0">
+       x1="103.36806"
+       y1="159.64146"
+       x2="219.52435"
+       y2="159.64146"
+       gradientTransform="scale(1.1768626,0.84971686)"
+       gradientUnits="userSpaceOnUse">
       <stop
          offset="0%"
          stop-color="#68BBE8"
@@ -142,10 +148,10 @@
     </linearGradient>
     <linearGradient
        id="textGrad"
-       x1="0%"
-       y1="0%"
-       x2="100%"
-       y2="0%">
+       x1="0"
+       y1="0"
+       x2="1"
+       y2="0">
       <stop
          offset="0%"
          stop-color="#7FB0FF"
@@ -169,8 +175,8 @@
        markerHeight="5"
        orient="auto">
       <path
-         d="M 0 3 L 6 0 L 6 6 Z"
-         fill="#72F3FF"
+         d="M 0,3 6,0 v 6 z"
+         fill="#72f3ff"
          opacity="0.6"
          id="path45" />
     </marker>
@@ -183,8 +189,8 @@
        markerHeight="5"
        orient="auto">
       <path
-         d="M 6 3 L 0 0 L 0 6 Z"
-         fill="#72F3FF"
+         d="M 6,3 0,0 v 6 z"
+         fill="#72f3ff"
          opacity="0.6"
          id="path48" />
     </marker>
@@ -193,26 +199,121 @@
        xlink:href="#textGrad"
        id="linearGradient1836"
        x1="228.90514"
-       y1="293.39167"
-       x2="339.07634"
-       y2="293.39167"
+       y1="293.39166"
+       x2="339.07635"
+       y2="293.39166"
        gradientTransform="scale(1.9834126,0.50418152)"
        gradientUnits="userSpaceOnUse" />
+    <linearGradient
+       inkscape:collect="always"
+       xlink:href="#textGrad"
+       id="linearGradient415"
+       gradientUnits="userSpaceOnUse"
+       gradientTransform="scale(1.9834126,0.50418152)"
+       x1="228.90514"
+       y1="293.39166"
+       x2="339.07635"
+       y2="293.39166" />
+    <linearGradient
+       inkscape:collect="always"
+       xlink:href="#textGrad"
+       id="linearGradient417"
+       gradientUnits="userSpaceOnUse"
+       gradientTransform="scale(1.9834126,0.50418152)"
+       x1="228.90514"
+       y1="293.39166"
+       x2="339.07635"
+       y2="293.39166" />
+    <linearGradient
+       inkscape:collect="always"
+       xlink:href="#textGrad"
+       id="linearGradient419"
+       gradientUnits="userSpaceOnUse"
+       gradientTransform="scale(1.9834126,0.50418152)"
+       x1="228.90514"
+       y1="293.39166"
+       x2="339.07635"
+       y2="293.39166" />
+    <linearGradient
+       inkscape:collect="always"
+       xlink:href="#textGrad"
+       id="linearGradient421"
+       gradientUnits="userSpaceOnUse"
+       gradientTransform="scale(1.9834126,0.50418152)"
+       x1="228.90514"
+       y1="293.39166"
+       x2="339.07635"
+       y2="293.39166" />
+    <linearGradient
+       inkscape:collect="always"
+       xlink:href="#textGrad"
+       id="linearGradient423"
+       gradientUnits="userSpaceOnUse"
+       gradientTransform="scale(1.9834126,0.50418152)"
+       x1="228.90514"
+       y1="293.39166"
+       x2="339.07635"
+       y2="293.39166" />
+    <linearGradient
+       inkscape:collect="always"
+       xlink:href="#textGrad"
+       id="linearGradient425"
+       gradientUnits="userSpaceOnUse"
+       gradientTransform="scale(1.9834126,0.50418152)"
+       x1="228.90514"
+       y1="293.39166"
+       x2="339.07635"
+       y2="293.39166" />
+    <linearGradient
+       inkscape:collect="always"
+       xlink:href="#textGrad"
+       id="linearGradient427"
+       gradientUnits="userSpaceOnUse"
+       gradientTransform="scale(1.9834126,0.50418152)"
+       x1="228.90514"
+       y1="293.39166"
+       x2="339.07635"
+       y2="293.39166" />
+    <linearGradient
+       inkscape:collect="always"
+       xlink:href="#textGrad"
+       id="linearGradient429"
+       gradientUnits="userSpaceOnUse"
+       gradientTransform="scale(1.9834126,0.50418152)"
+       x1="228.90514"
+       y1="293.39166"
+       x2="339.07635"
+       y2="293.39166" />
+    <linearGradient
+       inkscape:collect="always"
+       xlink:href="#textGrad"
+       id="linearGradient431"
+       gradientUnits="userSpaceOnUse"
+       gradientTransform="scale(1.9834126,0.50418152)"
+       x1="228.90514"
+       y1="293.39166"
+       x2="339.07635"
+       y2="293.39166" />
   </defs>
   <!-- Background -->
   <rect
      width="800"
      height="400"
-     fill="#0D1117"
+     fill="#0d1117"
      rx="12"
-     id="rect53" />
+     id="rect53"
+     x="0"
+     y="0" />
   <!-- Blueprint grid -->
   <rect
      width="800"
      height="400"
      fill="url(#gridLarge)"
      rx="12"
-     id="rect55" />
+     id="rect55"
+     x="0"
+     y="0"
+     style="fill:url(#pattern389)" />
   <!-- ===================== -->
   <!-- ICON AREA (left side) -->
   <!-- ===================== -->
@@ -222,7 +323,7 @@
      y1="55"
      x2="80"
      y2="55"
-     stroke="#7FB0FF"
+     stroke="#7fb0ff"
      stroke-width="0.5"
      opacity="0.4"
      id="line57" />
@@ -231,7 +332,7 @@
      y1="45"
      x2="70"
      y2="65"
-     stroke="#7FB0FF"
+     stroke="#7fb0ff"
      stroke-width="0.5"
      opacity="0.4"
      id="line59" />
@@ -240,7 +341,7 @@
      cy="55"
      r="6"
      fill="none"
-     stroke="#7FB0FF"
+     stroke="#7fb0ff"
      stroke-width="0.5"
      opacity="0.3"
      id="circle61" />
@@ -250,7 +351,7 @@
      y1="335"
      x2="295"
      y2="335"
-     stroke="#7FB0FF"
+     stroke="#7fb0ff"
      stroke-width="0.5"
      opacity="0.4"
      id="line63" />
@@ -259,7 +360,7 @@
      y1="325"
      x2="285"
      y2="345"
-     stroke="#7FB0FF"
+     stroke="#7fb0ff"
      stroke-width="0.5"
      opacity="0.4"
      id="line65" />
@@ -268,7 +369,7 @@
      cy="335"
      r="6"
      fill="none"
-     stroke="#7FB0FF"
+     stroke="#7fb0ff"
      stroke-width="0.5"
      opacity="0.3"
      id="circle67" />
@@ -279,28 +380,28 @@
      y1="290"
      x2="270"
      y2="290"
-     stroke="#7FB0FF"
+     stroke="#7fb0ff"
      stroke-width="1"
      opacity="0.5"
-     stroke-dasharray="4 2"
+     stroke-dasharray="4, 2"
      id="line69" />
   <line
      x1="100"
      y1="290"
      x2="100"
      y2="100"
-     stroke="#7FB0FF"
+     stroke="#7fb0ff"
      stroke-width="1"
      opacity="0.5"
-     stroke-dasharray="4 2"
+     stroke-dasharray="4, 2"
      id="line71" />
   <!-- Axis labels -->
   <text
      x="96"
      y="98"
      font-family="'SF Mono', 'Fira Code', monospace"
-     font-size="7"
-     fill="#7FB0FF"
+     font-size="7px"
+     fill="#7fb0ff"
      opacity="0.4"
      text-anchor="end"
      id="text73">y</text>
@@ -308,8 +409,8 @@
      x="272"
      y="298"
      font-family="'SF Mono', 'Fira Code', monospace"
-     font-size="7"
-     fill="#7FB0FF"
+     font-size="7px"
+     fill="#7fb0ff"
      opacity="0.4"
      id="text75">x</text>
   <!-- Y-axis tick marks and grid lines -->
@@ -318,7 +419,7 @@
      y1="260"
      x2="100"
      y2="260"
-     stroke="#7FB0FF"
+     stroke="#7fb0ff"
      stroke-width="0.8"
      opacity="0.4"
      id="line77" />
@@ -327,17 +428,17 @@
      y1="260"
      x2="270"
      y2="260"
-     stroke="#6878E8"
+     stroke="#6878e8"
      stroke-width="0.3"
      opacity="0.15"
-     stroke-dasharray="2 4"
+     stroke-dasharray="2, 4"
      id="line79" />
   <text
      x="94"
      y="263"
      font-family="'SF Mono', 'Fira Code', monospace"
-     font-size="6"
-     fill="#7FB0FF"
+     font-size="6px"
+     fill="#7fb0ff"
      opacity="0.3"
      text-anchor="end"
      id="text81">20</text>
@@ -346,7 +447,7 @@
      y1="230"
      x2="100"
      y2="230"
-     stroke="#7FB0FF"
+     stroke="#7fb0ff"
      stroke-width="0.8"
      opacity="0.4"
      id="line83" />
@@ -355,17 +456,17 @@
      y1="230"
      x2="270"
      y2="230"
-     stroke="#6878E8"
+     stroke="#6878e8"
      stroke-width="0.3"
      opacity="0.15"
-     stroke-dasharray="2 4"
+     stroke-dasharray="2, 4"
      id="line85" />
   <text
      x="94"
      y="233"
      font-family="'SF Mono', 'Fira Code', monospace"
-     font-size="6"
-     fill="#7FB0FF"
+     font-size="6px"
+     fill="#7fb0ff"
      opacity="0.3"
      text-anchor="end"
      id="text87">40</text>
@@ -374,7 +475,7 @@
      y1="200"
      x2="100"
      y2="200"
-     stroke="#7FB0FF"
+     stroke="#7fb0ff"
      stroke-width="0.8"
      opacity="0.4"
      id="line89" />
@@ -383,17 +484,17 @@
      y1="200"
      x2="270"
      y2="200"
-     stroke="#6878E8"
+     stroke="#6878e8"
      stroke-width="0.3"
      opacity="0.15"
-     stroke-dasharray="2 4"
+     stroke-dasharray="2, 4"
      id="line91" />
   <text
      x="94"
      y="203"
      font-family="'SF Mono', 'Fira Code', monospace"
-     font-size="6"
-     fill="#7FB0FF"
+     font-size="6px"
+     fill="#7fb0ff"
      opacity="0.3"
      text-anchor="end"
      id="text93">60</text>
@@ -402,7 +503,7 @@
      y1="170"
      x2="100"
      y2="170"
-     stroke="#7FB0FF"
+     stroke="#7fb0ff"
      stroke-width="0.8"
      opacity="0.4"
      id="line95" />
@@ -411,17 +512,17 @@
      y1="170"
      x2="270"
      y2="170"
-     stroke="#6878E8"
+     stroke="#6878e8"
      stroke-width="0.3"
      opacity="0.15"
-     stroke-dasharray="2 4"
+     stroke-dasharray="2, 4"
      id="line97" />
   <text
      x="94"
      y="173"
      font-family="'SF Mono', 'Fira Code', monospace"
-     font-size="6"
-     fill="#7FB0FF"
+     font-size="6px"
+     fill="#7fb0ff"
      opacity="0.3"
      text-anchor="end"
      id="text99">80</text>
@@ -430,7 +531,7 @@
      y1="140"
      x2="100"
      y2="140"
-     stroke="#7FB0FF"
+     stroke="#7fb0ff"
      stroke-width="0.8"
      opacity="0.4"
      id="line101" />
@@ -439,10 +540,10 @@
      y1="140"
      x2="270"
      y2="140"
-     stroke="#6878E8"
+     stroke="#6878e8"
      stroke-width="0.3"
      opacity="0.15"
-     stroke-dasharray="2 4"
+     stroke-dasharray="2, 4"
      id="line103" />
   <!-- Bar chart (wireframe/blueprint style) -->
   <!-- Bar A -->
@@ -453,7 +554,7 @@
      height="70"
      rx="1"
      fill="none"
-     stroke="#8672FF"
+     stroke="#8672ff"
      stroke-width="1.2"
      opacity="0.8"
      id="rect105" />
@@ -463,7 +564,7 @@
      width="22"
      height="70"
      rx="1"
-     fill="#8672FF"
+     fill="#8672ff"
      opacity="0.08"
      id="rect107" />
   <!-- Bar B -->
@@ -474,7 +575,7 @@
      height="115"
      rx="1"
      fill="none"
-     stroke="#8672FF"
+     stroke="#8672ff"
      stroke-width="1.2"
      opacity="0.8"
      id="rect109" />
@@ -484,7 +585,7 @@
      width="22"
      height="115"
      rx="1"
-     fill="#8672FF"
+     fill="#8672ff"
      opacity="0.08"
      id="rect111" />
   <!-- Bar C (tallest) -->
@@ -495,7 +596,7 @@
      height="145"
      rx="1"
      fill="none"
-     stroke="#8672FF"
+     stroke="#8672ff"
      stroke-width="1.2"
      opacity="0.9"
      id="rect113" />
@@ -505,7 +606,7 @@
      width="22"
      height="145"
      rx="1"
-     fill="#8672FF"
+     fill="#8672ff"
      opacity="0.12"
      id="rect115" />
   <!-- Bar D -->
@@ -516,7 +617,7 @@
      height="95"
      rx="1"
      fill="none"
-     stroke="#8672FF"
+     stroke="#8672ff"
      stroke-width="1.2"
      opacity="0.8"
      id="rect117" />
@@ -526,7 +627,7 @@
      width="22"
      height="95"
      rx="1"
-     fill="#8672FF"
+     fill="#8672ff"
      opacity="0.08"
      id="rect119" />
   <!-- Bar E -->
@@ -537,7 +638,7 @@
      height="55"
      rx="1"
      fill="none"
-     stroke="#8672FF"
+     stroke="#8672ff"
      stroke-width="1.2"
      opacity="0.7"
      id="rect121" />
@@ -547,7 +648,7 @@
      width="22"
      height="55"
      rx="1"
-     fill="#8672FF"
+     fill="#8672ff"
      opacity="0.06"
      id="rect123" />
   <!-- Line chart overlay (trend line) -->
@@ -560,14 +661,15 @@
      stroke-linejoin="round"
      opacity="0.7"
      filter="url(#glow)"
-     id="polyline125" />
+     id="polyline125"
+     style="stroke:url(#lineGrad)" />
   <!-- Data points on line -->
   <circle
      cx="126"
      cy="215"
      r="3"
      fill="none"
-     stroke="#72F3FF"
+     stroke="#72f3ff"
      stroke-width="1"
      opacity="0.7"
      id="circle127" />
@@ -576,7 +678,7 @@
      cy="170"
      r="3"
      fill="none"
-     stroke="#72F3FF"
+     stroke="#72f3ff"
      stroke-width="1"
      opacity="0.7"
      id="circle129" />
@@ -584,7 +686,7 @@
      cx="190"
      cy="140"
      r="3"
-     fill="#72F3FF"
+     fill="#72f3ff"
      stroke="none"
      opacity="0.5"
      id="circle131" />
@@ -593,7 +695,7 @@
      cy="140"
      r="3"
      fill="none"
-     stroke="#72F3FF"
+     stroke="#72f3ff"
      stroke-width="1"
      opacity="0.9"
      id="circle133" />
@@ -602,7 +704,7 @@
      cy="190"
      r="3"
      fill="none"
-     stroke="#72F3FF"
+     stroke="#72f3ff"
      stroke-width="1"
      opacity="0.7"
      id="circle135" />
@@ -611,7 +713,7 @@
      cy="230"
      r="3"
      fill="none"
-     stroke="#72F3FF"
+     stroke="#72f3ff"
      stroke-width="1"
      opacity="0.7"
      id="circle137" />
@@ -622,7 +724,7 @@
      y1="308"
      x2="265"
      y2="308"
-     stroke="#72F3FF"
+     stroke="#72f3ff"
      stroke-width="0.6"
      opacity="0.5"
      marker-start="url(#dimArrowL)"
@@ -633,27 +735,27 @@
      y1="290"
      x2="115"
      y2="312"
-     stroke="#72F3FF"
+     stroke="#72f3ff"
      stroke-width="0.4"
      opacity="0.3"
-     stroke-dasharray="1 2"
+     stroke-dasharray="1, 2"
      id="line141" />
   <line
      x1="265"
      y1="290"
      x2="265"
      y2="312"
-     stroke="#72F3FF"
+     stroke="#72f3ff"
      stroke-width="0.4"
      opacity="0.3"
-     stroke-dasharray="1 2"
+     stroke-dasharray="1, 2"
      id="line143" />
   <text
      x="190"
      y="318"
      font-family="'SF Mono', 'Fira Code', monospace"
-     font-size="7"
-     fill="#72F3FF"
+     font-size="7px"
+     fill="#72f3ff"
      opacity="0.5"
      text-anchor="middle"
      id="text145">width</text>
@@ -663,7 +765,7 @@
      y1="145"
      x2="82"
      y2="290"
-     stroke="#72F3FF"
+     stroke="#72f3ff"
      stroke-width="0.6"
      opacity="0.5"
      marker-start="url(#dimArrowL)"
@@ -674,30 +776,30 @@
      y1="145"
      x2="100"
      y2="145"
-     stroke="#72F3FF"
+     stroke="#72f3ff"
      stroke-width="0.4"
      opacity="0.3"
-     stroke-dasharray="1 2"
+     stroke-dasharray="1, 2"
      id="line149" />
   <line
      x1="82"
      y1="290"
      x2="88"
      y2="290"
-     stroke="#72F3FF"
+     stroke="#72f3ff"
      stroke-width="0.4"
      opacity="0.3"
-     stroke-dasharray="1 2"
+     stroke-dasharray="1, 2"
      id="line151" />
   <text
-     x="78"
-     y="222"
+     x="-222"
+     y="78"
      font-family="'SF Mono', 'Fira Code', monospace"
-     font-size="7"
-     fill="#72F3FF"
+     font-size="7px"
+     fill="#72f3ff"
      opacity="0.5"
      text-anchor="middle"
-     transform="rotate(-90, 78, 222)"
+     transform="rotate(-90)"
      id="text153">height</text>
   <!-- Bar width dimension -->
   <line
@@ -705,7 +807,7 @@
      y1="133"
      x2="201"
      y2="133"
-     stroke="#72F3FF"
+     stroke="#72f3ff"
      stroke-width="0.5"
      opacity="0.4"
      marker-start="url(#dimArrowL)"
@@ -716,27 +818,27 @@
      y1="133"
      x2="179"
      y2="145"
-     stroke="#72F3FF"
+     stroke="#72f3ff"
      stroke-width="0.3"
      opacity="0.25"
-     stroke-dasharray="1 2"
+     stroke-dasharray="1, 2"
      id="line157" />
   <line
      x1="201"
      y1="133"
      x2="201"
      y2="145"
-     stroke="#72F3FF"
+     stroke="#72f3ff"
      stroke-width="0.3"
      opacity="0.25"
-     stroke-dasharray="1 2"
+     stroke-dasharray="1, 2"
      id="line159" />
   <text
      x="190"
      y="129"
      font-family="'SF Mono', 'Fira Code', monospace"
-     font-size="6"
-     fill="#72F3FF"
+     font-size="6px"
+     fill="#72f3ff"
      opacity="0.4"
      text-anchor="middle"
      id="text161">22px</text>
@@ -746,24 +848,24 @@
      y1="138"
      x2="220"
      y2="112"
-     stroke="#68BBE8"
+     stroke="#68bbe8"
      stroke-width="0.5"
      opacity="0.45"
-     stroke-dasharray="2 2"
+     stroke-dasharray="2, 2"
      id="line163" />
   <circle
      cx="220"
      cy="112"
      r="1"
-     fill="#68BBE8"
+     fill="#68bbe8"
      opacity="0.6"
      id="circle165" />
   <text
      x="224"
      y="110"
      font-family="'SF Mono', 'Fira Code', monospace"
-     font-size="6.5"
-     fill="#68BBE8"
+     font-size="6.5px"
+     fill="#68bbe8"
      opacity="0.55"
      id="text167">max: 96.4</text>
   <!-- Annotation for bar gap -->
@@ -771,8 +873,8 @@
      x="141"
      y="298"
      font-family="'SF Mono', 'Fira Code', monospace"
-     font-size="5.5"
-     fill="#7FB0FF"
+     font-size="5.5px"
+     fill="#7fb0ff"
      opacity="0.3"
      text-anchor="middle"
      id="text169">gap:10</text>
@@ -783,7 +885,7 @@
      width="90"
      height="30"
      fill="none"
-     stroke="#6878E8"
+     stroke="#6878e8"
      stroke-width="0.5"
      opacity="0.25"
      id="rect171" />
@@ -792,7 +894,7 @@
      y1="352"
      x2="155"
      y2="352"
-     stroke="#6878E8"
+     stroke="#6878e8"
      stroke-width="0.3"
      opacity="0.2"
      id="line173" />
@@ -800,32 +902,32 @@
      x="70"
      y="349"
      font-family="'SF Mono', 'Fira Code', monospace"
-     font-size="5"
-     fill="#7FB0FF"
+     font-size="5px"
+     fill="#7fb0ff"
      opacity="0.3"
      id="text175">REV 1.0</text>
   <text
      x="70"
      y="363"
      font-family="'SF Mono', 'Fira Code', monospace"
-     font-size="5"
-     fill="#7FB0FF"
+     font-size="5px"
+     fill="#7fb0ff"
      opacity="0.3"
      id="text177">SCALE 1:1</text>
   <text
      x="125"
      y="349"
      font-family="'SF Mono', 'Fira Code', monospace"
-     font-size="5"
-     fill="#7FB0FF"
+     font-size="5px"
+     fill="#7fb0ff"
      opacity="0.3"
      id="text179">D3 v7</text>
   <text
      x="125"
      y="363"
      font-family="'SF Mono', 'Fira Code', monospace"
-     font-size="5"
-     fill="#7FB0FF"
+     font-size="5px"
+     fill="#7fb0ff"
      opacity="0.3"
      id="text181">MIT</text>
   <!-- ==================== -->
@@ -866,39 +968,39 @@
        style="font-weight:700;font-size:54px;font-family:Inter, 'Segoe UI', 'Helvetica Neue', sans-serif;letter-spacing:-2;fill:url(#linearGradient1836);filter:url(#textGlow)">
       <path
          d="m 476.69434,190.58008 q -1.81934,0 -3.40137,-0.52735 -1.58203,-0.52734 -2.82129,-1.60839 -1.21289,-1.10743 -2.03027,-2.71582 h -0.0264 V 190 h -7.67285 v -39.28711 h 7.77832 v 15.29297 h 0.0264 q 0.89649,-1.50293 2.10938,-2.47852 1.21289,-0.97558 2.74219,-1.45019 1.55566,-0.50098 3.34863,-0.50098 3.55957,0 6.24902,1.8457 2.71582,1.81934 4.21875,5.08887 1.5293,3.24317 1.5293,7.54102 0,4.35058 -1.50293,7.62011 -1.50293,3.26954 -4.19238,5.08887 -2.68946,1.81934 -6.35449,1.81934 z m -2.00391,-6.32813 q 1.89844,0 3.26953,-0.94922 1.39746,-0.97558 2.16211,-2.79492 0.79102,-1.8457 0.79102,-4.45605 0,-2.61035 -0.79102,-4.42969 -0.76465,-1.81934 -2.16211,-2.79492 -1.37109,-0.97559 -3.26953,-0.97559 -1.95117,0 -3.4541,1.02832 -1.47656,1.00196 -2.29395,2.84766 -0.79101,1.81933 -0.79101,4.32422 0,2.47851 0.79101,4.32422 0.81739,1.8457 2.29395,2.87402 1.50293,1.00195 3.4541,1.00195 z"
-         style="font-family:Inter;-inkscape-font-specification:'Inter Bold'"
+         style="font-family:Inter;-inkscape-font-specification:'Inter Bold';fill:url(#linearGradient415)"
          id="path1984" />
       <path
          d="M 498.79395,150.71289 V 190 h -7.77833 v -39.28711 z"
-         style="font-family:Inter;-inkscape-font-specification:'Inter Bold'"
+         style="font-family:Inter;-inkscape-font-specification:'Inter Bold';fill:url(#linearGradient417)"
          id="path1986" />
       <path
          d="m 512.06055,190.58008 q -2.95313,0 -5.16797,-1.26563 -2.18848,-1.29199 -3.40137,-3.74414 -1.21289,-2.47851 -1.21289,-5.98535 v -17.42871 h 7.77832 v 16.00488 q 0,2.79492 1.34473,4.27149 1.34472,1.45019 3.7705,1.45019 1.6084,0 2.82129,-0.65918 1.23926,-0.65918 1.92481,-2.05664 0.71191,-1.39746 0.71191,-3.5332 v -15.47754 h 7.75196 V 190 h -7.62012 v -7.25098 h 1.31836 q -1.31836,3.69141 -3.77051,5.77442 -2.42578,2.05664 -6.24902,2.05664 z"
-         style="font-family:Inter;-inkscape-font-specification:'Inter Bold'"
+         style="font-family:Inter;-inkscape-font-specification:'Inter Bold';fill:url(#linearGradient419)"
          id="path1988" />
       <path
          d="m 544.60156,190.63281 q -4.21875,0 -7.35644,-1.8457 -3.11133,-1.87207 -4.85157,-5.16797 -1.71386,-3.2959 -1.71386,-7.51465 0,-4.27148 1.74023,-7.54101 1.7666,-3.2959 4.85156,-5.16797 3.08497,-1.87207 7.06641,-1.87207 3.08496,0 5.58984,1.05468 2.50489,1.02833 4.32422,2.9795 1.81934,1.9248 2.79492,4.56152 1.00196,2.63672 1.00196,5.82715 v 2.08301 h -24.60059 v -4.95703 h 20.85645 l -3.50684,1.18652 q 0,-2.10938 -0.76465,-3.63867 -0.76465,-1.5293 -2.18847,-2.34668 -1.39746,-0.84375 -3.34864,-0.84375 -1.9248,0 -3.32226,0.84375 -1.39746,0.81738 -2.16211,2.34668 -0.76465,1.52929 -0.76465,3.63867 v 3.375 q 0,2.16211 0.76465,3.79687 0.79101,1.6084 2.26758,2.50489 1.47656,0.87011 3.55957,0.87011 1.52929,0 2.68945,-0.42187 1.18652,-0.44824 1.97754,-1.23926 0.81738,-0.81738 1.16016,-1.89844 h 7.09277 q -0.50098,2.76856 -2.34668,4.87793 -1.8457,2.10938 -4.64063,3.32227 -2.79492,1.18652 -6.16992,1.18652 z"
-         style="font-family:Inter;-inkscape-font-specification:'Inter Bold'"
+         style="font-family:Inter;-inkscape-font-specification:'Inter Bold';fill:url(#linearGradient421)"
          id="path1990" />
       <path
          d="m 560.21484,201.02148 v -38.86523 h 7.67286 v 3.77051 h 0.0791 q 0.87011,-1.4502 2.083,-2.39942 1.23926,-0.97558 2.79493,-1.45019 1.58203,-0.50098 3.375,-0.50098 3.55957,0 6.24902,1.8457 2.71582,1.81934 4.21875,5.08887 1.5293,3.24317 1.5293,7.54102 0,4.35058 -1.50293,7.62011 -1.50293,3.26954 -4.19239,5.08887 -2.68945,1.81934 -6.35449,1.81934 -1.81933,0 -3.375,-0.52735 -1.52929,-0.52734 -2.74219,-1.58203 -1.18652,-1.05468 -1.97753,-2.63672 h -0.0791 v 15.1875 z m 13.94825,-16.76953 q 1.89843,0 3.26953,-0.94922 1.39746,-0.97558 2.16211,-2.79492 0.79101,-1.8457 0.79101,-4.45605 0,-2.61035 -0.79101,-4.42969 -0.76465,-1.81934 -2.16211,-2.79492 -1.3711,-0.97559 -3.26953,-0.97559 -1.95118,0 -3.45411,1.02832 -1.47656,1.00196 -2.29394,2.84766 -0.79102,1.81933 -0.79102,4.32422 0,2.47851 0.79102,4.32422 0.81738,1.8457 2.29394,2.87402 1.50293,1.00195 3.45411,1.00195 z"
-         style="font-family:Inter;-inkscape-font-specification:'Inter Bold'"
+         style="font-family:Inter;-inkscape-font-specification:'Inter Bold';fill:url(#linearGradient423)"
          id="path1992" />
       <path
          d="m 590.48828,190 v -27.84375 h 7.48828 v 4.74609 h 0.0791 q 0.76465,-2.50488 2.39942,-3.71777 1.63476,-1.21289 4.40332,-1.21289 0.68555,0 1.23926,0.0264 0.58007,0 1.05468,0.0264 v 6.61817 q -0.42187,-0.0264 -1.39746,-0.0791 -0.94922,-0.0527 -1.95117,-0.0527 -1.58203,0 -2.84766,0.73828 -1.26562,0.71192 -1.97753,2.13575 -0.71192,1.42382 -0.71192,3.5332 V 190 Z"
-         style="font-family:Inter;-inkscape-font-specification:'Inter Bold'"
+         style="font-family:Inter;-inkscape-font-specification:'Inter Bold';fill:url(#linearGradient425)"
          id="path1994" />
       <path
          d="m 608.9176,190 v -27.84375 h 7.77832 V 190 Z m 3.87598,-31.35059 q -1.92481,0 -3.19043,-1.16015 -1.26563,-1.18653 -1.26563,-2.97949 0,-1.79297 1.26563,-2.95313 1.26562,-1.18652 3.16406,-1.18652 1.92481,0 3.19043,1.18652 1.26563,1.16016 1.26563,2.95313 0,1.79296 -1.26563,2.97949 -1.26562,1.16015 -3.16406,1.16015 z"
-         style="font-family:Inter;-inkscape-font-specification:'Inter Bold'"
+         style="font-family:Inter;-inkscape-font-specification:'Inter Bold';fill:url(#linearGradient427)"
          id="path1996" />
       <path
          d="M 627.95862,174.52246 V 190 h -7.77832 v -27.84375 h 7.64648 v 7.25098 h -1.31836 q 1.31836,-3.69141 3.77051,-5.74805 2.45215,-2.08301 6.24902,-2.08301 2.9795,0 5.16797,1.29199 2.18848,1.26563 3.375,3.71778 1.21289,2.45215 1.21289,5.98535 V 190 h -7.75195 v -16.00488 q 0,-2.79492 -1.34473,-4.24512 -1.31836,-1.47656 -3.7705,-1.47656 -1.6084,0 -2.84766,0.65918 -1.23926,0.65918 -1.9248,2.05664 -0.68555,1.37109 -0.68555,3.5332 z"
-         style="font-family:Inter;-inkscape-font-specification:'Inter Bold'"
+         style="font-family:Inter;-inkscape-font-specification:'Inter Bold';fill:url(#linearGradient429)"
          id="path1998" />
       <path
          d="m 665.79944,162.15625 v 6.09082 h -18.27246 v -6.09082 z m -13.47363,-7.59375 h 7.77832 v 26.8418 q 0,1.39746 0.55371,1.95117 0.58008,0.55371 2.16211,0.55371 0.65918,0 1.55566,0 0.92285,0 1.42383,0 V 190 q -0.71192,0 -1.97754,0 -1.26563,0 -2.55762,0 -4.58789,0 -6.77636,-1.79297 -2.16211,-1.79297 -2.16211,-5.58984 z"
-         style="font-family:Inter;-inkscape-font-specification:'Inter Bold'"
+         style="font-family:Inter;-inkscape-font-specification:'Inter Bold';fill:url(#linearGradient431)"
          id="path2000" />
     </g>
     <g
