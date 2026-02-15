@@ -25,7 +25,7 @@ features:
     link: /guide/config
   - title: Plugin System
     details: Encapsulate cross-cutting behavior like tooltips, crosshairs, and responsive resize into reusable plugins that hook into the chart lifecycle automatically.
-    link: /examples/plugins
+    link: /guide/plugins
   - title: Nested Attachments
     details: Compose charts from smaller charts. Attach reusable sub-components like axes or legends that draw in sync with the parent.
     link: /guide/attachments
