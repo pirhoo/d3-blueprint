@@ -223,7 +223,7 @@ Unlike AxisChart and BarsChart, the tooltip is **not** a D3Blueprint subclass â€
 ```js
 import { tooltipPlugin } from './plugins/Tooltip.js';
 
-this.usePlugin(tooltipPlugin(this.chart, (chart, tooltip) => {
+this.use(tooltipPlugin(this.chart, (chart, tooltip) => {
   chart.attached.bars.base.selectAll('rect')
     .on('mouseenter', function (event, d) {
       tooltip.show(x(d.label) + x.bandwidth(), y(d.value), `${d.label}: ${d.value}`);

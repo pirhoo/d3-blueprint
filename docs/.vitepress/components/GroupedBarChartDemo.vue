@@ -107,7 +107,7 @@ class GroupedBarChart extends D3Blueprint {
       },
     });
 
-    this.usePlugin(tooltipPlugin(this.chart, (chart, tooltip) => {
+    this.use(tooltipPlugin(this.chart, (chart, tooltip) => {
         chart.chart.selectAll('.bars rect')
           .on('mouseenter', function (event, d) {
             select(this).attr('opacity', 0.8);

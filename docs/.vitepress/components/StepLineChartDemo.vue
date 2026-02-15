@@ -36,7 +36,7 @@ class StepLineChart extends D3Blueprint {
 
     this.attach('axes', AxisChart, this.chart);
 
-    this.usePlugin(tooltipPlugin(this.chart, (chart, tooltip) => {
+    this.use(tooltipPlugin(this.chart, (chart, tooltip) => {
         chart.chart.selectAll('.dots circle')
           .on('mouseenter', function (event, d) {
             select(this).attr('r', 5);

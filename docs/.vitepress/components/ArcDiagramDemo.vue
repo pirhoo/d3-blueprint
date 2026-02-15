@@ -125,7 +125,7 @@ class ArcDiagram extends D3Blueprint {
       },
     });
 
-    this.usePlugin(tooltipPlugin(this.chart, (chart, tooltip) => {
+    this.use(tooltipPlugin(this.chart, (chart, tooltip) => {
         chart.chart.selectAll('.arcs path')
           .on('mouseenter', function (event, d) {
             select(this).attr('stroke-opacity', 0.9);

@@ -86,7 +86,7 @@ class StackedColumnsChart extends D3Blueprint {
     const innerWidth = WIDTH - MARGIN.left - MARGIN.right;
     const innerHeight = HEIGHT - MARGIN.top - MARGIN.bottom;
 
-    this.usePlugin(tooltipPlugin(this.chart, (chart, tooltip) => {
+    this.use(tooltipPlugin(this.chart, (chart, tooltip) => {
         chart.chart.selectAll('.stacks rect')
           .on('mouseenter', function (event, d) {
             const key = select(this.parentNode).datum().key;

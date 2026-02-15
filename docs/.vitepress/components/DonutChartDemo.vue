@@ -80,7 +80,7 @@ class DonutChart extends D3Blueprint {
       .attr('font-size', '14px')
       .attr('fill', 'var(--vp-c-text-2)');
 
-    this.usePlugin(tooltipPlugin(this.chart, (chart, tooltip, data) => {
+    this.use(tooltipPlugin(this.chart, (chart, tooltip, data) => {
         const total = data.reduce((sum, d) => sum + d.value, 0);
 
         chart.chart.selectAll('.slices path')

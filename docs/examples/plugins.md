@@ -19,7 +19,7 @@ const myPlugin = {
 
 Only `install` is required. The rest are optional, so implement only the hooks you need.
 
-## `chart.usePlugin(plugin, name?)`
+## `chart.use(plugin, name?)`
 
 The `usePlugin` method on `D3Blueprint` wires a plugin into the chart:
 
@@ -27,7 +27,7 @@ The `usePlugin` method on `D3Blueprint` wires a plugin into the chart:
 class MyChart extends D3Blueprint {
   initialize() {
     // ... set up layers, scales, etc.
-    this.usePlugin(myPlugin);
+    this.use(myPlugin);
   }
 }
 ```
@@ -54,7 +54,7 @@ class BarChart extends D3Blueprint {
 
     // ... set up layers, axes, etc.
 
-    this.usePlugin(tooltipPlugin(this.chart, (chart, tooltip) => {
+    this.use(tooltipPlugin(this.chart, (chart, tooltip) => {
       chart.bars.base.selectAll('rect')
         .on('mouseenter', function (event, d) {
           select(this).attr('opacity', 0.8);
@@ -126,7 +126,7 @@ class MyChart extends D3Blueprint {
   initialize() {
     // ... layers, axes, etc.
 
-    this.usePlugin(tooltipPlugin(this.chart, (chart, tooltip) => {
+    this.use(tooltipPlugin(this.chart, (chart, tooltip) => {
       chart.chart.selectAll('.dots circle')
         .on('mouseenter', function (event, d) {
           tooltip.show(chart.xScale(d.x), chart.yScale(d.value), `Value: ${d.value}`);
@@ -152,7 +152,7 @@ const svg = select(container).append('svg');
 const chart = new MyChart(svg);
 chart.config('width', container.clientWidth);
 
-chart.usePlugin(responsivePlugin({
+chart.use(responsivePlugin({
   container,
   getSize: (el) => ({ width: el.clientWidth }),
 }));
@@ -177,7 +177,7 @@ chart.draw(data);
 The `getSize` callback gives full control over which config values change on resize. For example, to resize both width and height:
 
 ```js
-chart.usePlugin(responsivePlugin({
+chart.use(responsivePlugin({
   container,
   getSize: (el) => ({
     width: el.clientWidth,
@@ -216,8 +216,8 @@ function crosshairPlugin({ parent, height }) {
 Compose multiple plugins on the same chart:
 
 ```js
-this.usePlugin(crosshairPlugin({ parent: this.chart, height: innerHeight }));
-this.usePlugin(tooltipPlugin(this.chart, ...));
+this.use(crosshairPlugin({ parent: this.chart, height: innerHeight }));
+this.use(tooltipPlugin(this.chart, ...));
 ```
 
 Each plugin gets its own namespaced event listeners, so they don't interfere with each other.

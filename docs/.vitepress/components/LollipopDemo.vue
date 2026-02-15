@@ -91,7 +91,7 @@ class LollipopChart extends D3Blueprint {
     const innerWidth = WIDTH - MARGIN.left - MARGIN.right;
     const innerHeight = HEIGHT - MARGIN.top - MARGIN.bottom;
 
-    this.usePlugin(tooltipPlugin(this.chart, (chart, tooltip) => {
+    this.use(tooltipPlugin(this.chart, (chart, tooltip) => {
         chart.chart.selectAll('.dots circle')
           .on('mouseenter', function (event, d) {
             select(this).attr('r', 7);

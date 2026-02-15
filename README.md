@@ -119,7 +119,7 @@ const tooltipPlugin = {
 
 class MyChart extends D3Blueprint {
   initialize() {
-    this.usePlugin(tooltipPlugin);
+    this.use(tooltipPlugin);
   }
 }
 ```

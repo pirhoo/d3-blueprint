@@ -92,7 +92,7 @@ class AreaChart extends D3Blueprint {
       .attr('fill', 'none')
       .style('pointer-events', 'all');
 
-    this.usePlugin(tooltipPlugin(this.chart, (chart, tooltip, data) => {
+    this.use(tooltipPlugin(this.chart, (chart, tooltip, data) => {
         chart.overlay
           .on('mousemove', function (event) {
             const [mx] = pointer(event, this);

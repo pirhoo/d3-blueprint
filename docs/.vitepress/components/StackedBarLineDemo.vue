@@ -144,7 +144,7 @@ class StackedBarLine extends D3Blueprint {
       },
     });
 
-    this.usePlugin(tooltipPlugin(this.chart, (chart, tooltip) => {
+    this.use(tooltipPlugin(this.chart, (chart, tooltip) => {
         chart.chart.selectAll('.stacks rect')
           .on('mouseenter', function (event, d) {
             const key = select(this.parentNode).datum().key;

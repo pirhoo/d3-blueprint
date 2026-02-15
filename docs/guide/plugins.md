@@ -28,7 +28,7 @@ class MyChart extends D3Blueprint {
   initialize() {
     // layers, scales, etc.
 
-    this.usePlugin(myPlugin);
+    this.use(myPlugin);
   }
 }
 ```
@@ -42,7 +42,7 @@ Under the hood, `usePlugin()`:
 The optional second argument overrides the namespace:
 
 ```js
-this.usePlugin(myPlugin, 'custom-namespace');
+this.use(myPlugin, 'custom-namespace');
 ```
 
 ## Built-in Plugins
@@ -54,7 +54,7 @@ A factory that returns a tooltip plugin. Pass the SVG group (for coordinate conv
 ```js
 import { tooltipPlugin } from './plugins/Tooltip.js';
 
-this.usePlugin(tooltipPlugin(this.chart, (chart, tooltip) => {
+this.use(tooltipPlugin(this.chart, (chart, tooltip) => {
   chart.bars.base.selectAll('rect')
     .on('mouseenter', function (event, d) {
       tooltip.show(x(d.label) + x.bandwidth(), y(d.value), d.label);
@@ -72,7 +72,7 @@ Observes a container element for size changes and redraws the chart automaticall
 ```js
 import { responsivePlugin } from './plugins/responsivePlugin.js';
 
-chart.usePlugin(responsivePlugin({
+chart.use(responsivePlugin({
   container: document.querySelector('#chart'),
   getSize: (el) => ({ width: el.clientWidth }),
 }));
@@ -110,9 +110,9 @@ function crosshairPlugin({ parent, height }) {
 Stack as many plugins as you need. Each gets its own event namespace:
 
 ```js
-this.usePlugin(tooltipPlugin(this.chart, ...));
-this.usePlugin(crosshairPlugin({ ... }));
-this.usePlugin(responsivePlugin({ ... }));
+this.use(tooltipPlugin(this.chart, ...));
+this.use(crosshairPlugin({ ... }));
+this.use(responsivePlugin({ ... }));
 ```
 
 ## Further Reading

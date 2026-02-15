@@ -161,7 +161,7 @@ class SlopeChart extends D3Blueprint {
       .attr('fill', 'var(--vp-c-text-2)')
       .text('After');
 
-    this.usePlugin(tooltipPlugin(this.chart, (chart, tooltip) => {
+    this.use(tooltipPlugin(this.chart, (chart, tooltip) => {
         chart.chart.selectAll('.left-dots circle, .right-dots circle')
           .on('mouseenter', function (event, d) {
             select(this).attr('r', 7);

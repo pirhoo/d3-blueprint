@@ -29,7 +29,7 @@ class ResponsiveBarChart extends D3Blueprint {
 
     this.attach('bars', BarsChart, this.chart.append('g').classed('bars', true));
 
-    this.usePlugin(tooltipPlugin(this.chart, (chart, tooltip) => {
+    this.use(tooltipPlugin(this.chart, (chart, tooltip) => {
         chart.attached.bars.base.selectAll('rect')
           .on('mouseenter', function (event, d) {
             select(this).attr('opacity', 0.8);
@@ -101,7 +101,7 @@ onMounted(() => {
   chart = new ResponsiveBarChart(svg);
   chart.config('width', width);
 
-  chart.usePlugin(responsivePlugin({
+  chart.use(responsivePlugin({
     container: container.value,
     getSize: (el) => ({ width: el.clientWidth - 32 }),
   }));

@@ -96,7 +96,7 @@ class ScatterTrendLine extends D3Blueprint {
       },
     });
 
-    this.usePlugin(tooltipPlugin(this.chart, (chart, tooltip) => {
+    this.use(tooltipPlugin(this.chart, (chart, tooltip) => {
         chart.chart.selectAll('.dots circle')
           .on('mouseenter', function (event, d) {
             select(this).attr('r', 6).attr('fill-opacity', 1);
