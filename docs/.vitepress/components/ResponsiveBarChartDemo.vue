@@ -25,16 +25,14 @@ class ResponsiveBarChart extends D3Blueprint {
       .append('g')
       .attr('transform', `translate(${margin.left},${margin.top})`);
 
-    this.axes = new AxisChart(this.chart);
-    this.attach('axes', this.axes);
+    this.attach('axes', AxisChart, this.chart);
 
-    this.bars = new BarsChart(this.chart.append('g').classed('bars', true));
-    this.attach('bars', this.bars);
+    this.attach('bars', BarsChart, this.chart.append('g').classed('bars', true));
 
     this.usePlugin(tooltipPlugin({
       parent: this.chart,
       bind: (chart, tooltip) => {
-        chart.bars.base.selectAll('rect')
+        chart.attached.bars.base.selectAll('rect')
           .on('mouseenter', function (event, d) {
             select(this).attr('opacity', 0.8);
             tooltip.show(chart.xScale(d.label) + chart.xScale.bandwidth(), chart.yScale(d.value), `${d.label}: ${d.value}`);
@@ -66,8 +64,8 @@ class ResponsiveBarChart extends D3Blueprint {
       .domain([0, max(data, (d) => d.value) ?? 0])
       .range([innerHeight, 0]);
 
-    this.axes.config({ xScale: this.xScale, yScale: this.yScale, innerWidth, innerHeight, duration: 400 });
-    this.bars.config({
+    this.attached.axes.config({ xScale: this.xScale, yScale: this.yScale, innerWidth, innerHeight, duration: 400 });
+    this.attached.bars.config({
       xScale: this.xScale,
       yScale: this.yScale,
       innerHeight,

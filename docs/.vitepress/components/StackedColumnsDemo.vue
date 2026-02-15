@@ -27,8 +27,7 @@ class StackedColumnsChart extends D3Blueprint {
       .append('g')
       .attr('transform', `translate(${MARGIN.left},${MARGIN.top})`);
 
-    this.axes = new AxisChart(this.chart);
-    this.attach('axes', this.axes);
+    this.attach('axes', AxisChart, this.chart);
 
     // Layer 1: one <g> per series
     const stackGroup = this.chart.append('g').attr('class', 'stacks');
@@ -149,7 +148,7 @@ class StackedColumnsChart extends D3Blueprint {
     this.xScale.domain(data.map((d) => d.label)).range([0, innerWidth]);
     this.yScale.domain([0, maxVal]).range([this.innerHeight, 0]).nice();
 
-    this.axes.config({
+    this.attached.axes.config({
       xScale: this.xScale,
       yScale: this.yScale,
       innerWidth,

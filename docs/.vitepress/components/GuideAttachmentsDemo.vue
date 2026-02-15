@@ -106,7 +106,7 @@ class MainChart extends D3Blueprint {
     // Attach a SummaryPanel sub-chart below the bars
     const summaryGroup = this.chart.append('g')
       .attr('transform', `translate(${innerWidth / 2},${innerHeight + 40})`);
-    this.attach('summary', new SummaryPanel(summaryGroup));
+    this.attach('summary', SummaryPanel, summaryGroup);
   }
 
   preDraw(data) {

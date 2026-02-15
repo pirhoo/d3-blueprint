@@ -45,8 +45,7 @@ class TransformingChart extends D3Blueprint {
       .append('g')
       .attr('transform', `translate(${MARGIN.left},${MARGIN.top})`);
 
-    this.axes = new AxisChart(this.chart);
-    this.attach('axes', this.axes);
+    this.attach('axes', AxisChart, this.chart);
 
     // Zero baseline, prominent when y-axis crosses zero
     this.zeroLine = this.chart
@@ -277,7 +276,7 @@ class TransformingChart extends D3Blueprint {
       .attr('y2', this.yScale(0))
       .attr('opacity', showZero ? 1 : 0);
 
-    this.axes.config({
+    this.attached.axes.config({
       xScale: this.xScale,
       yScale: this.yScale,
       innerWidth,
