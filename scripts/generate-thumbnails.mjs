@@ -3,7 +3,7 @@
  * Generate PNG thumbnails for each chart example page (light + dark mode).
  *
  * Usage:
- *   node scripts/generate-thumbnails.mjs
+ *   node scripts/generate-thumbnails.mjs [slug]
  *
  * Prerequisites:
  *   - npx vitepress build docs   (build the docs site first)
@@ -56,7 +56,7 @@ const PAGES = [
   'bump-chart',
   'normalized-chart',
   'annotated-line-chart',
-  'connected-scatterplot',
+  'connected-scatterplot'
 ];
 
 const MIME = {
@@ -143,7 +143,14 @@ async function main() {
     deviceScaleFactor: 2,
   });
 
-  for (const slug of PAGES) {
+  const filterSlug = process.argv[2];
+  const pages = filterSlug ? [filterSlug] : PAGES;
+
+  if (filterSlug && !PAGES.includes(filterSlug)) {
+    console.warn(`⚠ "${filterSlug}" is not in the PAGES list, capturing anyway`);
+  }
+
+  for (const slug of pages) {
     console.log(`Capturing ${slug}...`);
     await capturePage(context, baseUrl, slug, 'light');
     await capturePage(context, baseUrl, slug, 'dark');
@@ -151,7 +158,7 @@ async function main() {
 
   await browser.close();
   server.close();
-  console.log(`\nDone — ${PAGES.length * 2} thumbnails in ${OUT_DIR}`);
+  console.log(`\nDone — ${pages.length * 2} thumbnails in ${OUT_DIR}`);
 }
 
 main();
