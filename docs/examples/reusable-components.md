@@ -231,7 +231,7 @@ A standalone helper class for hover tooltips. Unlike AxisChart and BarsChart, To
 
 ### Recommended Usage
 
-The [Plugins](/examples/plugins) page describes the recommended way to wire tooltips using the `tooltipPlugin()` factory, which eliminates manual `postDraw()` boilerplate. See [Plugins](/examples/plugins) for full details and examples.
+The [Plugins](/examples/plugins) page describes the recommended way to wire tooltips using the `Tooltip` plugin class, which eliminates manual `postDraw()` boilerplate. See [Plugins](/examples/plugins) for full details and examples.
 
 ## Examples Using This Pattern
 

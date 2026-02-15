@@ -7,7 +7,7 @@ import 'd3-transition';
 import { D3Blueprint } from 'd3-blueprint';
 import { AxisChart } from './charts/AxisChart.js';
 import { BarsChart } from './charts/BarsChart.js';
-import { tooltipPlugin } from '../plugins/tooltipPlugin.js';
+import { Tooltip } from './charts/Tooltip.js';
 
 const WIDTH = 500;
 const HEIGHT = 320;
@@ -26,9 +26,7 @@ class BarChart extends D3Blueprint {
     const innerWidth = WIDTH - MARGIN.left - MARGIN.right;
     const innerHeight = HEIGHT - MARGIN.top - MARGIN.bottom;
 
-    this.usePlugin(tooltipPlugin({
-      parent: this.chart,
-      bind: (chart, tooltip) => {
+    this.usePlugin(new Tooltip(this.chart, (chart, tooltip) => {
         chart.attached.bars.base.selectAll('rect')
           .on('mouseenter', function (event, d) {
             select(this).attr('opacity', 0.8);
@@ -38,8 +36,8 @@ class BarChart extends D3Blueprint {
             select(this).attr('opacity', 1);
             tooltip.hide();
           });
-      },
-    }));
+      }
+    ));
   }
 
   preDraw(data) {

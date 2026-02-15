@@ -40,12 +40,12 @@ What it does:
 
 The optional `name` parameter overrides the namespace (defaults to `plugin.name` or `'plugin'`).
 
-## `tooltipPlugin()`
+## `Tooltip`
 
-The first built-in plugin. It encapsulates the `Tooltip` class so you don't have to manually create it in `initialize()` and wire events in `postDraw()`.
+The `Tooltip` class is itself a plugin. Pass the SVG group (for coordinate conversion) and a `bind` callback:
 
 ```js
-import { tooltipPlugin } from './plugins/tooltipPlugin.js';
+import { Tooltip } from './charts/Tooltip.js';
 
 class BarChart extends D3Blueprint {
   initialize() {
@@ -54,26 +54,20 @@ class BarChart extends D3Blueprint {
 
     // ... set up layers, axes, etc.
 
-    const innerWidth = WIDTH - MARGIN.left - MARGIN.right;
-    const innerHeight = HEIGHT - MARGIN.top - MARGIN.bottom;
-
-    this.usePlugin(tooltipPlugin({
-      parent: this.chart,
-      bind: (chart, tooltip) => {
-        chart.bars.base.selectAll('rect')
-          .on('mouseenter', function (event, d) {
-            select(this).attr('opacity', 0.8);
-            tooltip.show(
-              chart.xScale(d.label) + chart.xScale.bandwidth(),
-              chart.yScale(d.value),
-              `${d.label}: ${d.value}`,
-            );
-          })
-          .on('mouseleave', function () {
-            select(this).attr('opacity', 1);
-            tooltip.hide();
-          });
-      },
+    this.usePlugin(new Tooltip(this.chart, (chart, tooltip) => {
+      chart.bars.base.selectAll('rect')
+        .on('mouseenter', function (event, d) {
+          select(this).attr('opacity', 0.8);
+          tooltip.show(
+            chart.xScale(d.label) + chart.xScale.bandwidth(),
+            chart.yScale(d.value),
+            `${d.label}: ${d.value}`,
+          );
+        })
+        .on('mouseleave', function () {
+          select(this).attr('opacity', 1);
+          tooltip.hide();
+        });
     }));
   }
 
@@ -81,9 +75,13 @@ class BarChart extends D3Blueprint {
 }
 ```
 
-### Options
+### Constructor
 
-| Option | Type | Description |
+```js
+new Tooltip(parent, bind)
+```
+
+| Argument | Type | Description |
 |---|---|---|
 | `parent` | d3 selection | The SVG group used for coordinate conversion |
 | `bind` | function | `bind(chart, tooltip, data)`, called on every `postDraw` to wire DOM events |
@@ -124,21 +122,18 @@ class MyChart extends D3Blueprint {
 ### After (plugin)
 
 ```js
-import { tooltipPlugin } from './plugins/tooltipPlugin.js';
+import { Tooltip } from './charts/Tooltip.js';
 
 class MyChart extends D3Blueprint {
   initialize() {
     // ... layers, axes, etc.
 
-    this.usePlugin(tooltipPlugin({
-      parent: this.chart,
-      bind: (chart, tooltip) => {
-        chart.chart.selectAll('.dots circle')
-          .on('mouseenter', function (event, d) {
-            tooltip.show(chart.xScale(d.x), chart.yScale(d.value), `Value: ${d.value}`);
-          })
-          .on('mouseleave', () => tooltip.hide());
-      },
+    this.usePlugin(new Tooltip(this.chart, (chart, tooltip) => {
+      chart.chart.selectAll('.dots circle')
+        .on('mouseenter', function (event, d) {
+          tooltip.show(chart.xScale(d.x), chart.yScale(d.value), `Value: ${d.value}`);
+        })
+        .on('mouseleave', () => tooltip.hide());
     }));
   }
 
@@ -224,7 +219,7 @@ Compose multiple plugins on the same chart:
 
 ```js
 this.usePlugin(crosshairPlugin({ parent: this.chart, height: innerHeight }));
-this.usePlugin(tooltipPlugin({ parent: this.chart, bind: ... }));
+this.usePlugin(new Tooltip(this.chart, ...));
 ```
 
 Each plugin gets its own namespaced event listeners, so they don't interfere with each other.

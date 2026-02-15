@@ -7,7 +7,7 @@ import { line, area, curveCatmullRom } from 'd3-shape';
 import 'd3-transition';
 import { D3Blueprint } from 'd3-blueprint';
 import { AxisChart } from './charts/AxisChart.js';
-import { tooltipPlugin } from '../plugins/tooltipPlugin.js';
+import { Tooltip } from './charts/Tooltip.js';
 
 const WIDTH = 500;
 const HEIGHT = 320;
@@ -92,9 +92,7 @@ class AreaChart extends D3Blueprint {
       .attr('fill', 'none')
       .style('pointer-events', 'all');
 
-    this.usePlugin(tooltipPlugin({
-      parent: this.chart,
-      bind: (chart, tooltip, data) => {
+    this.usePlugin(new Tooltip(this.chart, (chart, tooltip, data) => {
         chart.overlay
           .on('mousemove', function (event) {
             const [mx] = pointer(event, this);
@@ -108,8 +106,8 @@ class AreaChart extends D3Blueprint {
             chart.crosshair.style('display', 'none');
             tooltip.hide();
           });
-      },
-    }));
+      }
+    ));
   }
 
   preDraw(data) {

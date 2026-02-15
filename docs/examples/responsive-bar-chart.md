@@ -17,7 +17,7 @@ import { scaleBand, scaleLinear } from 'd3-scale';
 import { max } from 'd3-array';
 import { AxisChart } from './charts/AxisChart.js';
 import { BarsChart } from './charts/BarsChart.js';
-import { tooltipPlugin } from './plugins/tooltipPlugin.js';
+import { Tooltip } from './charts/Tooltip.js';
 
 class ResponsiveBarChart extends D3Blueprint {
   initialize() {
@@ -35,23 +35,20 @@ class ResponsiveBarChart extends D3Blueprint {
     this.attach('axes', AxisChart, this.chart);
     this.attach('bars', BarsChart, this.chart.append('g').classed('bars', true));
 
-    this.usePlugin(tooltipPlugin({
-      parent: this.chart,
-      bind: (chart, tooltip) => {
-        chart.attached.bars.base.selectAll('rect')
-          .on('mouseenter', function (event, d) {
-            select(this).attr('opacity', 0.8);
-            tooltip.show(
-              chart.xScale(d.label) + chart.xScale.bandwidth(),
-              chart.yScale(d.value),
-              `${d.label}: ${d.value}`,
-            );
-          })
-          .on('mouseleave', function () {
-            select(this).attr('opacity', 1);
-            tooltip.hide();
-          });
-      },
+    this.usePlugin(new Tooltip(this.chart, (chart, tooltip) => {
+      chart.attached.bars.base.selectAll('rect')
+        .on('mouseenter', function (event, d) {
+          select(this).attr('opacity', 0.8);
+          tooltip.show(
+            chart.xScale(d.label) + chart.xScale.bandwidth(),
+            chart.yScale(d.value),
+            `${d.label}: ${d.value}`,
+          );
+        })
+        .on('mouseleave', function () {
+          select(this).attr('opacity', 1);
+          tooltip.hide();
+        });
     }));
   }
 

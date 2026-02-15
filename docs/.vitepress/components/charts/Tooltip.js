@@ -1,13 +1,21 @@
 import { computePosition, flip, shift, offset } from '@floating-ui/dom';
 
 class Tooltip {
-  constructor(context) {
-    // context: a d3 selection or raw SVG element used for coordinate conversion
-    this.context = context.node ? context.node() : context;
+  constructor(parent, bind) {
+    this.name = 'tooltip';
+    this._parent = parent;
+    this._bind = bind;
+  }
 
+  install() {
+    this.context = this._parent.node ? this._parent.node() : this._parent;
     this.el = document.createElement('div');
     this.el.className = 'd3bp-tooltip';
     document.body.appendChild(this.el);
+  }
+
+  postDraw(chart, data) {
+    this._bind(chart, this, data);
   }
 
   show(x, y, lines) {
@@ -60,7 +68,7 @@ class Tooltip {
   }
 
   destroy() {
-    this.el.remove();
+    this.el?.remove();
   }
 }
 

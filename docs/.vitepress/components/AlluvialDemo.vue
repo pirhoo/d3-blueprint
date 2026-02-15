@@ -4,7 +4,7 @@ import { select } from 'd3-selection';
 import { scaleOrdinal } from 'd3-scale';
 import 'd3-transition';
 import { D3Blueprint } from 'd3-blueprint';
-import { tooltipPlugin } from '../plugins/tooltipPlugin.js';
+import { Tooltip } from './charts/Tooltip.js';
 
 const WIDTH = 500;
 const HEIGHT = 400;
@@ -122,9 +122,7 @@ class AlluvialDiagram extends D3Blueprint {
       },
     });
 
-    this.usePlugin(tooltipPlugin({
-      parent: this.chart,
-      bind: (chart, tooltip) => {
+    this.usePlugin(new Tooltip(this.chart, (chart, tooltip) => {
         chart.chart.selectAll('.links path')
           .on('mouseenter', function (event, d) {
             select(this).attr('fill-opacity', 0.7);
@@ -139,8 +137,8 @@ class AlluvialDiagram extends D3Blueprint {
             select(this).attr('fill-opacity', 0.4);
             tooltip.hide();
           });
-      },
-    }));
+      }
+    ));
   }
 
   ribbonPath(d) {

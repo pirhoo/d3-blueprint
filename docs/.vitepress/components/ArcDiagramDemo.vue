@@ -5,7 +5,7 @@ import { scalePoint, scaleOrdinal, scaleLinear } from 'd3-scale';
 import { max } from 'd3-array';
 import 'd3-transition';
 import { D3Blueprint } from 'd3-blueprint';
-import { tooltipPlugin } from '../plugins/tooltipPlugin.js';
+import { Tooltip } from './charts/Tooltip.js';
 
 const WIDTH = 500;
 const HEIGHT = 360;
@@ -125,9 +125,7 @@ class ArcDiagram extends D3Blueprint {
       },
     });
 
-    this.usePlugin(tooltipPlugin({
-      parent: this.chart,
-      bind: (chart, tooltip) => {
+    this.usePlugin(new Tooltip(this.chart, (chart, tooltip) => {
         chart.chart.selectAll('.arcs path')
           .on('mouseenter', function (event, d) {
             select(this).attr('stroke-opacity', 0.9);
@@ -157,8 +155,8 @@ class ArcDiagram extends D3Blueprint {
             select(this).attr('r', 6);
             tooltip.hide();
           });
-      },
-    }));
+      }
+    ));
   }
 
   arcPath(d) {

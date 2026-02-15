@@ -6,7 +6,7 @@ import { min, max } from 'd3-array';
 import 'd3-transition';
 import { D3Blueprint } from 'd3-blueprint';
 import { AxisChart } from './charts/AxisChart.js';
-import { tooltipPlugin } from '../plugins/tooltipPlugin.js';
+import { Tooltip } from './charts/Tooltip.js';
 
 const WIDTH = 500;
 const HEIGHT = 360;
@@ -70,9 +70,7 @@ class DivergingBarChart extends D3Blueprint {
     const innerWidth = WIDTH - MARGIN.left - MARGIN.right;
     const innerHeight = HEIGHT - MARGIN.top - MARGIN.bottom;
 
-    this.usePlugin(tooltipPlugin({
-      parent: this.chart,
-      bind: (chart, tooltip) => {
+    this.usePlugin(new Tooltip(this.chart, (chart, tooltip) => {
         chart.chart.selectAll('.bars rect')
           .on('mouseenter', function (event, d) {
             select(this).attr('fill-opacity', 0.8);
@@ -87,8 +85,8 @@ class DivergingBarChart extends D3Blueprint {
             select(this).attr('fill-opacity', 1);
             tooltip.hide();
           });
-      },
-    }));
+      }
+    ));
   }
 
   preDraw(data) {

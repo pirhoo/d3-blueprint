@@ -5,7 +5,7 @@ import { scaleOrdinal } from 'd3-scale';
 import { pie, arc } from 'd3-shape';
 import 'd3-transition';
 import { D3Blueprint } from 'd3-blueprint';
-import { tooltipPlugin } from '../plugins/tooltipPlugin.js';
+import { Tooltip } from './charts/Tooltip.js';
 
 const WIDTH = 400;
 const HEIGHT = 400;
@@ -80,9 +80,7 @@ class DonutChart extends D3Blueprint {
       .attr('font-size', '14px')
       .attr('fill', 'var(--vp-c-text-2)');
 
-    this.usePlugin(tooltipPlugin({
-      parent: this.chart,
-      bind: (chart, tooltip, data) => {
+    this.usePlugin(new Tooltip(this.chart, (chart, tooltip, data) => {
         const total = data.reduce((sum, d) => sum + d.value, 0);
 
         chart.chart.selectAll('.slices path')
@@ -96,8 +94,8 @@ class DonutChart extends D3Blueprint {
             select(this).transition().duration(100).attr('d', chart.arcFn);
             tooltip.hide();
           });
-      },
-    }));
+      }
+    ));
   }
 
   preDraw(data) {

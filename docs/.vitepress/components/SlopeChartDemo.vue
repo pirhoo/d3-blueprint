@@ -5,7 +5,7 @@ import { scaleLinear, scalePoint, scaleOrdinal } from 'd3-scale';
 import { min, max } from 'd3-array';
 import 'd3-transition';
 import { D3Blueprint } from 'd3-blueprint';
-import { tooltipPlugin } from '../plugins/tooltipPlugin.js';
+import { Tooltip } from './charts/Tooltip.js';
 
 const WIDTH = 400;
 const HEIGHT = 360;
@@ -161,9 +161,7 @@ class SlopeChart extends D3Blueprint {
       .attr('fill', 'var(--vp-c-text-2)')
       .text('After');
 
-    this.usePlugin(tooltipPlugin({
-      parent: this.chart,
-      bind: (chart, tooltip) => {
+    this.usePlugin(new Tooltip(this.chart, (chart, tooltip) => {
         chart.chart.selectAll('.left-dots circle, .right-dots circle')
           .on('mouseenter', function (event, d) {
             select(this).attr('r', 7);
@@ -180,8 +178,8 @@ class SlopeChart extends D3Blueprint {
             select(this).attr('r', 5);
             tooltip.hide();
           });
-      },
-    }));
+      }
+    ));
   }
 
   preDraw(data) {

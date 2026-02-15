@@ -7,7 +7,7 @@ import { line, curveStep } from 'd3-shape';
 import 'd3-transition';
 import { D3Blueprint } from 'd3-blueprint';
 import { AxisChart } from './charts/AxisChart.js';
-import { tooltipPlugin } from '../plugins/tooltipPlugin.js';
+import { Tooltip } from './charts/Tooltip.js';
 
 const WIDTH = 500;
 const HEIGHT = 320;
@@ -36,9 +36,7 @@ class StepLineChart extends D3Blueprint {
 
     this.attach('axes', AxisChart, this.chart);
 
-    this.usePlugin(tooltipPlugin({
-      parent: this.chart,
-      bind: (chart, tooltip) => {
+    this.usePlugin(new Tooltip(this.chart, (chart, tooltip) => {
         chart.chart.selectAll('.dots circle')
           .on('mouseenter', function (event, d) {
             select(this).attr('r', 5);
@@ -48,8 +46,8 @@ class StepLineChart extends D3Blueprint {
             select(this).attr('r', 3);
             tooltip.hide();
           });
-      },
-    }));
+      }
+    ));
 
     const lineGroup = this.chart.append('g').attr('class', 'line');
 

@@ -47,22 +47,19 @@ this.usePlugin(myPlugin, 'custom-namespace');
 
 ## Built-in Plugins
 
-### `tooltipPlugin`
+### `Tooltip`
 
-Wraps the `Tooltip` class so you don't have to create it in `initialize()` and wire mouse events in `postDraw()`:
+The `Tooltip` class is itself a plugin. Pass the SVG group (for coordinate conversion) and a `bind` callback that wires mouse events:
 
 ```js
-import { tooltipPlugin } from './plugins/tooltipPlugin.js';
+import { Tooltip } from './charts/Tooltip.js';
 
-this.usePlugin(tooltipPlugin({
-  parent: this.chart,
-  bind: (chart, tooltip) => {
-    chart.bars.base.selectAll('rect')
-      .on('mouseenter', function (event, d) {
-        tooltip.show(x(d.label) + x.bandwidth(), y(d.value), d.label);
-      })
-      .on('mouseleave', () => tooltip.hide());
-  },
+this.usePlugin(new Tooltip(this.chart, (chart, tooltip) => {
+  chart.bars.base.selectAll('rect')
+    .on('mouseenter', function (event, d) {
+      tooltip.show(x(d.label) + x.bandwidth(), y(d.value), d.label);
+    })
+    .on('mouseleave', () => tooltip.hide());
 }));
 ```
 
@@ -113,7 +110,7 @@ function crosshairPlugin({ parent, height }) {
 Stack as many plugins as you need. Each gets its own event namespace:
 
 ```js
-this.usePlugin(tooltipPlugin({ ... }));
+this.usePlugin(new Tooltip(this.chart, ...));
 this.usePlugin(crosshairPlugin({ ... }));
 this.usePlugin(responsivePlugin({ ... }));
 ```
