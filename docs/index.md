@@ -6,7 +6,7 @@ hero:
   text: Build reusable D3 charts
   tagline: A modern micro-framework to compose reusable D3 charts with TypeScript
   image:
-    src: /images/hero.svg
+    src: /images/hero-animated.svg
     alt: d3-blueprint logo
   actions:
     - theme: brand
