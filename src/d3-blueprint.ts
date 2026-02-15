@@ -164,7 +164,7 @@ export class D3Blueprint<TData = unknown> {
    * 2. Hooks `preDraw` / `postDraw` / `postTransition` via namespaced events
    * 3. Wraps `destroy()` to call `plugin.destroy(this)` before the original teardown
    */
-  usePlugin(plugin: Plugin<TData>, name?: string): this {
+  use(plugin: Plugin<TData>, name?: string): this {
     const ns = name || plugin.name || 'plugin';
 
     plugin.install(this);
