@@ -1,8 +1,4 @@
 <script setup>
-import { useData } from 'vitepress';
-
-const { isDark } = useData();
-
 const thumbnails = [
   { slug: 'bar-chart', label: 'Bar Chart' },
   { slug: 'line-chart', label: 'Line Chart' },
@@ -36,7 +32,14 @@ const thumbnails = [
         class="gallery__item"
       >
         <img
-          :src="`./thumbnails/${t.slug}${isDark ? '-dark' : ''}.png`"
+          class="gallery__img-light"
+          :src="`./thumbnails/${t.slug}.png`"
+          :alt="t.label"
+          loading="lazy"
+        />
+        <img
+          class="gallery__img-dark"
+          :src="`./thumbnails/${t.slug}-dark.png`"
           :alt="t.label"
           loading="lazy"
         />
@@ -91,6 +94,19 @@ const thumbnails = [
       width: 100%;
       height: 100%;
       object-fit: contain;
+      display: block;
+    }
+
+    .gallery__img-dark, 
+    .gallery__img-light {
+      display: none;
+    }
+
+    :root.dark & .gallery__img-dark {
+      display: block;
+    }
+
+    :root:not(.dark) & .gallery__img-light {
       display: block;
     }
 
