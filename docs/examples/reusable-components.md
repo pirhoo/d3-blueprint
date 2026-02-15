@@ -218,20 +218,39 @@ The parent chart owns the data and scales. The attachments own their rendering. 
 
 ## Tooltip
 
-A standalone helper class for hover tooltips. Unlike AxisChart and BarsChart, Tooltip is **not** a D3Blueprint subclass because tooltips don't participate in the data lifecycle. It renders an HTML `<div>` positioned with [floating-ui](https://floating-ui.com), converting SVG-local coordinates to screen coordinates via `getScreenCTM()`. Edge-aware positioning is handled automatically by floating-ui's `flip()` and `shift()` middleware.
+Unlike AxisChart and BarsChart, Tooltip is **not** a D3Blueprint subclass — it's a [plugin](/guide/plugins) that implements the Plugin interface directly. It renders an HTML `<div>` positioned with [floating-ui](https://floating-ui.com), converting SVG-local coordinates to screen coordinates via `getScreenCTM()`. Edge-aware positioning is handled automatically by floating-ui's `flip()` and `shift()` middleware.
 
-### API
+```js
+import { Tooltip } from './plugins/Tooltip.js';
+
+this.usePlugin(new Tooltip(this.chart, (chart, tooltip) => {
+  chart.attached.bars.base.selectAll('rect')
+    .on('mouseenter', function (event, d) {
+      tooltip.show(x(d.label) + x.bandwidth(), y(d.value), `${d.label}: ${d.value}`);
+    })
+    .on('mouseleave', () => tooltip.hide());
+}));
+```
+
+### Constructor
+
+```js
+new Tooltip(parent, bind)
+```
+
+| Argument | Type | Description |
+|---|---|---|
+| `parent` | d3 selection | SVG group used for coordinate conversion |
+| `bind` | function | `bind(chart, tooltip, data)` — called on every `postDraw` to wire DOM events |
+
+### Instance Methods
 
 | Method | Description |
 |---|---|
-| `constructor(context)` | `context` is a d3 selection or raw SVG element used for coordinate conversion. |
 | `show(x, y, lines)` | Positions and reveals the tooltip. `x`/`y` are SVG-local coordinates. `lines` is a string or array of `{ text, color? }`. |
 | `hide()` | Hides the tooltip. |
-| `destroy()` | Removes the tooltip element from the DOM. |
 
-### Recommended Usage
-
-The [Plugins](/examples/plugins) page describes the recommended way to wire tooltips using the `Tooltip` plugin class, which eliminates manual `postDraw()` boilerplate. See [Plugins](/examples/plugins) for full details and examples.
+See [Plugins](/examples/plugins) for the full API reference and before/after comparisons.
 
 ## Examples Using This Pattern
 
