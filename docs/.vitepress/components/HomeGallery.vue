@@ -137,7 +137,7 @@ onUnmounted(() => {
 
   &__grid {
     display: flex;
-    gap: 16px;
+    gap: 0;
     overflow-x: auto;
     scroll-snap-type: x mandatory;
     -webkit-overflow-scrolling: touch;
@@ -156,6 +156,7 @@ onUnmounted(() => {
     @media (min-width: 768px) {
       display: grid;
       grid-template-columns: repeat(auto-fill, minmax(180px, 1fr));
+      gap: 16px;
       overflow-x: visible;
       scroll-snap-type: none;
     }
