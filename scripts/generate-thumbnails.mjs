@@ -56,7 +56,9 @@ const PAGES = [
   'bump-chart',
   'normalized-chart',
   'annotated-line-chart',
-  'connected-scatterplot'
+  'connected-scatterplot',
+  'bubble-chart',
+  'labeled-bubble-chart',
 ];
 
 const MIME = {

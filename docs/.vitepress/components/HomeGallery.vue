@@ -44,6 +44,8 @@ const thumbnails = [
   { slug: 'histogram', label: 'Histogram' },
   { slug: 'histogram-density', label: 'Histogram + KDE' },
   { slug: 'donut-chart', label: 'Donut Chart' },
+  { slug: 'bubble-chart', label: 'Bubble Chart' },
+  { slug: 'labeled-bubble-chart', label: 'Labeled Bubbles' },
   // Network & Flow
   { slug: 'alluvial-diagram', label: 'Alluvial Diagram' },
   { slug: 'arc-diagram', label: 'Arc Diagram' },
