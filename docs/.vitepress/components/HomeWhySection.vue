@@ -69,7 +69,7 @@
 .why-section {
   max-width: 1152px;
   margin: 0 auto;
-  padding: 64px 24px 48px;
+  padding: 64px 0 48px;
 
   &__header {
     text-align: center;
@@ -126,7 +126,7 @@
     border: 1px solid var(--vp-c-divider);
     transition: border-color 0.25s, box-shadow 0.25s;
     text-align: center;
-    
+
     h3 {
       font-size: 17px;
       font-weight: 600;
