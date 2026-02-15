@@ -1,5 +1,8 @@
 <script setup>
+import { ref, onMounted, onUnmounted } from 'vue';
 import HomeGalleryEntry from './HomeGalleryEntry.vue';
+import HomeGalleryArrow from './HomeGalleryArrow.vue';
+import HomeGalleryDots from './HomeGalleryDots.vue';
 
 const thumbnails = [
   { slug: 'bar-chart', label: 'Bar Chart' },
@@ -20,20 +23,78 @@ const thumbnails = [
   { slug: 'arc-diagram', label: 'Arc Diagram' },
   { slug: 'responsive-bar-chart', label: 'Responsive Bar' },
 ];
+
+const gridRef = ref(null);
+const canScrollLeft = ref(false);
+const canScrollRight = ref(true);
+const activeIndex = ref(0);
+
+function updateArrows() {
+  const el = gridRef.value;
+  if (!el) return;
+  canScrollLeft.value = el.scrollLeft > 0;
+  canScrollRight.value = el.scrollLeft + el.clientWidth < el.scrollWidth - 1;
+  if (el.clientWidth > 0) {
+    activeIndex.value = Math.round(el.scrollLeft / el.clientWidth);
+  }
+}
+
+function scrollTo(index) {
+  const el = gridRef.value;
+  if (!el) return;
+  el.scrollTo({ left: index * el.clientWidth, behavior: 'smooth' });
+}
+
+function scroll(direction) {
+  const el = gridRef.value;
+  if (!el) return;
+  el.scrollBy({ left: direction * el.clientWidth, behavior: 'smooth' });
+}
+
+onMounted(() => {
+  const el = gridRef.value;
+  if (el) {
+    el.addEventListener('scroll', updateArrows, { passive: true });
+    updateArrows();
+  }
+});
+
+onUnmounted(() => {
+  const el = gridRef.value;
+  if (el) el.removeEventListener('scroll', updateArrows);
+});
 </script>
 
 <template>
   <div class="gallery">
     <h2 class="gallery__title">Examples</h2>
     <p class="gallery__subtitle">Interactive demos built with d3-blueprint</p>
-    <div class="gallery__grid">
-      <HomeGalleryEntry
-        v-for="t in thumbnails"
-        :key="t.slug"
-        :slug="t.slug"
-        :label="t.label"
+    <div class="gallery__viewport">
+      <HomeGalleryArrow
+        v-if="canScrollLeft"
+        direction="left"
+        @click="scroll(-1)"
+      />
+      <div ref="gridRef" class="gallery__grid">
+        <HomeGalleryEntry
+          v-for="t in thumbnails"
+          :key="t.slug"
+          :slug="t.slug"
+          :label="t.label"
+        />
+      </div>
+      <HomeGalleryArrow
+        v-if="canScrollRight"
+        direction="right"
+        @click="scroll(1)"
       />
     </div>
+    <HomeGalleryDots
+      :count="thumbnails.length"
+      :active-index="activeIndex"
+      :labels="thumbnails.map(t => t.label)"
+      @select="scrollTo"
+    />
   </div>
 </template>
 
@@ -42,8 +103,16 @@ const thumbnails = [
   position: relative;
   max-width: 1152px;
   margin: 0 auto;
-  padding: 16px 0;
-  overflow: hidden;
+  padding: 16px 24px;
+
+  @media (min-width: 768px) {
+    padding: 16px 0;
+  }
+  overflow: visible;
+
+  @media (min-width: 768px) {
+    overflow: hidden;
+  }
 
   &__title {
     font-size: 24px;
@@ -62,10 +131,34 @@ const thumbnails = [
     color: var(--vp-c-text-2);
   }
 
+  &__viewport {
+    position: relative;
+  }
+
   &__grid {
-    display: grid;
-    grid-template-columns: repeat(auto-fill, minmax(180px, 1fr));
+    display: flex;
     gap: 16px;
+    overflow-x: auto;
+    scroll-snap-type: x mandatory;
+    -webkit-overflow-scrolling: touch;
+    scrollbar-width: none;
+    padding-bottom: 4px;
+
+    &::-webkit-scrollbar {
+      display: none;
+    }
+
+    > :deep(*) {
+      flex: 0 0 100%;
+      scroll-snap-align: start;
+    }
+
+    @media (min-width: 768px) {
+      display: grid;
+      grid-template-columns: repeat(auto-fill, minmax(180px, 1fr));
+      overflow-x: visible;
+      scroll-snap-type: none;
+    }
   }
 }
 </style>
