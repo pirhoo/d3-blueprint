@@ -5,23 +5,48 @@ import HomeGalleryArrow from './HomeGalleryArrow.vue';
 import HomeGalleryDots from './HomeGalleryDots.vue';
 
 const thumbnails = [
+  // Fundamentals
   { slug: 'bar-chart', label: 'Bar Chart' },
-  { slug: 'line-chart', label: 'Line Chart' },
-  { slug: 'area-chart', label: 'Area Chart' },
-  { slug: 'multiline-chart', label: 'Multiline Chart' },
-  { slug: 'stacked-columns', label: 'Stacked Columns' },
-  { slug: 'stacked-area-chart', label: 'Stacked Area' },
+  { slug: 'rounded-bar-chart', label: 'Rounded Bars' },
+  { slug: 'sorted-bar-chart', label: 'Sorted Bars' },
+  { slug: 'responsive-bar-chart', label: 'Responsive Bar' },
+  // Bar Charts
   { slug: 'horizontal-bar-chart', label: 'Horizontal Bars' },
+  { slug: 'stacked-columns', label: 'Stacked Columns' },
+  { slug: 'grouped-bar-chart', label: 'Grouped Bars' },
   { slug: 'diverging-bar-chart', label: 'Diverging Bars' },
-  { slug: 'donut-chart', label: 'Donut Chart' },
-  { slug: 'scatterplot', label: 'Scatterplot' },
-  { slug: 'histogram', label: 'Histogram' },
   { slug: 'lollipop-chart', label: 'Lollipop Chart' },
+  { slug: 'lollipop-area-range', label: 'Lollipop + Range' },
+  { slug: 'diverging-lollipop', label: 'Diverging Lollipop' },
+  // Line & Area
+  { slug: 'line-chart', label: 'Line Chart' },
+  { slug: 'step-line-chart', label: 'Step Line' },
+  { slug: 'bar-line-combo', label: 'Bar + Line Combo' },
+  { slug: 'stacked-bar-line', label: 'Stacked + Line' },
+  { slug: 'dual-axis-chart', label: 'Dual Axis' },
+  { slug: 'area-bar-overlay', label: 'Area + Bar' },
+  { slug: 'multiline-chart', label: 'Multiline Chart' },
+  { slug: 'area-chart', label: 'Area Chart' },
+  { slug: 'stacked-area-chart', label: 'Stacked Area' },
   { slug: 'slope-chart', label: 'Slope Chart' },
   { slug: 'transforming-chart', label: 'Transforming Chart' },
+  { slug: 'sparkline-grid', label: 'Sparkline Grid' },
+  { slug: 'confidence-band-chart', label: 'Confidence Band' },
+  { slug: 'moving-average-chart', label: 'Moving Average' },
+  { slug: 'gradient-area-chart', label: 'Gradient Area' },
+  { slug: 'bump-chart', label: 'Bump Chart' },
+  { slug: 'normalized-chart', label: 'Normalized Lines' },
+  { slug: 'annotated-line-chart', label: 'Annotated Line' },
+  { slug: 'connected-scatterplot', label: 'Connected Scatter' },
+  // Distribution & Comparison
+  { slug: 'scatterplot', label: 'Scatterplot' },
+  { slug: 'scatter-trend-line', label: 'Scatter + Trend' },
+  { slug: 'histogram', label: 'Histogram' },
+  { slug: 'histogram-density', label: 'Histogram + KDE' },
+  { slug: 'donut-chart', label: 'Donut Chart' },
+  // Network & Flow
   { slug: 'alluvial-diagram', label: 'Alluvial Diagram' },
   { slug: 'arc-diagram', label: 'Arc Diagram' },
-  { slug: 'responsive-bar-chart', label: 'Responsive Bar' },
 ];
 
 const gridRef = ref(null);
