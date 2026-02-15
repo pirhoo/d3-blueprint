@@ -1,6 +1,6 @@
 .DEFAULT_GOAL := help
 
-.PHONY: help install test lint lint-fix build clean docs-api docs-dev docs-build docs-clean
+.PHONY: help install test lint lint-fix build clean docs-api docs-dev docs-build docs-thumbnails docs-clean
 
 help: ## Show this help message
 	@grep -E '^[a-zA-Z_-]+:.*?## .*$$' $(MAKEFILE_LIST) | sort | awk 'BEGIN {FS = ":.*?## "}; {printf "\033[36m%-15s\033[0m %s\n", $$1, $$2}'
@@ -34,6 +34,9 @@ docs-dev: ## Start VitePress dev server
 
 docs-build: docs-api ## Build documentation site
 	npx vitepress build docs
+
+docs-thumbnails: docs-build ## Generate gallery thumbnails (requires Playwright)
+	node scripts/generate-thumbnails.mjs
 
 docs-clean: ## Remove generated docs and caches
 	rm -rf temp/ docs/.vitepress/dist/ docs/.vitepress/cache/
