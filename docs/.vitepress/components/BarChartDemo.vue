@@ -103,7 +103,7 @@ onMounted(() => {
   intervalId = setInterval(() => {
     datasetIndex = (datasetIndex + 1) % datasets.length;
     chart?.draw(datasets[datasetIndex]);
-  }, 2500);
+  }, 4000);
 });
 
 onUnmounted(() => {

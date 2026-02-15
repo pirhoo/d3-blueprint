@@ -125,7 +125,7 @@ onMounted(() => {
     colorIndex = (colorIndex + 1) % barColors.length;
     chart?.config('barColor', barColors[colorIndex]);
     chart?.draw(data);
-  }, 2500);
+  }, 4000);
 });
 
 onUnmounted(() => {

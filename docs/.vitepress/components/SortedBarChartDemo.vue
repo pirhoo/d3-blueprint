@@ -100,7 +100,7 @@ onMounted(() => {
     modeIndex = (modeIndex + 1) % sortModes.length;
     chart._sortMode = sortModes[modeIndex];
     chart.draw(baseData);
-  }, 2500);
+  }, 4000);
 });
 
 onUnmounted(() => {
