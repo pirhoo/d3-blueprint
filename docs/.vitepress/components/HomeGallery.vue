@@ -127,7 +127,6 @@ onUnmounted(() => {
       :count="thumbnails.length"
       :active-index="activeIndex"
       :labels="thumbnails.map(t => t.label)"
-      @select="scrollTo"
     />
   </div>
 </template>

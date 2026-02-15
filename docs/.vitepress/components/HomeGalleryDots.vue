@@ -4,49 +4,33 @@ defineProps<{
   activeIndex: number;
   labels: string[];
 }>();
-
-defineEmits<{
-  select: [index: number];
-}>();
 </script>
 
 <template>
-  <div class="dots">
-    <button
-      v-for="i in count"
-      :key="i"
-      class="dots__item"
-      :class="{ 'dots__item--active': i - 1 === activeIndex }"
-      :aria-label="`Go to ${labels[i - 1]}`"
-      @click="$emit('select', i - 1)"
-    />
-  </div>
+  <p class="counter" :aria-label="`Slide ${activeIndex + 1} of ${count}: ${labels[activeIndex]}`">
+    <span class="counter__current">{{ activeIndex + 1 }}</span>
+    <span class="counter__sep">/</span>
+    <span class="counter__total">{{ count }}</span>
+  </p>
 </template>
 
 <style scoped lang="scss">
-.dots {
+.counter {
   display: flex;
   justify-content: center;
-  gap: 6px;
-  margin-top: 12px;
+  align-items: baseline;
+  gap: 4px;
+  margin: 12px 0 0;
+  font-size: 13px;
+  color: var(--vp-c-text-3);
 
   @media (min-width: 768px) {
     display: none;
   }
 
-  &__item {
-    width: 8px;
-    height: 8px;
-    border-radius: 2px;
-    border: none;
-    padding: 0;
-    cursor: pointer;
-    background: var(--vp-c-divider);
-    transition: background 0.2s;
-
-    &--active {
-      background: var(--vp-c-brand-1);
-    }
+  &__current {
+    font-weight: 600;
+    color: var(--vp-c-text-1);
   }
 }
 </style>
