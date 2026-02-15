@@ -4,7 +4,7 @@ Attachments let you compose charts by nesting one chart inside another. When the
 
 ## Attaching a Sub-Chart
 
-Use `attach(name, chart)` to register a sub-chart:
+Use `attach(name, ChartClass, base)` to register a sub-chart. The parent instantiates the component for you and stores it on `this.attached`:
 
 ```ts
 import { select } from 'd3-selection';
@@ -13,13 +13,15 @@ import type { D3Selection } from 'd3-blueprint';
 const root = select('#app') as unknown as D3Selection;
 
 const main = new MainChart(root);
-const legend = new LegendChart(root.append('div') as unknown as D3Selection);
-
-main.attach('legend', legend);
+main.attach('legend', LegendChart, root.append('div') as unknown as D3Selection);
 
 // Drawing main also draws the legend
 await main.draw(data);
 ```
+
+::: info Legacy API
+The two-argument form `attach(name, chartInstance)` is still supported for backwards compatibility, but the three-argument form above is preferred.
+:::
 
 <ClientOnly>
   <GuideAttachmentsDemo />
@@ -51,11 +53,8 @@ Attached charts must accept the same data type as the parent:
 class Dashboard extends D3Blueprint<DashboardData> {
   protected initialize(): void {
     // Both sub-charts receive DashboardData
-    const header = new HeaderChart(this.base.append('div') as unknown as D3Selection);
-    const body = new BodyChart(this.base.append('div') as unknown as D3Selection);
-
-    this.attach('header', header);
-    this.attach('body', body);
+    this.attach('header', HeaderChart, this.base.append('div') as unknown as D3Selection);
+    this.attach('body', BodyChart, this.base.append('div') as unknown as D3Selection);
   }
 }
 ```
@@ -66,11 +65,9 @@ Each attached chart maintains its own config:
 
 ```ts
 const main = new BarChart(root);
-const mini = new BarChart(root.append('div') as unknown as D3Selection);
+main.attach('minimap', BarChart, root.append('div') as unknown as D3Selection);
 
-mini.config({ width: 200, height: 100 });
-
-main.attach('minimap', mini);
+main.attached.minimap.config({ width: 200, height: 100 });
 ```
 
 ## Real-World Example

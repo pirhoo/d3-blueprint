@@ -32,8 +32,7 @@ class Scatterplot extends D3Blueprint {
       .append('g')
       .attr('transform', `translate(${MARGIN.left},${MARGIN.top})`);
 
-    this.axes = new AxisChart(this.chart);
-    this.attach('axes', this.axes);
+    this.attach('axes', AxisChart, this.chart);
 
     // Layer 1: dots
     const dotsGroup = this.chart.append('g').attr('class', 'dots');
@@ -110,7 +109,7 @@ class Scatterplot extends D3Blueprint {
     this.xScale.domain([0, max(data, (d) => d.x) * 1.1]).range([0, innerWidth]);
     this.yScale.domain([0, max(data, (d) => d.y) * 1.1]).range([innerHeight, 0]);
 
-    this.axes.config({
+    this.attached.axes.config({
       xScale: this.xScale,
       yScale: this.yScale,
       innerWidth,

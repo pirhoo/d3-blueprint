@@ -29,8 +29,7 @@ class HorizontalBarChart extends D3Blueprint {
       .append('g')
       .attr('transform', `translate(${MARGIN.left},${MARGIN.top})`);
 
-    this.axes = new AxisChart(this.chart);
-    this.attach('axes', this.axes);
+    this.attach('axes', AxisChart, this.chart);
 
     const barsGroup = this.chart.append('g').attr('class', 'bars');
 
@@ -79,7 +78,7 @@ class HorizontalBarChart extends D3Blueprint {
     this.yScale.domain(data.map((d) => d.label)).range([0, innerHeight]);
     this.xScale.domain([0, max(data, (d) => d.value) * 1.1]).range([0, innerWidth]).nice();
 
-    this.axes.config({
+    this.attached.axes.config({
       xScale: this.xScale,
       yScale: this.yScale,
       innerWidth,

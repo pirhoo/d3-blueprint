@@ -34,8 +34,7 @@ class MultilineChart extends D3Blueprint {
       .attr('transform', `translate(${MARGIN.left},${MARGIN.top})`);
 
     // Reusable axis component
-    this.axes = new AxisChart(this.chart);
-    this.attach('axes', this.axes);
+    this.attach('axes', AxisChart, this.chart);
 
     // Layer 1: one path per series
     const linesGroup = this.chart.append('g').attr('class', 'lines');
@@ -149,7 +148,7 @@ class MultilineChart extends D3Blueprint {
       .x((d) => this.xScale(d.x))
       .y((d) => this.yScale(d.value));
 
-    this.axes.config({
+    this.attached.axes.config({
       xScale: this.xScale,
       yScale: this.yScale,
       innerWidth,

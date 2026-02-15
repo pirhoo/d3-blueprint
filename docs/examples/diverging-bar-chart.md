@@ -29,8 +29,7 @@ class DivergingBarChart extends D3Blueprint {
       .append('g')
       .attr('transform', `translate(${MARGIN.left},${MARGIN.top})`);
 
-    this.axes = new AxisChart(this.chart);
-    this.attach('axes', this.axes);
+    this.attach('axes', AxisChart, this.chart);
 
     const barsGroup = this.chart.append('g').attr('class', 'bars');
 
@@ -98,7 +97,7 @@ class DivergingBarChart extends D3Blueprint {
       .attr('y1', 0)
       .attr('y2', innerHeight);
 
-    this.axes.config({
+    this.attached.axes.config({
       xScale: this.xScale,
       yScale: this.yScale,
       innerWidth,

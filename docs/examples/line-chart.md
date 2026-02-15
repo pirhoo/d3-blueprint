@@ -32,8 +32,7 @@ class LineChart extends D3Blueprint {
       .attr('transform', `translate(${MARGIN.left},${MARGIN.top})`);
 
     // Reusable axis component
-    this.axes = new AxisChart(this.chart);
-    this.attach('axes', this.axes);
+    this.attach('axes', AxisChart, this.chart);
 
     // Layer 1: the line path (binds the whole array as a single datum)
     const lineGroup = this.chart.append('g').attr('class', 'line');
@@ -108,7 +107,7 @@ class LineChart extends D3Blueprint {
       .x((d) => this.xScale(d.x))
       .y((d) => this.yScale(d.value));
 
-    this.axes.config({
+    this.attached.axes.config({
       xScale: this.xScale,
       yScale: this.yScale,
       innerWidth,

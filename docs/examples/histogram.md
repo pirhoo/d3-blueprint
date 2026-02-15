@@ -29,8 +29,7 @@ class Histogram extends D3Blueprint {
       .append('g')
       .attr('transform', `translate(${MARGIN.left},${MARGIN.top})`);
 
-    this.axes = new AxisChart(this.chart);
-    this.attach('axes', this.axes);
+    this.attach('axes', AxisChart, this.chart);
 
     const innerHeight = 400 - MARGIN.top - MARGIN.bottom;
 
@@ -88,7 +87,7 @@ class Histogram extends D3Blueprint {
     this.xScale.range([0, innerWidth]);
     this.yScale.domain([0, max(data, (d) => d.length)]).range([innerHeight, 0]).nice();
 
-    this.axes.config({
+    this.attached.axes.config({
       xScale: this.xScale,
       yScale: this.yScale,
       innerWidth,

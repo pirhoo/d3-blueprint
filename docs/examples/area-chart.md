@@ -32,8 +32,7 @@ class AreaChart extends D3Blueprint {
       .append('g')
       .attr('transform', `translate(${MARGIN.left},${MARGIN.top})`);
 
-    this.axes = new AxisChart(this.chart);
-    this.attach('axes', this.axes);
+    this.attach('axes', AxisChart, this.chart);
 
     const innerWidth = 600 - MARGIN.left - MARGIN.right;
     const innerHeight = 400 - MARGIN.top - MARGIN.bottom;
@@ -112,7 +111,7 @@ class AreaChart extends D3Blueprint {
       .x((d) => this.xScale(d.x))
       .y((d) => this.yScale(d.value));
 
-    this.axes.config({
+    this.attached.axes.config({
       xScale: this.xScale,
       yScale: this.yScale,
       innerWidth,

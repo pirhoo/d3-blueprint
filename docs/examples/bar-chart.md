@@ -28,11 +28,8 @@ class BarChart extends D3Blueprint {
       .attr('transform', `translate(${MARGIN.left},${MARGIN.top})`);
 
     // Attach reusable axis and bar components
-    this.axes = new AxisChart(this.chart);
-    this.attach('axes', this.axes);
-
-    this.bars = new BarsChart(this.chart.append('g').classed('bars', true));
-    this.attach('bars', this.bars);
+    this.attach('axes', AxisChart, this.chart);
+    this.attach('bars', BarsChart, this.chart.append('g').classed('bars', true));
 
     const innerWidth = 600 - MARGIN.left - MARGIN.right;
     const innerHeight = 400 - MARGIN.top - MARGIN.bottom;
@@ -53,8 +50,8 @@ class BarChart extends D3Blueprint {
       .range([innerHeight, 0]);
 
     // Configure attachments. They read these when they draw.
-    this.axes.config({ xScale: this.xScale, yScale: this.yScale, innerWidth, innerHeight, duration: 750 });
-    this.bars.config({ xScale: this.xScale, yScale: this.yScale, innerHeight, fill: 'steelblue', duration: 750 });
+    this.attached.axes.config({ xScale: this.xScale, yScale: this.yScale, innerWidth, innerHeight, duration: 750 });
+    this.attached.bars.config({ xScale: this.xScale, yScale: this.yScale, innerHeight, fill: 'steelblue', duration: 750 });
   }
 
   postDraw() {
@@ -62,7 +59,7 @@ class BarChart extends D3Blueprint {
     const xScale = this.xScale;
     const yScale = this.yScale;
 
-    this.bars.base.selectAll('rect')
+    this.attached.bars.base.selectAll('rect')
       .on('mouseenter', function (event, d) {
         select(this).attr('opacity', 0.8);
         tooltip.show(xScale(d.label) + xScale.bandwidth(), yScale(d.value), `${d.label}: ${d.value}`);

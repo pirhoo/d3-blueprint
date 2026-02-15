@@ -186,11 +186,8 @@ class BarChart extends D3Blueprint {
       .attr('transform', `translate(${MARGIN.left},${MARGIN.top})`);
 
     // Create and attach reusable components
-    this.axes = new AxisChart(chart);
-    this.attach('axes', this.axes);
-
-    this.bars = new BarsChart(chart.append('g').classed('bars', true));
-    this.attach('bars', this.bars);
+    this.attach('axes', AxisChart, chart);
+    this.attach('bars', BarsChart, chart.append('g').classed('bars', true));
   }
 
   preDraw(data) {
@@ -207,8 +204,8 @@ class BarChart extends D3Blueprint {
       .range([innerHeight, 0]);
 
     // Configure attachments. They'll read these when they draw.
-    this.axes.config({ xScale, yScale, innerWidth, innerHeight });
-    this.bars.config({ xScale, yScale, innerHeight, fill: 'steelblue' });
+    this.attached.axes.config({ xScale, yScale, innerWidth, innerHeight });
+    this.attached.bars.config({ xScale, yScale, innerHeight, fill: 'steelblue' });
   }
 }
 ```
