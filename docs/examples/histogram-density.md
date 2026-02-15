@@ -17,7 +17,7 @@ import { scaleLinear } from 'd3-scale';
 import { max, bin, mean } from 'd3-array';
 import { line, curveBasis } from 'd3-shape';
 import { AxisChart } from './charts/AxisChart.js';
-import { Tooltip } from './plugins/Tooltip.js';
+import { tooltipPlugin } from './plugins/Tooltip.js';
 
 const MARGIN = { top: 20, right: 20, bottom: 30, left: 45 };
 
@@ -107,7 +107,7 @@ class HistogramDensity extends D3Blueprint {
     });
 
     const innerWidth = 600 - MARGIN.left - MARGIN.right;
-    this.tooltip = new Tooltip(this.chart);
+    this.tooltip = tooltipPlugin(this.chart);
   }
 
   transform(data) {

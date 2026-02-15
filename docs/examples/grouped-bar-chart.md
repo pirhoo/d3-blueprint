@@ -16,7 +16,7 @@ import { scaleBand, scaleLinear, scaleOrdinal } from 'd3-scale';
 import { max } from 'd3-array';
 import { select } from 'd3-selection';
 import { AxisChart } from './charts/AxisChart.js';
-import { Tooltip } from './plugins/Tooltip.js';
+import { tooltipPlugin } from './plugins/Tooltip.js';
 
 const COLORS = ['steelblue', '#e45858', '#50a060'];
 const KEYS = ['mobile', 'desktop', 'tablet'];
@@ -110,7 +110,7 @@ class GroupedBarChart extends D3Blueprint {
 
     const innerWidth = 600 - MARGIN.left - MARGIN.right;
     const innerHeight = 400 - MARGIN.top - MARGIN.bottom;
-    this.tooltip = new Tooltip(this.chart);
+    this.tooltip = tooltipPlugin(this.chart);
   }
 
   preDraw(data) {

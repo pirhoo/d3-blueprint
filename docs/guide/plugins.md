@@ -47,14 +47,14 @@ this.usePlugin(myPlugin, 'custom-namespace');
 
 ## Built-in Plugins
 
-### `Tooltip`
+### `tooltipPlugin`
 
-The `Tooltip` class is itself a plugin. Pass the SVG group (for coordinate conversion) and a `bind` callback that wires mouse events:
+A factory that returns a tooltip plugin. Pass the SVG group (for coordinate conversion) and a `bind` callback that wires mouse events:
 
 ```js
-import { Tooltip } from './plugins/Tooltip.js';
+import { tooltipPlugin } from './plugins/Tooltip.js';
 
-this.usePlugin(new Tooltip(this.chart, (chart, tooltip) => {
+this.usePlugin(tooltipPlugin(this.chart, (chart, tooltip) => {
   chart.bars.base.selectAll('rect')
     .on('mouseenter', function (event, d) {
       tooltip.show(x(d.label) + x.bandwidth(), y(d.value), d.label);
@@ -110,7 +110,7 @@ function crosshairPlugin({ parent, height }) {
 Stack as many plugins as you need. Each gets its own event namespace:
 
 ```js
-this.usePlugin(new Tooltip(this.chart, ...));
+this.usePlugin(tooltipPlugin(this.chart, ...));
 this.usePlugin(crosshairPlugin({ ... }));
 this.usePlugin(responsivePlugin({ ... }));
 ```

@@ -218,12 +218,12 @@ The parent chart owns the data and scales. The attachments own their rendering. 
 
 ## Tooltip
 
-Unlike AxisChart and BarsChart, Tooltip is **not** a D3Blueprint subclass — it's a [plugin](/guide/plugins) that implements the Plugin interface directly. It renders an HTML `<div>` positioned with [floating-ui](https://floating-ui.com), converting SVG-local coordinates to screen coordinates via `getScreenCTM()`. Edge-aware positioning is handled automatically by floating-ui's `flip()` and `shift()` middleware.
+Unlike AxisChart and BarsChart, the tooltip is **not** a D3Blueprint subclass — it's a [plugin](/guide/plugins) factory that returns a plugin object. It renders an HTML `<div>` positioned with [floating-ui](https://floating-ui.com), converting SVG-local coordinates to screen coordinates via `getScreenCTM()`. Edge-aware positioning is handled automatically by floating-ui's `flip()` and `shift()` middleware.
 
 ```js
-import { Tooltip } from './plugins/Tooltip.js';
+import { tooltipPlugin } from './plugins/Tooltip.js';
 
-this.usePlugin(new Tooltip(this.chart, (chart, tooltip) => {
+this.usePlugin(tooltipPlugin(this.chart, (chart, tooltip) => {
   chart.attached.bars.base.selectAll('rect')
     .on('mouseenter', function (event, d) {
       tooltip.show(x(d.label) + x.bandwidth(), y(d.value), `${d.label}: ${d.value}`);
@@ -232,10 +232,10 @@ this.usePlugin(new Tooltip(this.chart, (chart, tooltip) => {
 }));
 ```
 
-### Constructor
+### Signature
 
 ```js
-new Tooltip(parent, bind)
+tooltipPlugin(parent, bind)
 ```
 
 | Argument | Type | Description |

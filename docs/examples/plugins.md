@@ -40,12 +40,12 @@ What it does:
 
 The optional `name` parameter overrides the namespace (defaults to `plugin.name` or `'plugin'`).
 
-## `Tooltip`
+## `tooltipPlugin()`
 
-The `Tooltip` class is itself a plugin. Pass the SVG group (for coordinate conversion) and a `bind` callback:
+A factory that returns a tooltip plugin. Pass the SVG group (for coordinate conversion) and a `bind` callback:
 
 ```js
-import { Tooltip } from './plugins/Tooltip.js';
+import { tooltipPlugin } from './plugins/Tooltip.js';
 
 class BarChart extends D3Blueprint {
   initialize() {
@@ -54,7 +54,7 @@ class BarChart extends D3Blueprint {
 
     // ... set up layers, axes, etc.
 
-    this.usePlugin(new Tooltip(this.chart, (chart, tooltip) => {
+    this.usePlugin(tooltipPlugin(this.chart, (chart, tooltip) => {
       chart.bars.base.selectAll('rect')
         .on('mouseenter', function (event, d) {
           select(this).attr('opacity', 0.8);
@@ -75,10 +75,10 @@ class BarChart extends D3Blueprint {
 }
 ```
 
-### Constructor
+### Signature
 
 ```js
-new Tooltip(parent, bind)
+tooltipPlugin(parent, bind)
 ```
 
 | Argument | Type | Description |
@@ -100,21 +100,19 @@ The tooltip uses [floating-ui](https://floating-ui.com) under the hood. It conve
 ### Before (manual wiring)
 
 ```js
-import { Tooltip } from './plugins/Tooltip.js';
-
 class MyChart extends D3Blueprint {
   initialize() {
     // ... layers, axes, etc.
-    this.tooltip = new Tooltip(this.chart);
+    this.tooltipEl = document.createElement('div');
+    document.body.appendChild(this.tooltipEl);
   }
 
   postDraw(data) {
-    const tooltip = this.tooltip;
     this.chart.selectAll('.dots circle')
-      .on('mouseenter', function (event, d) {
-        tooltip.show(xScale(d.x), yScale(d.value), `Value: ${d.value}`);
+      .on('mouseenter', (event, d) => {
+        // manual positioning, show/hide logic, etc.
       })
-      .on('mouseleave', () => tooltip.hide());
+      .on('mouseleave', () => { /* hide tooltip */ });
   }
 }
 ```
@@ -122,13 +120,13 @@ class MyChart extends D3Blueprint {
 ### After (plugin)
 
 ```js
-import { Tooltip } from './plugins/Tooltip.js';
+import { tooltipPlugin } from './plugins/Tooltip.js';
 
 class MyChart extends D3Blueprint {
   initialize() {
     // ... layers, axes, etc.
 
-    this.usePlugin(new Tooltip(this.chart, (chart, tooltip) => {
+    this.usePlugin(tooltipPlugin(this.chart, (chart, tooltip) => {
       chart.chart.selectAll('.dots circle')
         .on('mouseenter', function (event, d) {
           tooltip.show(chart.xScale(d.x), chart.yScale(d.value), `Value: ${d.value}`);
@@ -219,7 +217,7 @@ Compose multiple plugins on the same chart:
 
 ```js
 this.usePlugin(crosshairPlugin({ parent: this.chart, height: innerHeight }));
-this.usePlugin(new Tooltip(this.chart, ...));
+this.usePlugin(tooltipPlugin(this.chart, ...));
 ```
 
 Each plugin gets its own namespaced event listeners, so they don't interfere with each other.

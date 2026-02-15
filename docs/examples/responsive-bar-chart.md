@@ -17,7 +17,7 @@ import { scaleBand, scaleLinear } from 'd3-scale';
 import { max } from 'd3-array';
 import { AxisChart } from './charts/AxisChart.js';
 import { BarsChart } from './charts/BarsChart.js';
-import { Tooltip } from './plugins/Tooltip.js';
+import { tooltipPlugin } from './plugins/Tooltip.js';
 
 class ResponsiveBarChart extends D3Blueprint {
   initialize() {
@@ -35,7 +35,7 @@ class ResponsiveBarChart extends D3Blueprint {
     this.attach('axes', AxisChart, this.chart);
     this.attach('bars', BarsChart, this.chart.append('g').classed('bars', true));
 
-    this.usePlugin(new Tooltip(this.chart, (chart, tooltip) => {
+    this.usePlugin(tooltipPlugin(this.chart, (chart, tooltip) => {
       chart.attached.bars.base.selectAll('rect')
         .on('mouseenter', function (event, d) {
           select(this).attr('opacity', 0.8);

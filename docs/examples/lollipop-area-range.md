@@ -17,7 +17,7 @@ import { scaleBand, scaleLinear } from 'd3-scale';
 import { max } from 'd3-array';
 import { area, curveCatmullRom } from 'd3-shape';
 import { AxisChart } from './charts/AxisChart.js';
-import { Tooltip } from './plugins/Tooltip.js';
+import { tooltipPlugin } from './plugins/Tooltip.js';
 
 const MARGIN = { top: 20, right: 20, bottom: 30, left: 40 };
 
@@ -122,7 +122,7 @@ class LollipopAreaRange extends D3Blueprint {
 
     const innerWidth = 500 - MARGIN.left - MARGIN.right;
     const innerHeight = 320 - MARGIN.top - MARGIN.bottom;
-    this.tooltip = new Tooltip(this.chart);
+    this.tooltip = tooltipPlugin(this.chart);
   }
 
   preDraw(data) {

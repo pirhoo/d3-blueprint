@@ -16,7 +16,7 @@ import { D3Blueprint } from 'd3-blueprint';
 import { scaleBand, scaleLinear } from 'd3-scale';
 import { min, max } from 'd3-array';
 import { AxisChart } from './charts/AxisChart.js';
-import { Tooltip } from './plugins/Tooltip.js';
+import { tooltipPlugin } from './plugins/Tooltip.js';
 
 const MARGIN = { top: 10, right: 20, bottom: 30, left: 100 };
 
@@ -77,7 +77,7 @@ class DivergingBarChart extends D3Blueprint {
 
     const innerWidth = 600 - MARGIN.left - MARGIN.right;
     const innerHeight = 380 - MARGIN.top - MARGIN.bottom;
-    this.tooltip = new Tooltip(this.chart);
+    this.tooltip = tooltipPlugin(this.chart);
   }
 
   preDraw(data) {

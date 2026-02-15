@@ -14,7 +14,7 @@ An alluvial (Sankey-style) diagram showing flows between energy sources and end 
 import { select } from 'd3-selection';
 import { D3Blueprint } from 'd3-blueprint';
 import { scaleOrdinal } from 'd3-scale';
-import { Tooltip } from './plugins/Tooltip.js';
+import { tooltipPlugin } from './plugins/Tooltip.js';
 
 const WIDTH = 500;
 const HEIGHT = 400;
@@ -130,7 +130,7 @@ class AlluvialDiagram extends D3Blueprint {
       },
     });
 
-    this.tooltip = new Tooltip(this.chart);
+    this.tooltip = tooltipPlugin(this.chart);
   }
 
   ribbonPath(d) {

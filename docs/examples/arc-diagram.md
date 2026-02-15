@@ -15,7 +15,7 @@ import { select } from 'd3-selection';
 import { D3Blueprint } from 'd3-blueprint';
 import { scalePoint, scaleOrdinal, scaleLinear } from 'd3-scale';
 import { max } from 'd3-array';
-import { Tooltip } from './plugins/Tooltip.js';
+import { tooltipPlugin } from './plugins/Tooltip.js';
 
 const WIDTH = 500;
 const HEIGHT = 360;
@@ -136,7 +136,7 @@ class ArcDiagram extends D3Blueprint {
       },
     });
 
-    this.tooltip = new Tooltip(this.chart);
+    this.tooltip = tooltipPlugin(this.chart);
   }
 
   arcPath(d) {

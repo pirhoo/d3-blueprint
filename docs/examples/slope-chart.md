@@ -15,7 +15,7 @@ import { select } from 'd3-selection';
 import { D3Blueprint } from 'd3-blueprint';
 import { scaleLinear, scalePoint, scaleOrdinal } from 'd3-scale';
 import { min, max } from 'd3-array';
-import { Tooltip } from './plugins/Tooltip.js';
+import { tooltipPlugin } from './plugins/Tooltip.js';
 
 const COLORS = ['steelblue', '#e45858', '#50a060', '#e8a838', '#7c6bbf'];
 const MARGIN = { top: 30, right: 60, bottom: 30, left: 60 };
@@ -167,7 +167,7 @@ class SlopeChart extends D3Blueprint {
       .attr('font-weight', '600')
       .text('After');
 
-    this.tooltip = new Tooltip(this.chart);
+    this.tooltip = tooltipPlugin(this.chart);
   }
 
   preDraw(data) {

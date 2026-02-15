@@ -17,7 +17,7 @@ import { scaleLinear, scaleOrdinal } from 'd3-scale';
 import { max } from 'd3-array';
 import { stack, area, curveCatmullRom } from 'd3-shape';
 import { AxisChart } from './charts/AxisChart.js';
-import { Tooltip } from './plugins/Tooltip.js';
+import { tooltipPlugin } from './plugins/Tooltip.js';
 
 const COLORS = ['steelblue', '#e45858', '#50a060'];
 const KEYS = ['Desktop', 'Mobile', 'Tablet'];
@@ -97,7 +97,7 @@ class StackedAreaChart extends D3Blueprint {
       .attr('stroke-dasharray', '4,3')
       .style('display', 'none');
 
-    this.tooltip = new Tooltip(this.chart);
+    this.tooltip = tooltipPlugin(this.chart);
 
     this.overlay = this.chart
       .append('rect')

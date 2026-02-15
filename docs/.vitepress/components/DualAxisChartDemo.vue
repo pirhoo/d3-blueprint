@@ -9,7 +9,7 @@ import 'd3-transition';
 import { D3Blueprint } from 'd3-blueprint';
 import { AxisChart } from './charts/AxisChart.js';
 import { BarsChart } from './charts/BarsChart.js';
-import { Tooltip } from '../plugins/Tooltip.js';
+import { tooltipPlugin } from '../plugins/Tooltip.js';
 
 const WIDTH = 500;
 const HEIGHT = 320;
@@ -29,7 +29,7 @@ class DualAxisChart extends D3Blueprint {
 
     this.lineFn = line();
 
-    this.usePlugin(new Tooltip(this.chart, (chart, tooltip) => {
+    this.usePlugin(tooltipPlugin(this.chart, (chart, tooltip) => {
         chart.attached.bars.base.selectAll('rect')
           .on('mouseenter', function (event, d) {
             select(this).attr('opacity', 0.8);

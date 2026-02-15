@@ -16,7 +16,7 @@ import { D3Blueprint } from 'd3-blueprint';
 import { scaleLinear, scaleOrdinal } from 'd3-scale';
 import { max } from 'd3-array';
 import { AxisChart } from './charts/AxisChart.js';
-import { Tooltip } from './plugins/Tooltip.js';
+import { tooltipPlugin } from './plugins/Tooltip.js';
 
 const COLORS = ['steelblue', '#e45858', '#50a060'];
 const GROUPS = ['Group A', 'Group B', 'Group C'];
@@ -99,7 +99,7 @@ class Scatterplot extends D3Blueprint {
 
     const innerWidth = 600 - MARGIN.left - MARGIN.right;
     const innerHeight = 400 - MARGIN.top - MARGIN.bottom;
-    this.tooltip = new Tooltip(this.chart);
+    this.tooltip = tooltipPlugin(this.chart);
   }
 
   preDraw(data) {

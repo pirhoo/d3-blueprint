@@ -17,7 +17,7 @@ import { scaleBand, scaleLinear } from 'd3-scale';
 import { max } from 'd3-array';
 import { AxisChart } from './charts/AxisChart.js';
 import { BarsChart } from './charts/BarsChart.js';
-import { Tooltip } from './plugins/Tooltip.js';
+import { tooltipPlugin } from './plugins/Tooltip.js';
 
 const MARGIN = { top: 20, right: 20, bottom: 30, left: 40 };
 
@@ -33,7 +33,7 @@ class BarChart extends D3Blueprint {
 
     const innerWidth = 600 - MARGIN.left - MARGIN.right;
     const innerHeight = 400 - MARGIN.top - MARGIN.bottom;
-    this.tooltip = new Tooltip(this.chart);
+    this.tooltip = tooltipPlugin(this.chart);
   }
 
   preDraw(data) {

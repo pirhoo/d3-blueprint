@@ -7,7 +7,7 @@ import { line, curveBasis } from 'd3-shape';
 import 'd3-transition';
 import { D3Blueprint } from 'd3-blueprint';
 import { AxisChart } from './charts/AxisChart.js';
-import { Tooltip } from '../plugins/Tooltip.js';
+import { tooltipPlugin } from '../plugins/Tooltip.js';
 
 const WIDTH = 500;
 const HEIGHT = 320;
@@ -111,7 +111,7 @@ class HistogramDensity extends D3Blueprint {
       },
     });
 
-    this.usePlugin(new Tooltip(this.chart, (chart, tooltip) => {
+    this.usePlugin(tooltipPlugin(this.chart, (chart, tooltip) => {
         chart.chart.selectAll('.bars rect')
           .on('mouseenter', function (event, d) {
             select(this).attr('fill-opacity', 0.8);

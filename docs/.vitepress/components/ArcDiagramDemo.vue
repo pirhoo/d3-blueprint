@@ -5,7 +5,7 @@ import { scalePoint, scaleOrdinal, scaleLinear } from 'd3-scale';
 import { max } from 'd3-array';
 import 'd3-transition';
 import { D3Blueprint } from 'd3-blueprint';
-import { Tooltip } from '../plugins/Tooltip.js';
+import { tooltipPlugin } from '../plugins/Tooltip.js';
 
 const WIDTH = 500;
 const HEIGHT = 360;
@@ -125,7 +125,7 @@ class ArcDiagram extends D3Blueprint {
       },
     });
 
-    this.usePlugin(new Tooltip(this.chart, (chart, tooltip) => {
+    this.usePlugin(tooltipPlugin(this.chart, (chart, tooltip) => {
         chart.chart.selectAll('.arcs path')
           .on('mouseenter', function (event, d) {
             select(this).attr('stroke-opacity', 0.9);
