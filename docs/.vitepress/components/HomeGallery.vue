@@ -1,4 +1,6 @@
 <script setup>
+import HomeGalleryEntry from './HomeGalleryEntry.vue';
+
 const thumbnails = [
   { slug: 'bar-chart', label: 'Bar Chart' },
   { slug: 'line-chart', label: 'Line Chart' },
@@ -25,26 +27,12 @@ const thumbnails = [
     <h2 class="gallery__title">Examples</h2>
     <p class="gallery__subtitle">Interactive demos built with d3-blueprint</p>
     <div class="gallery__grid">
-      <a
+      <HomeGalleryEntry
         v-for="t in thumbnails"
         :key="t.slug"
-        :href="`./examples/${t.slug}`"
-        class="gallery__item"
-      >
-        <img
-          class="gallery__img-light"
-          :src="`./thumbnails/${t.slug}.png`"
-          :alt="t.label"
-          loading="lazy"
-        />
-        <img
-          class="gallery__img-dark"
-          :src="`./thumbnails/${t.slug}-dark.png`"
-          :alt="t.label"
-          loading="lazy"
-        />
-        <span class="gallery__label">{{ t.label }}</span>
-      </a>
+        :slug="t.slug"
+        :label="t.label"
+      />
     </div>
   </div>
 </template>
@@ -78,54 +66,6 @@ const thumbnails = [
     display: grid;
     grid-template-columns: repeat(auto-fill, minmax(180px, 1fr));
     gap: 16px;
-  }
-
-  &__item {
-    position: relative;
-    aspect-ratio: 1;
-    overflow: hidden;
-    display: block;
-    background: var(--vp-c-bg-soft);
-    border-radius: 12px;
-    transition: border-color 0.25s;
-    border: 1px solid transparent;
-
-    img {
-      width: 100%;
-      height: 100%;
-      object-fit: contain;
-      display: block;
-    }
-
-    .gallery__img-dark, 
-    .gallery__img-light {
-      display: none;
-    }
-
-    :root.dark & .gallery__img-dark {
-      display: block;
-    }
-
-    :root:not(.dark) & .gallery__img-light {
-      display: block;
-    }
-
-    &:hover {
-      border-color: var(--vp-c-brand-1);
-    }
-  }
-
-  &__label {
-    position: absolute;
-    bottom: 0;
-    left: 0;
-    right: 0;
-    padding: 6px 8px;
-    font-size: 12px;
-    font-weight: 500;
-    text-align: center;
-    color: var(--vp-c-text-2);
-    background: var(--vp-c-bg-soft);
   }
 }
 </style>
