@@ -7,7 +7,7 @@ import { line, curveBasis } from 'd3-shape';
 import 'd3-transition';
 import { D3Blueprint } from 'd3-blueprint';
 import { AxisChart } from './charts/AxisChart.js';
-import { tooltipPlugin } from '../plugins/Tooltip.js';
+import { tooltipPlugin } from '../plugins/tooltipPlugin.js';
 
 const WIDTH = 500;
 const HEIGHT = 320;
