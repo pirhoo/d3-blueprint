@@ -29,26 +29,35 @@ const canScrollLeft = ref(false);
 const canScrollRight = ref(true);
 const activeIndex = ref(0);
 
+const GAP = 16;
+
+function itemStep(el) {
+  return el.clientWidth + GAP;
+}
+
 function updateArrows() {
   const el = gridRef.value;
   if (!el) return;
   canScrollLeft.value = el.scrollLeft > 0;
   canScrollRight.value = el.scrollLeft + el.clientWidth < el.scrollWidth - 1;
   if (el.clientWidth > 0) {
-    activeIndex.value = Math.round(el.scrollLeft / el.clientWidth);
+    activeIndex.value = Math.min(
+      Math.round(el.scrollLeft / itemStep(el)),
+      thumbnails.length - 1,
+    );
   }
 }
 
 function scrollTo(index) {
   const el = gridRef.value;
   if (!el) return;
-  el.scrollTo({ left: index * el.clientWidth, behavior: 'smooth' });
+  el.scrollTo({ left: index * itemStep(el), behavior: 'smooth' });
 }
 
 function scroll(direction) {
   const el = gridRef.value;
   if (!el) return;
-  el.scrollBy({ left: direction * el.clientWidth, behavior: 'smooth' });
+  el.scrollBy({ left: direction * itemStep(el), behavior: 'smooth' });
 }
 
 onMounted(() => {
@@ -137,7 +146,7 @@ onUnmounted(() => {
 
   &__grid {
     display: flex;
-    gap: 0;
+    gap: 16px;
     overflow-x: auto;
     scroll-snap-type: x mandatory;
     -webkit-overflow-scrolling: touch;
