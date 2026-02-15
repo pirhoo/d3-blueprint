@@ -105,6 +105,8 @@ export default defineConfig({
             { text: 'Histogram', link: '/examples/histogram' },
             { text: 'Histogram + Density Curve', link: '/examples/histogram-density' },
             { text: 'Donut Chart', link: '/examples/donut-chart' },
+            { text: 'Bubble Chart', link: '/examples/bubble-chart' },
+            { text: 'Labeled Bubble Chart', link: '/examples/labeled-bubble-chart' },
           ],
         },
         {

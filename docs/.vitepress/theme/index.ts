@@ -44,6 +44,8 @@ import BumpChartDemo from '../components/BumpChartDemo.vue';
 import NormalizedChartDemo from '../components/NormalizedChartDemo.vue';
 import AnnotatedLineDemo from '../components/AnnotatedLineDemo.vue';
 import ConnectedScatterDemo from '../components/ConnectedScatterDemo.vue';
+import BubbleChartDemo from '../components/BubbleChartDemo.vue';
+import LabeledBubbleChartDemo from '../components/LabeledBubbleChartDemo.vue';
 import HomeGallery from '../components/HomeGallery.vue';
 import HomeWhySection from '../components/HomeWhySection.vue';
 
@@ -93,6 +95,8 @@ export default {
     app.component('NormalizedChartDemo', NormalizedChartDemo);
     app.component('AnnotatedLineDemo', AnnotatedLineDemo);
     app.component('ConnectedScatterDemo', ConnectedScatterDemo);
+    app.component('BubbleChartDemo', BubbleChartDemo);
+    app.component('LabeledBubbleChartDemo', LabeledBubbleChartDemo);
     app.component('HomeGallery', HomeGallery);
     app.component('HomeWhySection', HomeWhySection);
   },
