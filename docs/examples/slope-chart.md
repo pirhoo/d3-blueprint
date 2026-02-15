@@ -15,7 +15,7 @@ import { select } from 'd3-selection';
 import { D3Blueprint } from 'd3-blueprint';
 import { scaleLinear, scalePoint, scaleOrdinal } from 'd3-scale';
 import { min, max } from 'd3-array';
-import { Tooltip } from './charts/Tooltip.js';
+import { Tooltip } from './plugins/Tooltip.js';
 
 const COLORS = ['steelblue', '#e45858', '#50a060', '#e8a838', '#7c6bbf'];
 const MARGIN = { top: 30, right: 60, bottom: 30, left: 60 };

@@ -52,7 +52,7 @@ this.usePlugin(myPlugin, 'custom-namespace');
 The `Tooltip` class is itself a plugin. Pass the SVG group (for coordinate conversion) and a `bind` callback that wires mouse events:
 
 ```js
-import { Tooltip } from './charts/Tooltip.js';
+import { Tooltip } from './plugins/Tooltip.js';
 
 this.usePlugin(new Tooltip(this.chart, (chart, tooltip) => {
   chart.bars.base.selectAll('rect')

@@ -7,7 +7,7 @@ import 'd3-transition';
 import { D3Blueprint } from 'd3-blueprint';
 import { AxisChart } from './charts/AxisChart.js';
 import { BarsChart } from './charts/BarsChart.js';
-import { Tooltip } from './charts/Tooltip.js';
+import { Tooltip } from '../plugins/Tooltip.js';
 import { responsivePlugin } from '../plugins/responsivePlugin.js';
 
 const HEIGHT = 300;

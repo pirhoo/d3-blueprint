@@ -45,7 +45,7 @@ The optional `name` parameter overrides the namespace (defaults to `plugin.name`
 The `Tooltip` class is itself a plugin. Pass the SVG group (for coordinate conversion) and a `bind` callback:
 
 ```js
-import { Tooltip } from './charts/Tooltip.js';
+import { Tooltip } from './plugins/Tooltip.js';
 
 class BarChart extends D3Blueprint {
   initialize() {
@@ -100,7 +100,7 @@ The tooltip uses [floating-ui](https://floating-ui.com) under the hood. It conve
 ### Before (manual wiring)
 
 ```js
-import { Tooltip } from './charts/Tooltip.js';
+import { Tooltip } from './plugins/Tooltip.js';
 
 class MyChart extends D3Blueprint {
   initialize() {
@@ -122,7 +122,7 @@ class MyChart extends D3Blueprint {
 ### After (plugin)
 
 ```js
-import { Tooltip } from './charts/Tooltip.js';
+import { Tooltip } from './plugins/Tooltip.js';
 
 class MyChart extends D3Blueprint {
   initialize() {

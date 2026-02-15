@@ -5,7 +5,7 @@ import { scaleLinear, scalePoint, scaleOrdinal } from 'd3-scale';
 import { min, max } from 'd3-array';
 import 'd3-transition';
 import { D3Blueprint } from 'd3-blueprint';
-import { Tooltip } from './charts/Tooltip.js';
+import { Tooltip } from '../plugins/Tooltip.js';
 
 const WIDTH = 400;
 const HEIGHT = 360;

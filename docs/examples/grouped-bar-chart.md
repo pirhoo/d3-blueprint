@@ -16,7 +16,7 @@ import { scaleBand, scaleLinear, scaleOrdinal } from 'd3-scale';
 import { max } from 'd3-array';
 import { select } from 'd3-selection';
 import { AxisChart } from './charts/AxisChart.js';
-import { Tooltip } from './charts/Tooltip.js';
+import { Tooltip } from './plugins/Tooltip.js';
 
 const COLORS = ['steelblue', '#e45858', '#50a060'];
 const KEYS = ['mobile', 'desktop', 'tablet'];

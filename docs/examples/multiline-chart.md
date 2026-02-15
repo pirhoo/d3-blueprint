@@ -17,7 +17,7 @@ import { scaleLinear, scaleOrdinal } from 'd3-scale';
 import { max } from 'd3-array';
 import { line, curveCatmullRom } from 'd3-shape';
 import { AxisChart } from './charts/AxisChart.js';
-import { Tooltip } from './charts/Tooltip.js';
+import { Tooltip } from './plugins/Tooltip.js';
 
 const COLORS = ['steelblue', '#e45858', '#50a060'];
 const MARGIN = { top: 20, right: 80, bottom: 30, left: 45 };

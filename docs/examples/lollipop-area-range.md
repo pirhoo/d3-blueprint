@@ -17,7 +17,7 @@ import { scaleBand, scaleLinear } from 'd3-scale';
 import { max } from 'd3-array';
 import { area, curveCatmullRom } from 'd3-shape';
 import { AxisChart } from './charts/AxisChart.js';
-import { Tooltip } from './charts/Tooltip.js';
+import { Tooltip } from './plugins/Tooltip.js';
 
 const MARGIN = { top: 20, right: 20, bottom: 30, left: 40 };
 

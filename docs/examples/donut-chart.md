@@ -15,7 +15,7 @@ import { select } from 'd3-selection';
 import { D3Blueprint } from 'd3-blueprint';
 import { scaleOrdinal } from 'd3-scale';
 import { pie, arc } from 'd3-shape';
-import { Tooltip } from './charts/Tooltip.js';
+import { Tooltip } from './plugins/Tooltip.js';
 
 const WIDTH = 400;
 const HEIGHT = 400;

@@ -17,7 +17,7 @@ import { scaleBand, scaleLinear } from 'd3-scale';
 import { max } from 'd3-array';
 import { AxisChart } from './charts/AxisChart.js';
 import { BarsChart } from './charts/BarsChart.js';
-import { Tooltip } from './charts/Tooltip.js';
+import { Tooltip } from './plugins/Tooltip.js';
 
 class ResponsiveBarChart extends D3Blueprint {
   initialize() {

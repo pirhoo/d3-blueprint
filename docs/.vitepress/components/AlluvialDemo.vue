@@ -4,7 +4,7 @@ import { select } from 'd3-selection';
 import { scaleOrdinal } from 'd3-scale';
 import 'd3-transition';
 import { D3Blueprint } from 'd3-blueprint';
-import { Tooltip } from './charts/Tooltip.js';
+import { Tooltip } from '../plugins/Tooltip.js';
 
 const WIDTH = 500;
 const HEIGHT = 400;
