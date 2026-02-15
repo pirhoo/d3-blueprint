@@ -1,5 +1,5 @@
 <p align="center">
-  <a href="https://pirhoo.github.io/d3-blueprint/" align="center">
+  <a href="https://blueprint.pirhoo.com" align="center">
     <img src="./docs/public/images/logo-card.svg" width="800" alt="d3-compose">
   </a>
 </p>
@@ -13,7 +13,7 @@
 | **Latest version** | [![Latest version](https://img.shields.io/npm/v/d3-blueprint?style=flat-square&color=success)](https://www.npmjs.com/package/d3-blueprint) |
 |   **Release date** | [![Release date](https://img.shields.io/npm/last-update/d3-blueprint?style=flat-square&color=success)](https://github.com/pirhoo/d3-blueprint/releases/latest) |
 |    **Open issues** | [![Open issues](https://img.shields.io/github/issues/pirhoo/d3-blueprint?style=flat-square&color=success)](https://github.com/pirhoo/d3-blueprint/issues/) |
-|  **Documentation** | [![Guide](https://img.shields.io/badge/Guide-6878E8?style=flat-square)](https://pirhoo.gitbook.io/d3-blueprint/guide/getting-started.html) [![API](https://img.shields.io/badge/API-6878E8?style=flat-square)](https://pirhoo.gitbook.io/d3-blueprint/api/) |
+|  **Documentation** | [![Guide](https://img.shields.io/badge/Guide-6878E8?style=flat-square)](https://blueprint.pirhoo.com/guide/getting-started.html) [![API](https://img.shields.io/badge/API-6878E8?style=flat-square)](https://blueprint.pirhoo.com/api/) |
 
 </div>
 
@@ -124,8 +124,8 @@ class MyChart extends D3Blueprint {
 }
 ```
 
-See the [Plugins Documentation](https://pirhoo.gitbook.io/d3-blueprint/guide/plugins.html) for built-in plugins and custom plugin guides.
+See the [Plugins Documentation](https://blueprint.pirhoo.com/guide/plugins.html) for built-in plugins and custom plugin guides.
 
 ## Next Steps
 
-Find out more about how to use d3-blueprint on the official [documentation](https://pirhoo.gitbook.io/d3-blueprint).
+Find out more about how to use d3-blueprint on the official [documentation](https://blueprint.pirhoo.com).
