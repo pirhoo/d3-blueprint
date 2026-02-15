@@ -41,9 +41,6 @@ class DivergingLollipop extends D3Blueprint {
             .attr('stroke', 'var(--vp-c-text-3)')
             .attr('stroke-width', 1.5);
         },
-        'enter:transition': (transition) => {
-          transition.duration(600).attr('x2', (d) => this.xScale(d.value));
-        },
         'merge:transition': (transition) => {
           transition
             .duration(600)
@@ -73,9 +70,6 @@ class DivergingLollipop extends D3Blueprint {
             .attr('cy', (d) => this.yScale(d.label) + this.yScale.bandwidth() / 2)
             .attr('r', 5)
             .attr('fill', (d) => d.value >= 0 ? '#50a060' : '#e45858');
-        },
-        'enter:transition': (transition) => {
-          transition.duration(600).attr('cx', (d) => this.xScale(d.value));
         },
         'merge:transition': (transition) => {
           transition

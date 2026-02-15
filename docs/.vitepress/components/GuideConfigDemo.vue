@@ -40,12 +40,6 @@ class ConfigurableChart extends D3Blueprint {
             .attr('fill', this.config('barColor'))
             .attr('rx', 3);
         },
-        'enter:transition': (transition) => {
-          transition
-            .duration(600)
-            .attr('y', (d) => this.yScale(d.value))
-            .attr('height', (d) => innerHeight - this.yScale(d.value));
-        },
         'merge:transition': (transition) => {
           transition
             .duration(600)

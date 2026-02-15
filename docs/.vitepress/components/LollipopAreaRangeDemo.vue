@@ -65,9 +65,6 @@ class LollipopAreaRange extends D3Blueprint {
             .attr('stroke', 'var(--vp-c-text-3)')
             .attr('stroke-width', 1.5);
         },
-        'enter:transition': (transition) => {
-          transition.duration(600).attr('y2', (d) => this.yScale(d.value));
-        },
         'merge:transition': (transition) => {
           transition
             .duration(600)
@@ -97,9 +94,6 @@ class LollipopAreaRange extends D3Blueprint {
             .attr('cy', this.yScale(0))
             .attr('r', 6)
             .attr('fill', 'var(--vp-c-brand-1)');
-        },
-        'enter:transition': (transition) => {
-          transition.duration(600).attr('cy', (d) => this.yScale(d.value));
         },
         'merge:transition': (transition) => {
           transition

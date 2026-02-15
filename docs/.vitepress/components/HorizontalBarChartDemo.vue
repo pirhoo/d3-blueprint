@@ -40,11 +40,6 @@ class HorizontalBarChart extends D3Blueprint {
             .attr('fill', 'var(--vp-c-brand-1)')
             .attr('rx', 2);
         },
-        'enter:transition': (transition) => {
-          transition
-            .duration(600)
-            .attr('width', (d) => this.xScale(d.value));
-        },
         'merge:transition': (transition) => {
           transition
             .duration(600)

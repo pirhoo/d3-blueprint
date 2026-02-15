@@ -54,12 +54,6 @@ class MainChart extends D3Blueprint {
             .attr('fill', 'var(--vp-c-brand-1)')
             .attr('rx', 3);
         },
-        'enter:transition': (transition) => {
-          transition
-            .duration(600)
-            .attr('y', (d) => this.yScale(d.value))
-            .attr('height', (d) => innerHeight - this.yScale(d.value));
-        },
         'merge:transition': (transition) => {
           transition
             .duration(600)

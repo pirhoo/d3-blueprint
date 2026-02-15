@@ -43,9 +43,6 @@ class ArcDiagram extends D3Blueprint {
             .attr('stroke-width', (d) => this.strokeScale(d.strength))
             .attr('stroke-opacity', 0);
         },
-        'enter:transition': (transition) => {
-          transition.duration(600).attr('stroke-opacity', 0.5);
-        },
         'merge:transition': (transition) => {
           transition
             .duration(600)
@@ -77,9 +74,6 @@ class ArcDiagram extends D3Blueprint {
             .attr('fill', (d) => this.colorScale(d.dept))
             .attr('stroke', 'var(--vp-c-bg-soft)')
             .attr('stroke-width', 2);
-        },
-        'enter:transition': (transition) => {
-          transition.duration(400).attr('r', 6);
         },
         'merge:transition': (transition) => {
           transition

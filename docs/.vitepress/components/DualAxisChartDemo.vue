@@ -93,9 +93,6 @@ class DualAxisChart extends D3Blueprint {
             .attr('r', 0)
             .attr('fill', '#e45858');
         },
-        'enter:transition': (transition) => {
-          transition.duration(400).attr('r', 3);
-        },
         'merge:transition': (transition) => {
           transition
             .duration(750)

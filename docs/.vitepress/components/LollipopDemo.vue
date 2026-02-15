@@ -41,9 +41,6 @@ class LollipopChart extends D3Blueprint {
             .attr('stroke', 'var(--vp-c-text-3)')
             .attr('stroke-width', 1.5);
         },
-        'enter:transition': (transition) => {
-          transition.duration(600).attr('x2', (d) => this.xScale(d.value));
-        },
         'merge:transition': (transition) => {
           transition
             .duration(600)
@@ -72,9 +69,6 @@ class LollipopChart extends D3Blueprint {
             .attr('cy', (d) => this.yScale(d.label) + this.yScale.bandwidth() / 2)
             .attr('r', 5)
             .attr('fill', 'var(--vp-c-brand-1)');
-        },
-        'enter:transition': (transition) => {
-          transition.duration(600).attr('cx', (d) => this.xScale(d.value));
         },
         'merge:transition': (transition) => {
           transition

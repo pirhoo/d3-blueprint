@@ -50,9 +50,6 @@ class ScatterTrendLine extends D3Blueprint {
             .attr('fill', 'var(--vp-c-brand-1)')
             .attr('fill-opacity', 0.6);
         },
-        'enter:transition': (transition) => {
-          transition.duration(600).attr('r', 4);
-        },
         'merge:transition': (transition) => {
           transition
             .duration(800)

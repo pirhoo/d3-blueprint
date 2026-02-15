@@ -37,9 +37,6 @@ class DataJoinChart extends D3Blueprint {
             .attr('r', 0)
             .attr('fill', (d) => this.colorScale(d.id));
         },
-        'enter:transition': (transition) => {
-          transition.duration(500).attr('r', 18);
-        },
         'merge:transition': (transition) => {
           transition
             .duration(500)
@@ -72,9 +69,6 @@ class DataJoinChart extends D3Blueprint {
             .attr('fill', '#fff')
             .attr('opacity', 0)
             .text((d) => d.id);
-        },
-        'enter:transition': (transition) => {
-          transition.duration(500).attr('opacity', 1);
         },
         'merge:transition': (transition) => {
           transition

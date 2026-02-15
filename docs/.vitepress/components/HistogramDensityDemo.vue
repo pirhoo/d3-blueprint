@@ -69,12 +69,6 @@ class HistogramDensity extends D3Blueprint {
             .attr('fill-opacity', 0.5)
             .attr('rx', 1);
         },
-        'enter:transition': (transition) => {
-          transition
-            .duration(600)
-            .attr('y', (d) => this.yScale(d.length))
-            .attr('height', (d) => innerHeight - this.yScale(d.length));
-        },
         'merge:transition': (transition) => {
           transition
             .duration(600)

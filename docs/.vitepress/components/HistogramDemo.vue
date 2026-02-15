@@ -54,12 +54,6 @@ class Histogram extends D3Blueprint {
             .attr('fill', 'var(--vp-c-brand-1)')
             .attr('rx', 1);
         },
-        'enter:transition': (transition) => {
-          transition
-            .duration(600)
-            .attr('y', (d) => this.yScale(d.length))
-            .attr('height', (d) => HEIGHT - MARGIN.top - MARGIN.bottom - this.yScale(d.length));
-        },
         'merge:transition': (transition) => {
           transition
             .duration(600)

@@ -94,9 +94,6 @@ class LineChart extends D3Blueprint {
             .attr('r', 0)
             .attr('fill', 'var(--vp-c-brand-1)');
         },
-        'enter:transition': (transition) => {
-          transition.duration(400).attr('r', 3);
-        },
         'merge:transition': (transition) => {
           transition
             .duration(800)

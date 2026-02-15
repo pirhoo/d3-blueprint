@@ -69,9 +69,6 @@ class LineChart extends D3Blueprint {
             .attr('r', 0)
             .attr('fill', this.config('stroke'));
         },
-        'enter:transition': (transition) => {
-          transition.duration(400).attr('r', this.config('dotRadius'));
-        },
         'merge:transition': (transition) => {
           const xScale = this.config('xScale');
           const yScale = this.config('yScale');

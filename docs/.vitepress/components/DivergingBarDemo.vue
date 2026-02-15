@@ -40,11 +40,6 @@ class DivergingBarChart extends D3Blueprint {
             .attr('fill', (d) => d.value >= 0 ? '#50a060' : '#e45858')
             .attr('rx', 2);
         },
-        'enter:transition': (transition) => {
-          transition
-            .duration(600)
-            .attr('width', (d) => Math.abs(this.xScale(d.value) - this.xScale(0)));
-        },
         'merge:transition': (transition) => {
           transition
             .duration(600)

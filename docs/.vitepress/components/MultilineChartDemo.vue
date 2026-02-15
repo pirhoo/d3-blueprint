@@ -59,9 +59,6 @@ class MultilineChart extends D3Blueprint {
             .attr('stroke-width', 2)
             .attr('d', (d) => this.lineFn(d.values));
         },
-        'enter:transition': (transition) => {
-          transition.duration(800);
-        },
         'merge:transition': (transition) => {
           transition
             .duration(800)

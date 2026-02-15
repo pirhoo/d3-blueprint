@@ -38,12 +38,6 @@ class EventChart extends D3Blueprint {
             .attr('fill', 'var(--vp-c-brand-1)')
             .attr('rx', 2);
         },
-        'enter:transition': (transition) => {
-          transition
-            .duration(500)
-            .attr('y', (d) => this.yScale(d.value))
-            .attr('height', (d) => innerHeight - this.yScale(d.value));
-        },
         'merge:transition': (transition) => {
           transition
             .duration(500)

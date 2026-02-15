@@ -53,12 +53,6 @@ class GroupedBarChart extends D3Blueprint {
             .attr('rx', 1)
             .attr('fill', (d) => this.colorScale(d.key));
         },
-        'enter:transition': (transition) => {
-          transition
-            .duration(600)
-            .attr('y', (d) => this.yScale(d.value))
-            .attr('height', (d) => this.innerHeight - this.yScale(d.value));
-        },
         'merge:transition': (transition) => {
           transition
             .duration(600)

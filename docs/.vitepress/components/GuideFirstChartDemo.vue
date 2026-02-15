@@ -27,9 +27,6 @@ class SimpleList extends D3Blueprint {
             .style('font-size', '14px')
             .style('opacity', '0');
         },
-        'enter:transition': (transition) => {
-          transition.duration(400).style('opacity', '1');
-        },
         merge: (selection) => {
           selection.text((d) => `${d.label}: ${d.value}`);
         },

@@ -44,9 +44,6 @@ class SlopeChart extends D3Blueprint {
             .attr('stroke-width', 2)
             .attr('stroke-opacity', 0);
         },
-        'enter:transition': (transition) => {
-          transition.duration(600).attr('stroke-opacity', 0.8);
-        },
         'merge:transition': (transition) => {
           transition
             .duration(600)
@@ -77,9 +74,6 @@ class SlopeChart extends D3Blueprint {
             .attr('r', 0)
             .attr('fill', (d) => this.colorScale(d.label));
         },
-        'enter:transition': (transition) => {
-          transition.duration(400).attr('r', 5);
-        },
         'merge:transition': (transition) => {
           transition.duration(600).attr('r', 5).attr('cy', (d) => this.yScale(d.before));
         },
@@ -104,9 +98,6 @@ class SlopeChart extends D3Blueprint {
             .attr('cy', (d) => this.yScale(d.after))
             .attr('r', 0)
             .attr('fill', (d) => this.colorScale(d.label));
-        },
-        'enter:transition': (transition) => {
-          transition.duration(400).attr('r', 5);
         },
         'merge:transition': (transition) => {
           transition.duration(600).attr('r', 5).attr('cy', (d) => this.yScale(d.after));

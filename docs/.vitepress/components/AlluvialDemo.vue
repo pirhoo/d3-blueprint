@@ -40,9 +40,6 @@ class AlluvialDiagram extends D3Blueprint {
             .attr('fill-opacity', 0)
             .attr('stroke', 'none');
         },
-        'enter:transition': (transition) => {
-          transition.duration(600).attr('fill-opacity', 0.4);
-        },
         'merge:transition': (transition) => {
           transition
             .duration(600)
@@ -74,9 +71,6 @@ class AlluvialDiagram extends D3Blueprint {
             .attr('fill', (d) => d.side === 'source' ? this.colorScale(d.name) : 'var(--vp-c-text-3)')
             .attr('rx', 2)
             .attr('opacity', 0);
-        },
-        'enter:transition': (transition) => {
-          transition.duration(600).attr('opacity', 1);
         },
         'merge:transition': (transition) => {
           transition

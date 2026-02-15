@@ -58,9 +58,6 @@ class Scatterplot extends D3Blueprint {
             .attr('fill', (d) => this.colorScale(d.group))
             .attr('fill-opacity', 0.7);
         },
-        'enter:transition': (transition) => {
-          transition.duration(600).attr('r', 4);
-        },
         'merge:transition': (transition) => {
           transition
             .duration(800)

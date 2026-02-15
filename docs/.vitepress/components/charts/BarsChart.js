@@ -29,14 +29,6 @@ class BarsChart extends D3Blueprint {
             .attr('rx', this.config('rx'))
             .attr('fill', this.config('fill'));
         },
-        'enter:transition': (transition) => {
-          const yScale = this.config('yScale');
-          const innerHeight = this.config('innerHeight');
-          transition
-            .duration(this.config('duration'))
-            .attr('y', (d) => yScale(d.value))
-            .attr('height', (d) => innerHeight - yScale(d.value));
-        },
         'merge:transition': (transition) => {
           const xScale = this.config('xScale');
           const yScale = this.config('yScale');
