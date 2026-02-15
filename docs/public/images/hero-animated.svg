@@ -1,93 +1,13 @@
 <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 300 300" width="300" height="300">
   <style>
-    /* Phase 1: Center hub scales in */
-    .center-hub {
-      transform-origin: 0px 0px;
-      transform: scale(0);
-      animation: popIn 0.5s cubic-bezier(0.34, 1.56, 0.64, 1) 0s forwards;
-    }
-    .bar { opacity: 0; animation: fadeIn 0.5s ease-out forwards; }
-    .bar-d0 { animation-delay: 0.3s; }
-    .bar-d1 { animation-delay: 0.4s; }
-    .bar-d2 { animation-delay: 0.5s; }
-
-    /* Phase 2: Spokes draw from center outward */
-    .spoke {
-      stroke-dasharray: 85;
-      stroke-dashoffset: 85;
-      animation: draw85 0.6s ease-out forwards;
-    }
-    .spoke-d0 { animation-delay: 0.4s; }
-    .spoke-d1 { animation-delay: 0.47s; }
-    .spoke-d2 { animation-delay: 0.54s; }
-    .spoke-d3 { animation-delay: 0.61s; }
-    .spoke-d4 { animation-delay: 0.68s; }
-    .spoke-d5 { animation-delay: 0.75s; }
-
-    /* Phase 3: Inner nodes fly outward from center */
-    .node-d0 { animation: nodeIn0 0.5s cubic-bezier(0.22, 1, 0.36, 1) 0.9s  forwards; }
-    .node-d1 { animation: nodeIn1 0.5s cubic-bezier(0.22, 1, 0.36, 1) 0.97s forwards; }
-    .node-d2 { animation: nodeIn2 0.5s cubic-bezier(0.22, 1, 0.36, 1) 1.04s forwards; }
-    .node-d3 { animation: nodeIn3 0.5s cubic-bezier(0.22, 1, 0.36, 1) 1.11s forwards; }
-    .node-d4 { animation: nodeIn4 0.5s cubic-bezier(0.22, 1, 0.36, 1) 1.18s forwards; }
-    .node-d5 { animation: nodeIn5 0.5s cubic-bezier(0.22, 1, 0.36, 1) 1.25s forwards; }
-
-    @keyframes nodeIn0 { from { transform: translate(0px, 85px) scale(0); }       to { transform: translate(0,0) scale(1); } }
-    @keyframes nodeIn1 { from { transform: translate(-73.6px, 42.5px) scale(0); }  to { transform: translate(0,0) scale(1); } }
-    @keyframes nodeIn2 { from { transform: translate(-73.6px, -42.5px) scale(0); } to { transform: translate(0,0) scale(1); } }
-    @keyframes nodeIn3 { from { transform: translate(0px, -85px) scale(0); }       to { transform: translate(0,0) scale(1); } }
-    @keyframes nodeIn4 { from { transform: translate(73.6px, -42.5px) scale(0); }  to { transform: translate(0,0) scale(1); } }
-    @keyframes nodeIn5 { from { transform: translate(73.6px, 42.5px) scale(0); }   to { transform: translate(0,0) scale(1); } }
-
-    /* Phase 4: Hex ring draws between nodes */
-    .hex {
-      stroke-dasharray: 85;
-      stroke-dashoffset: 85;
-      animation: draw85 0.5s ease-out forwards;
-    }
-    .hex-d0 { animation-delay: 1.3s; }
-    .hex-d1 { animation-delay: 1.38s; }
-    .hex-d2 { animation-delay: 1.46s; }
-    .hex-d3 { animation-delay: 1.54s; }
-    .hex-d4 { animation-delay: 1.62s; }
-    .hex-d5 { animation-delay: 1.7s; }
-
-    /* Phase 5: Extensions draw outward */
-    .ext {
-      stroke-dasharray: 45;
-      stroke-dashoffset: 45;
-      animation: draw45 0.4s ease-out forwards;
-    }
-    .ext-d0 { animation-delay: 1.8s; }
-    .ext-d1 { animation-delay: 1.86s; }
-    .ext-d2 { animation-delay: 1.92s; }
-    .ext-d3 { animation-delay: 1.98s; }
-    .ext-d4 { animation-delay: 2.04s; }
-    .ext-d5 { animation-delay: 2.1s; }
-
-    /* Phase 6: Satellites fly outward from center */
-    .sat-d0 { animation: satIn0 0.45s cubic-bezier(0.22, 1, 0.36, 1) 2.15s forwards; }
-    .sat-d1 { animation: satIn1 0.45s cubic-bezier(0.22, 1, 0.36, 1) 2.21s forwards; }
-    .sat-d2 { animation: satIn2 0.45s cubic-bezier(0.22, 1, 0.36, 1) 2.27s forwards; }
-    .sat-d3 { animation: satIn3 0.45s cubic-bezier(0.22, 1, 0.36, 1) 2.33s forwards; }
-    .sat-d4 { animation: satIn4 0.45s cubic-bezier(0.22, 1, 0.36, 1) 2.39s forwards; }
-    .sat-d5 { animation: satIn5 0.45s cubic-bezier(0.22, 1, 0.36, 1) 2.45s forwards; }
-
-    @keyframes satIn0 { from { transform: translate(0px, 130px) scale(0); }      to { transform: translate(0,0) scale(1); } }
-    @keyframes satIn1 { from { transform: translate(-112.6px, 65px) scale(0); }  to { transform: translate(0,0) scale(1); } }
-    @keyframes satIn2 { from { transform: translate(-112.6px, -65px) scale(0); } to { transform: translate(0,0) scale(1); } }
-    @keyframes satIn3 { from { transform: translate(0px, -130px) scale(0); }     to { transform: translate(0,0) scale(1); } }
-    @keyframes satIn4 { from { transform: translate(112.6px, -65px) scale(0); }  to { transform: translate(0,0) scale(1); } }
-    @keyframes satIn5 { from { transform: translate(112.6px, 65px) scale(0); }   to { transform: translate(0,0) scale(1); } }
-
-    /* 6 dots with random blink timing */
+    /* Dot blink — each with unique timing */
     .dot { opacity: 0; animation-name: blink; animation-timing-function: ease-in-out; animation-iteration-count: infinite; }
-    .dot-r0 { animation-delay: 2.8s; animation-duration: 3.2s; }
-    .dot-r1 { animation-delay: 4.1s; animation-duration: 2.4s; }
-    .dot-r2 { animation-delay: 3.3s; animation-duration: 4.1s; }
-    .dot-r3 { animation-delay: 5.6s; animation-duration: 2.8s; }
-    .dot-r4 { animation-delay: 3.9s; animation-duration: 3.6s; }
-    .dot-r5 { animation-delay: 6.2s; animation-duration: 2.1s; }
+    .dot-r0 { animation-delay: 0s;   animation-duration: 3.2s; }
+    .dot-r1 { animation-delay: 1.3s; animation-duration: 2.4s; }
+    .dot-r2 { animation-delay: 0.5s; animation-duration: 4.1s; }
+    .dot-r3 { animation-delay: 2.8s; animation-duration: 2.8s; }
+    .dot-r4 { animation-delay: 1.1s; animation-duration: 3.6s; }
+    .dot-r5 { animation-delay: 3.4s; animation-duration: 2.1s; }
 
     @keyframes blink {
       0%   { opacity: 0; }
@@ -97,14 +17,16 @@
       100% { opacity: 0; }
     }
 
-    /* Ongoing: node pulse */
+    /* Node pulse */
     .pulse { animation: pulse 3s ease-in-out infinite; }
-    .pulse-d0 { animation-delay: 1.5s; }
-    .pulse-d1 { animation-delay: 2.0s; }
-    .pulse-d2 { animation-delay: 2.5s; }
-    .pulse-d3 { animation-delay: 3.0s; }
-    .pulse-d4 { animation-delay: 3.5s; }
-    .pulse-d5 { animation-delay: 4.0s; }
+    .pulse-d0 { animation-delay: 0s; }
+    .pulse-d1 { animation-delay: 0.5s; }
+    .pulse-d2 { animation-delay: 1.0s; }
+    .pulse-d3 { animation-delay: 1.5s; }
+    .pulse-d4 { animation-delay: 2.0s; }
+    .pulse-d5 { animation-delay: 2.5s; }
+
+    @keyframes pulse { 0%, 100% { stroke-width: 3; } 50% { stroke-width: 4.5; } }
 
     /* Global clockwise rotation */
     .constellation { transform-origin: 150px 150px; animation: spinCW 120s linear infinite; }
@@ -119,93 +41,85 @@
     .counter-spin-5   { transform-origin: -73.6px -42.5px; animation: spinCCW 120s linear infinite; }
     .counter-spin-ctr { transform-origin: 0px 0px;         animation: spinCCW 120s linear infinite; }
     @keyframes spinCCW { to { transform: rotate(-360deg); } }
-
-    @keyframes popIn { to { transform: scale(1); } }
-    @keyframes fadeIn { to { opacity: 1; } }
-    @keyframes draw85 { to { stroke-dashoffset: 0; } }
-    @keyframes draw45 { to { stroke-dashoffset: 0; } }
-    @keyframes pulse { 0%, 100% { stroke-width: 3; } 50% { stroke-width: 4.5; } }
   </style>
 
   <g class="constellation">
     <g transform="translate(150,150)">
 
       <!-- Spokes -->
-      <line class="spoke spoke-d0" x1="0" y1="0" x2="0" y2="-85" stroke="#5B5FD6" stroke-width="3"/>
-      <line class="spoke spoke-d1" x1="0" y1="0" x2="73.6" y2="-42.5" stroke="#5B5FD6" stroke-width="3"/>
-      <line class="spoke spoke-d2" x1="0" y1="0" x2="73.6" y2="42.5" stroke="#3D8FD6" stroke-width="3"/>
-      <line class="spoke spoke-d3" x1="0" y1="0" x2="0" y2="85" stroke="#3D8FD6" stroke-width="2.5"/>
-      <line class="spoke spoke-d4" x1="0" y1="0" x2="-73.6" y2="42.5" stroke="#2ABBC8" stroke-width="2.5"/>
-      <line class="spoke spoke-d5" x1="0" y1="0" x2="-73.6" y2="-42.5" stroke="#2A9DA8" stroke-width="3"/>
+      <line x1="0" y1="0" x2="0" y2="-85" stroke="#5B5FD6" stroke-width="3"/>
+      <line x1="0" y1="0" x2="73.6" y2="-42.5" stroke="#5B5FD6" stroke-width="3"/>
+      <line x1="0" y1="0" x2="73.6" y2="42.5" stroke="#3D8FD6" stroke-width="3"/>
+      <line x1="0" y1="0" x2="0" y2="85" stroke="#3D8FD6" stroke-width="2.5"/>
+      <line x1="0" y1="0" x2="-73.6" y2="42.5" stroke="#2ABBC8" stroke-width="2.5"/>
+      <line x1="0" y1="0" x2="-73.6" y2="-42.5" stroke="#2A9DA8" stroke-width="3"/>
 
       <!-- Hexagon -->
-      <line class="hex hex-d0" x1="0" y1="-85" x2="73.6" y2="-42.5" stroke="#5B5FD6" stroke-width="2"/>
-      <line class="hex hex-d1" x1="73.6" y1="-42.5" x2="73.6" y2="42.5" stroke="#3D8FD6" stroke-width="2"/>
-      <line class="hex hex-d2" x1="73.6" y1="42.5" x2="0" y2="85" stroke="#3D8FD6" stroke-width="1.8"/>
-      <line class="hex hex-d3" x1="0" y1="85" x2="-73.6" y2="42.5" stroke="#2ABBC8" stroke-width="1.8"/>
-      <line class="hex hex-d4" x1="-73.6" y1="42.5" x2="-73.6" y2="-42.5" stroke="#2ABBC8" stroke-width="2"/>
-      <line class="hex hex-d5" x1="-73.6" y1="-42.5" x2="0" y2="-85" stroke="#2A9DA8" stroke-width="2"/>
+      <line x1="0" y1="-85" x2="73.6" y2="-42.5" stroke="#5B5FD6" stroke-width="2"/>
+      <line x1="73.6" y1="-42.5" x2="73.6" y2="42.5" stroke="#3D8FD6" stroke-width="2"/>
+      <line x1="73.6" y1="42.5" x2="0" y2="85" stroke="#3D8FD6" stroke-width="1.8"/>
+      <line x1="0" y1="85" x2="-73.6" y2="42.5" stroke="#2ABBC8" stroke-width="1.8"/>
+      <line x1="-73.6" y1="42.5" x2="-73.6" y2="-42.5" stroke="#2ABBC8" stroke-width="2"/>
+      <line x1="-73.6" y1="-42.5" x2="0" y2="-85" stroke="#2A9DA8" stroke-width="2"/>
 
       <!-- Extensions -->
-      <line class="ext ext-d0" x1="0" y1="-85" x2="0" y2="-130" stroke="#5B5FD6" stroke-width="1.5"/>
-      <line class="ext ext-d1" x1="73.6" y1="-42.5" x2="112.6" y2="-65" stroke="#5B5FD6" stroke-width="1.5"/>
-      <line class="ext ext-d2" x1="73.6" y1="42.5" x2="112.6" y2="65" stroke="#3D8FD6" stroke-width="1.5"/>
-      <line class="ext ext-d3" x1="0" y1="85" x2="0" y2="130" stroke="#3D8FD6" stroke-width="1.2"/>
-      <line class="ext ext-d4" x1="-73.6" y1="42.5" x2="-112.6" y2="65" stroke="#2ABBC8" stroke-width="1.2"/>
-      <line class="ext ext-d5" x1="-73.6" y1="-42.5" x2="-112.6" y2="-65" stroke="#2A9DA8" stroke-width="1.5"/>
+      <line x1="0" y1="-85" x2="0" y2="-130" stroke="#5B5FD6" stroke-width="1.5"/>
+      <line x1="73.6" y1="-42.5" x2="112.6" y2="-65" stroke="#5B5FD6" stroke-width="1.5"/>
+      <line x1="73.6" y1="42.5" x2="112.6" y2="65" stroke="#3D8FD6" stroke-width="1.5"/>
+      <line x1="0" y1="85" x2="0" y2="130" stroke="#3D8FD6" stroke-width="1.2"/>
+      <line x1="-73.6" y1="42.5" x2="-112.6" y2="65" stroke="#2ABBC8" stroke-width="1.2"/>
+      <line x1="-73.6" y1="-42.5" x2="-112.6" y2="-65" stroke="#2A9DA8" stroke-width="1.5"/>
 
       <!-- Satellites -->
-      <g class="sat-d0" style="transform: translate(0px, 130px) scale(0);"><circle cx="0" cy="-130" r="10" fill="none" stroke="#5B5FD6" stroke-width="2.5"/></g>
-      <g class="sat-d1" style="transform: translate(-112.6px, 65px) scale(0);"><circle cx="112.6" cy="-65" r="10" fill="none" stroke="#5B5FD6" stroke-width="2.5"/></g>
-      <g class="sat-d2" style="transform: translate(-112.6px, -65px) scale(0);"><circle cx="112.6" cy="65" r="9" fill="none" stroke="#3D8FD6" stroke-width="2"/></g>
-      <g class="sat-d3" style="transform: translate(0px, -130px) scale(0);"><circle cx="0" cy="130" r="8" fill="none" stroke="#3D8FD6" stroke-width="2"/></g>
-      <g class="sat-d4" style="transform: translate(112.6px, -65px) scale(0);"><circle cx="-112.6" cy="65" r="8" fill="none" stroke="#2ABBC8" stroke-width="2"/></g>
-      <g class="sat-d5" style="transform: translate(112.6px, 65px) scale(0);"><circle cx="-112.6" cy="-65" r="10" fill="none" stroke="#2A9DA8" stroke-width="2.5"/></g>
+      <circle cx="0" cy="-130" r="10" fill="none" stroke="#5B5FD6" stroke-width="2.5"/>
+      <circle cx="112.6" cy="-65" r="10" fill="none" stroke="#5B5FD6" stroke-width="2.5"/>
+      <circle cx="112.6" cy="65" r="9" fill="none" stroke="#3D8FD6" stroke-width="2"/>
+      <circle cx="0" cy="130" r="8" fill="none" stroke="#3D8FD6" stroke-width="2"/>
+      <circle cx="-112.6" cy="65" r="8" fill="none" stroke="#2ABBC8" stroke-width="2"/>
+      <circle cx="-112.6" cy="-65" r="10" fill="none" stroke="#2A9DA8" stroke-width="2.5"/>
 
       <!-- Inner nodes with counter-rotating symbols -->
-      <g class="node-d0" style="transform: translate(0px, 85px) scale(0);">
+      <g>
         <circle cx="0" cy="-85" r="19" fill="white"/>
         <circle class="pulse pulse-d0" cx="0" cy="-85" r="18" fill="none" stroke="#5B5FD6" stroke-width="3.5"/>
         <g class="counter-spin-0"><path d="M -8,-90 A 10,10 0 0,1 8,-80" fill="none" stroke="#5B5FD6" stroke-width="3" stroke-linecap="round"/></g>
       </g>
-      <g class="node-d1" style="transform: translate(-73.6px, 42.5px) scale(0);">
+      <g>
         <circle cx="73.6" cy="-42.5" r="17" fill="white"/>
         <circle class="pulse pulse-d1" cx="73.6" cy="-42.5" r="16" fill="none" stroke="#3D8FD6" stroke-width="3"/>
         <g class="counter-spin-1"><line x1="65.6" y1="-36.5" x2="81.6" y2="-48.5" stroke="#3D8FD6" stroke-width="3" stroke-linecap="round"/></g>
       </g>
-      <g class="node-d2" style="transform: translate(-73.6px, -42.5px) scale(0);">
+      <g>
         <circle cx="73.6" cy="42.5" r="17" fill="white"/>
         <circle class="pulse pulse-d2" cx="73.6" cy="42.5" r="16" fill="none" stroke="#3D8FD6" stroke-width="3"/>
         <g class="counter-spin-2"><rect x="66.6" y="35.5" width="14" height="14" rx="2" fill="none" stroke="#3D8FD6" stroke-width="2.5"/></g>
       </g>
-      <g class="node-d3" style="transform: translate(0px, -85px) scale(0);">
+      <g>
         <circle cx="0" cy="85" r="16" fill="white"/>
         <circle class="pulse pulse-d3" cx="0" cy="85" r="15" fill="none" stroke="#2ABBC8" stroke-width="3"/>
         <g class="counter-spin-3"><circle cx="0" cy="85" r="6" fill="#2ABBC8"/></g>
       </g>
-      <g class="node-d4" style="transform: translate(73.6px, -42.5px) scale(0);">
+      <g>
         <circle cx="-73.6" cy="42.5" r="16" fill="white"/>
         <circle class="pulse pulse-d4" cx="-73.6" cy="42.5" r="15" fill="none" stroke="#2ABBC8" stroke-width="2.5"/>
         <g class="counter-spin-4"><path d="M -81.6,50.5 L -73.6,32.5 L -65.6,50.5 Z" fill="none" stroke="#2ABBC8" stroke-width="2.5" stroke-linejoin="round"/></g>
       </g>
-      <g class="node-d5" style="transform: translate(73.6px, 42.5px) scale(0);">
+      <g>
         <circle cx="-73.6" cy="-42.5" r="17" fill="white"/>
         <circle class="pulse pulse-d5" cx="-73.6" cy="-42.5" r="16" fill="none" stroke="#2A9DA8" stroke-width="3"/>
         <g class="counter-spin-5"><path d="M -81.6,-47.5 A 10,10 0 0,0 -65.6,-37.5" fill="none" stroke="#2A9DA8" stroke-width="3" stroke-linecap="round"/></g>
       </g>
 
       <!-- Center hub -->
-      <g class="center-hub">
-        <circle cx="0" cy="0" r="25" fill="white"/>
-        <circle cx="0" cy="0" r="24" fill="none" stroke="#5B5FD6" stroke-width="4"/>
-        <g class="counter-spin-ctr">
-          <g class="bar bar-d0"><rect x="-12" y="-2" width="7" height="14" rx="1.5" fill="none" stroke="#5B5FD6" stroke-width="2"/></g>
-          <g class="bar bar-d1"><rect x="-3" y="-10" width="7" height="22" rx="1.5" fill="none" stroke="#3D8FD6" stroke-width="2"/></g>
-          <g class="bar bar-d2"><rect x="6" y="-5" width="7" height="17" rx="1.5" fill="none" stroke="#2ABBC8" stroke-width="2"/></g>
-        </g>
+      <circle cx="0" cy="0" r="25" fill="white"/>
+      <circle cx="0" cy="0" r="24" fill="none" stroke="#5B5FD6" stroke-width="4"/>
+      <g class="counter-spin-ctr">
+        <rect x="-12" y="-2" width="7" height="14" rx="1.5" fill="none" stroke="#5B5FD6" stroke-width="2"/>
+        <rect x="-3" y="-10" width="7" height="22" rx="1.5" fill="none" stroke="#3D8FD6" stroke-width="2"/>
+        <rect x="6" y="-5" width="7" height="17" rx="1.5" fill="none" stroke="#2ABBC8" stroke-width="2"/>
       </g>
 
-      <!-- 6 accent dots at random positions with random blink -->
+      <!-- Accent dots -->
       <circle class="dot dot-r0" cx="42" cy="-70" r="4" fill="#5B5FD6"/>
       <circle class="dot dot-r1" cx="88" cy="5" r="3.5" fill="#3D8FD6"/>
       <circle class="dot dot-r2" cx="35" cy="72" r="3" fill="#2ABBC8"/>
