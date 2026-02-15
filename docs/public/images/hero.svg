@@ -1,461 +1,86 @@
-<?xml version="1.0" encoding="UTF-8" standalone="no"?>
-<svg
-   viewBox="0 0 320 320"
-   width="320"
-   height="320"
-   version="1.1"
-   id="svg706"
-   sodipodi:docname="d3-blueprint-hero.svg"
-   inkscape:version="1.2.2 (b0a8486541, 2022-12-01)"
-   xmlns:inkscape="http://www.inkscape.org/namespaces/inkscape"
-   xmlns:sodipodi="http://sodipodi.sourceforge.net/DTD/sodipodi-0.dtd"
-   xmlns="http://www.w3.org/2000/svg"
-   xmlns:svg="http://www.w3.org/2000/svg">
-  <sodipodi:namedview
-     id="namedview708"
-     pagecolor="#ffffff"
-     bordercolor="#000000"
-     borderopacity="0.25"
-     inkscape:showpageshadow="2"
-     inkscape:pageopacity="0.0"
-     inkscape:pagecheckerboard="0"
-     inkscape:deskcolor="#d1d1d1"
-     showgrid="false"
-     inkscape:zoom="25.416667"
-     inkscape:cx="159.08852"
-     inkscape:cy="66.196721"
-     inkscape:window-width="3440"
-     inkscape:window-height="1363"
-     inkscape:window-x="0"
-     inkscape:window-y="0"
-     inkscape:window-maximized="1"
-     inkscape:current-layer="g981"
-     showguides="false" />
-  <defs
-     id="defs612">
-    <marker
-       style="overflow:visible"
-       id="TriangleStart"
-       refX="0"
-       refY="0"
-       orient="auto-start-reverse"
-       inkscape:stockid="TriangleStart"
-       markerWidth="5.3244081"
-       markerHeight="6.155385"
-       viewBox="0 0 5.3244081 6.1553851"
-       inkscape:isstock="true"
-       inkscape:collect="always"
-       preserveAspectRatio="xMidYMid">
-      <path
-         transform="scale(0.5)"
-         style="fill:context-stroke;fill-rule:evenodd;stroke:context-stroke;stroke-width:1pt"
-         d="M 5.77,0 -2.88,5 V -5 Z"
-         id="path135" />
-    </marker>
-    <linearGradient
-       id="lineGrad"
-       x1="76.602699"
-       y1="94.404305"
-       x2="115.41813"
-       y2="94.404305"
-       gradientTransform="scale(1.1379494,0.87877368)"
-       gradientUnits="userSpaceOnUse">
-      <stop
-         offset="0%"
-         stop-color="#3D8FD6"
-         id="stop592" />
-      <stop
-         offset="100%"
-         stop-color="#2ABBC8"
-         id="stop594" />
-    </linearGradient>
-    <filter
-       id="glow"
-       x="-0.15205196"
-       y="-0.21629486"
-       width="1.3041039"
-       height="1.4325905">
-      <feGaussianBlur
-         in="SourceGraphic"
-         stdDeviation="2"
-         result="blur"
-         id="feGaussianBlur597" />
-      <feMerge
-         id="feMerge603">
-        <feMergeNode
-           in="blur"
-           id="feMergeNode599" />
-        <feMergeNode
-           in="SourceGraphic"
-           id="feMergeNode601" />
-      </feMerge>
-    </filter>
-    <marker
-       id="dimArrowL"
-       viewBox="0 0 6 6"
-       refX="0"
-       refY="3"
-       markerWidth="5"
-       markerHeight="5"
-       orient="auto">
-      <path
-         d="M 0,3 6,0 v 6 z"
-         fill="#2a9da8"
-         id="path606" />
-    </marker>
-    <marker
-       id="dimArrowR"
-       viewBox="0 0 6 6"
-       refX="6"
-       refY="3"
-       markerWidth="5"
-       markerHeight="5"
-       orient="auto">
-      <path
-         d="M 6,3 0,0 v 6 z"
-         fill="#2a9da8"
-         id="path609" />
-    </marker>
-  </defs>
-  <!-- Chart centered with generous padding -->
-  <g
-     transform="matrix(5.2,0,0,5.2,-400.16768,-394.7125)"
-     id="g704">
-    <g
-       id="g981"
-       transform="translate(2.6716974,0.60890515)">
-      <line
-         x1="85.449997"
-         y1="127.79"
-         x2="85.449997"
-         y2="78"
-         stroke="#4a6fa5"
-         stroke-width="0.5"
-         stroke-dasharray="3, 1.5"
-         id="line616"
-         style="stroke-dasharray:3,1.5;stroke-dashoffset:0" />
-      <text
-         x="83.5"
-         y="120.6"
-         font-family="'SF Mono', 'Fira Code', monospace"
-         font-size="1.8px"
-         fill="#6b8db5"
-         text-anchor="end"
-         font-weight="600"
-         id="text622">20</text>
-      <text
-         x="83.5"
-         y="112.65"
-         font-family="'SF Mono', 'Fira Code', monospace"
-         font-size="1.8px"
-         fill="#6b8db5"
-         text-anchor="end"
-         font-weight="600"
-         id="text628">40</text>
-      <text
-         x="83.5"
-         y="104.7"
-         font-family="'SF Mono', 'Fira Code', monospace"
-         font-size="1.8px"
-         fill="#6b8db5"
-         text-anchor="end"
-         font-weight="600"
-         id="text634">60</text>
-      <text
-         x="83.5"
-         y="96.75"
-         font-family="'SF Mono', 'Fira Code', monospace"
-         font-size="1.8px"
-         fill="#6b8db5"
-         text-anchor="end"
-         font-weight="600"
-         id="text640">80</text>
-      <rect
-         x="89.410004"
-         y="109.27"
-         width="5.8200002"
-         height="18.52"
-         rx="0.2"
-         fill="#5b5fd6"
-         fill-opacity="0.1"
-         stroke="#5b5fd6"
-         stroke-width="0.5"
-         id="rect646" />
-      <rect
-         x="97.879997"
-         y="97.370003"
-         width="5.8200002"
-         height="30.43"
-         rx="0.2"
-         fill="#5b5fd6"
-         fill-opacity="0.1"
-         stroke="#5b5fd6"
-         stroke-width="0.5"
-         id="rect648" />
-      <rect
-         x="106.35"
-         y="89.43"
-         width="5.8200002"
-         height="38.360001"
-         rx="0.2"
-         fill="#5b5fd6"
-         fill-opacity="0.13"
-         stroke="#5b5fd6"
-         stroke-width="0.5"
-         id="rect650" />
-      <rect
-         x="114.81"
-         y="102.66"
-         width="5.8200002"
-         height="25.139999"
-         rx="0.2"
-         fill="#5b5fd6"
-         fill-opacity="0.1"
-         stroke="#5b5fd6"
-         stroke-width="0.5"
-         id="rect652" />
-      <rect
-         x="123.28"
-         y="113.24"
-         width="5.8200002"
-         height="14.55"
-         rx="0.2"
-         fill="#5b5fd6"
-         fill-opacity="0.07"
-         stroke="#5b5fd6"
-         stroke-width="0.5"
-         id="rect654" />
-      <polyline
-         points="92.32,107.95 100.79,96.04 109.26,88.11 117.72,101.33 126.19,111.92"
-         fill="none"
-         stroke="url(#lineGrad)"
-         stroke-width="0.7"
-         stroke-linecap="round"
-         stroke-linejoin="round"
-         filter="url(#glow)"
-         id="polyline656"
-         style="stroke:url(#lineGrad)" />
-      <circle
-         cx="92.32"
-         cy="107.95"
-         r="0.64999998"
-         fill="none"
-         stroke="#2abbc8"
-         stroke-width="0.4"
-         id="circle658" />
-      <circle
-         cx="100.79"
-         cy="96.040001"
-         r="0.64999998"
-         fill="none"
-         stroke="#2abbc8"
-         stroke-width="0.4"
-         id="circle660" />
-      <circle
-         cx="109.26"
-         cy="88.110001"
-         r="0.64999998"
-         fill="#2abbc8"
-         stroke="#2abbc8"
-         stroke-width="0.4"
-         id="circle662" />
-      <circle
-         cx="117.72"
-         cy="101.33"
-         r="0.64999998"
-         fill="none"
-         stroke="#2abbc8"
-         stroke-width="0.4"
-         id="circle664" />
-      <circle
-         cx="126.19"
-         cy="111.92"
-         r="0.64999998"
-         fill="none"
-         stroke="#2abbc8"
-         stroke-width="0.4"
-         id="circle666" />
-      <line
-         x1="90.784668"
-         y1="133.76923"
-         x2="127.72534"
-         y2="133.76923"
-         stroke="#2a9da8"
-         stroke-width="0.241186"
-         marker-start="url(#dimArrowL)"
-         marker-end="url(#dimArrowR)"
-         id="line668"
-         style="marker-start:url(#TriangleStart);marker-end:url(#TriangleStart)" />
-      <line
-         x1="89.410004"
-         y1="127.79"
-         x2="89.410004"
-         y2="133.8"
-         stroke="#2a9da8"
-         stroke-width="0.18"
-         stroke-dasharray="0.8, 1.5"
-         id="line670"
-         style="stroke-dasharray:0.72000003;stroke-dashoffset:0" />
-      <line
-         x1="129.10001"
-         y1="127.79"
-         x2="129.10001"
-         y2="133.8"
-         stroke="#2a9da8"
-         stroke-width="0.18"
-         stroke-dasharray="0.8, 1.5"
-         id="line672"
-         style="stroke-dasharray:0.72000003;stroke-dashoffset:0" />
-      <text
-         x="109.26"
-         y="136.2"
-         font-family="'SF Mono', 'Fira Code', monospace"
-         font-size="1.9px"
-         fill="#2a9da8"
-         text-anchor="middle"
-         font-weight="600"
-         id="text674">width</text>
-      <line
-         x1="80"
-         y1="90.925064"
-         x2="80"
-         y2="126.58876"
-         stroke="#2a9da8"
-         stroke-width="0.241055"
-         marker-start="url(#dimArrowL)"
-         marker-end="url(#dimArrowR)"
-         id="line676"
-         style="marker-start:url(#TriangleStart);marker-end:url(#TriangleStart)" />
-      <line
-         x1="80"
-         y1="89.415817"
-         x2="85.117081"
-         y2="89.415817"
-         stroke="#2a9da8"
-         stroke-width="0.174416"
-         stroke-dasharray="0.8, 1.5"
-         id="line678"
-         style="stroke-width:0.18;stroke-dasharray:0.72000003;stroke-dashoffset:0" />
-      <line
-         x1="80"
-         y1="127.79"
-         x2="85.143127"
-         y2="127.79"
-         stroke="#2a9da8"
-         stroke-width="0.235682"
-         stroke-dasharray="0.8, 1.5"
-         id="line680"
-         style="stroke-width:0.18;stroke-dasharray:0.72000003;stroke-dashoffset:0" />
-      <text
-         x="-109.8"
-         y="78.5"
-         font-family="'SF Mono', 'Fira Code', monospace"
-         font-size="1.9px"
-         fill="#2a9da8"
-         text-anchor="middle"
-         transform="rotate(-90)"
-         font-weight="600"
-         id="text682">height</text>
-      <line
-         x1="107.11278"
-         y1="85.500038"
-         x2="111.40723"
-         y2="85.500038"
-         stroke="#2a9da8"
-         stroke-width="0.1718"
-         marker-start="url(#dimArrowL)"
-         marker-end="url(#dimArrowR)"
-         id="line684"
-         style="marker-start:url(#TriangleStart);marker-end:url(#TriangleStart)" />
-      <line
-         x1="106.35"
-         y1="85.5"
-         x2="106.35"
-         y2="89.43"
-         stroke="#2a9da8"
-         stroke-width="0.15"
-         stroke-dasharray="0.8, 1.5"
-         id="line686"
-         style="stroke-width:0.18;stroke-dasharray:0.72000003;stroke-dashoffset:0" />
-      <line
-         x1="112.17"
-         y1="85.5"
-         x2="112.17"
-         y2="89.43"
-         stroke="#2a9da8"
-         stroke-width="0.15"
-         stroke-dasharray="0.8, 1.5"
-         id="line688"
-         style="stroke-width:0.18;stroke-dasharray:0.72000003;stroke-dashoffset:0" />
-      <text
-         x="109.26"
-         y="84"
-         font-family="'SF Mono', 'Fira Code', monospace"
-         font-size="1.7px"
-         fill="#2a9da8"
-         text-anchor="middle"
-         font-weight="600"
-         id="text690">22px</text>
-      <line
-         x1="110.271"
-         y1="87.336525"
-         x2="120.54445"
-         y2="83.448708"
-         stroke="#3d8fd6"
-         stroke-width="0.2"
-         stroke-dasharray="1.5, 1.5"
-         id="line692"
-         style="stroke-width:0.18;stroke-dasharray:0.54, 0.54;stroke-dashoffset:0" />
-      <circle
-         cx="120.73357"
-         cy="83.412193"
-         r="0.25"
-         fill="#3d8fd6"
-         id="circle694" />
-      <text
-         x="121.18494"
-         y="84.04409"
-         font-family="'SF Mono', 'Fira Code', monospace"
-         font-size="1.75px"
-         fill="#3d8fd6"
-         font-weight="600"
-         id="text696">max: 96.4</text>
-      <text
-         x="96.290001"
-         y="129.8"
-         font-family="'SF Mono', 'Fira Code', monospace"
-         font-size="1.5px"
-         fill="#6b8db5"
-         text-anchor="middle"
-         id="text698">gap:10</text>
-      <text
-         x="83.5"
-         y="77"
-         font-family="'SF Mono', 'Fira Code', monospace"
-         font-size="2px"
-         fill="#4a6fa5"
-         text-anchor="end"
-         font-weight="700"
-         id="text700">y</text>
-      <text
-         x="132"
-         y="128.5"
-         font-family="'SF Mono', 'Fira Code', monospace"
-         font-size="2px"
-         fill="#4a6fa5"
-         font-weight="700"
-         id="text702">x</text>
-    </g>
-    <!-- Y axis (dashed) -->
-    <!-- Y-axis ticks + grid lines -->
-    <!-- Bars -->
-    <!-- Trend line -->
-    <!-- Data points -->
-    <!-- Dimension line: width (bottom) — pushed down for spacing -->
-    <!-- Dimension line: height (left) — pushed left for spacing -->
-    <!-- Dimension line: bar width (top) — pushed up for spacing -->
-    <!-- Annotation callout — pushed further out -->
-    <!-- Gap annotation -->
-    <!-- Axis labels — pushed out for spacing -->
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 300 300" width="300" height="300">
+  <g transform="translate(150,150)">
+
+    <!-- ===== Layer 1: ALL connections (drawn first, behind nodes) ===== -->
+
+    <!-- Center (0,0) to each inner node -->
+    <line x1="0" y1="0" x2="0" y2="-85" stroke="#5B5FD6" stroke-width="3"/>
+    <line x1="0" y1="0" x2="73.6" y2="-42.5" stroke="#5B5FD6" stroke-width="3"/>
+    <line x1="0" y1="0" x2="73.6" y2="42.5" stroke="#3D8FD6" stroke-width="3"/>
+    <line x1="0" y1="0" x2="0" y2="85" stroke="#3D8FD6" stroke-width="2.5"/>
+    <line x1="0" y1="0" x2="-73.6" y2="42.5" stroke="#2ABBC8" stroke-width="2.5"/>
+    <line x1="0" y1="0" x2="-73.6" y2="-42.5" stroke="#2A9DA8" stroke-width="3"/>
+
+    <!-- Outer hexagon ring (node to node) -->
+    <line x1="0" y1="-85" x2="73.6" y2="-42.5" stroke="#5B5FD6" stroke-width="2"/>
+    <line x1="73.6" y1="-42.5" x2="73.6" y2="42.5" stroke="#3D8FD6" stroke-width="2"/>
+    <line x1="73.6" y1="42.5" x2="0" y2="85" stroke="#3D8FD6" stroke-width="1.8"/>
+    <line x1="0" y1="85" x2="-73.6" y2="42.5" stroke="#2ABBC8" stroke-width="1.8"/>
+    <line x1="-73.6" y1="42.5" x2="-73.6" y2="-42.5" stroke="#2ABBC8" stroke-width="2"/>
+    <line x1="-73.6" y1="-42.5" x2="0" y2="-85" stroke="#2A9DA8" stroke-width="2"/>
+
+    <!-- Inner node to satellite extensions -->
+    <line x1="0" y1="-85" x2="0" y2="-130" stroke="#5B5FD6" stroke-width="1.5"/>
+    <line x1="73.6" y1="-42.5" x2="112.6" y2="-65" stroke="#5B5FD6" stroke-width="1.5"/>
+    <line x1="73.6" y1="42.5" x2="112.6" y2="65" stroke="#3D8FD6" stroke-width="1.5"/>
+    <line x1="0" y1="85" x2="0" y2="130" stroke="#3D8FD6" stroke-width="1.2"/>
+    <line x1="-73.6" y1="42.5" x2="-112.6" y2="65" stroke="#2ABBC8" stroke-width="1.2"/>
+    <line x1="-73.6" y1="-42.5" x2="-112.6" y2="-65" stroke="#2A9DA8" stroke-width="1.5"/>
+
+    <!-- ===== Layer 2: Satellite nodes ===== -->
+    <circle cx="0" cy="-130" r="10" fill="none" stroke="#5B5FD6" stroke-width="2.5"/>
+    <circle cx="112.6" cy="-65" r="10" fill="none" stroke="#5B5FD6" stroke-width="2.5"/>
+    <circle cx="112.6" cy="65" r="9" fill="none" stroke="#3D8FD6" stroke-width="2"/>
+    <circle cx="0" cy="130" r="8" fill="none" stroke="#3D8FD6" stroke-width="2"/>
+    <circle cx="-112.6" cy="65" r="8" fill="none" stroke="#2ABBC8" stroke-width="2"/>
+    <circle cx="-112.6" cy="-65" r="10" fill="none" stroke="#2A9DA8" stroke-width="2.5"/>
+
+    <!-- ===== Layer 3: Inner ring nodes (white knockout + stroke + symbol) ===== -->
+
+    <!-- Node 0: top — arc symbol -->
+    <circle cx="0" cy="-85" r="19" fill="white"/>
+    <circle cx="0" cy="-85" r="18" fill="none" stroke="#5B5FD6" stroke-width="3.5"/>
+    <path d="M -8,-90 A 10,10 0 0,1 8,-80" fill="none" stroke="#5B5FD6" stroke-width="3" stroke-linecap="round"/>
+
+    <!-- Node 1: top-right — line symbol -->
+    <circle cx="73.6" cy="-42.5" r="17" fill="white"/>
+    <circle cx="73.6" cy="-42.5" r="16" fill="none" stroke="#3D8FD6" stroke-width="3"/>
+    <line x1="65.6" y1="-36.5" x2="81.6" y2="-48.5" stroke="#3D8FD6" stroke-width="3" stroke-linecap="round"/>
+
+    <!-- Node 2: bottom-right — rect symbol -->
+    <circle cx="73.6" cy="42.5" r="17" fill="white"/>
+    <circle cx="73.6" cy="42.5" r="16" fill="none" stroke="#3D8FD6" stroke-width="3"/>
+    <rect x="66.6" y="35.5" width="14" height="14" rx="2" fill="none" stroke="#3D8FD6" stroke-width="2.5"/>
+
+    <!-- Node 3: bottom — dot symbol -->
+    <circle cx="0" cy="85" r="16" fill="white"/>
+    <circle cx="0" cy="85" r="15" fill="none" stroke="#2ABBC8" stroke-width="3"/>
+    <circle cx="0" cy="85" r="6" fill="#2ABBC8"/>
+
+    <!-- Node 4: bottom-left — triangle symbol -->
+    <circle cx="-73.6" cy="42.5" r="16" fill="white"/>
+    <circle cx="-73.6" cy="42.5" r="15" fill="none" stroke="#2ABBC8" stroke-width="2.5"/>
+    <path d="M -81.6,50.5 L -73.6,32.5 L -65.6,50.5 Z" fill="none" stroke="#2ABBC8" stroke-width="2.5" stroke-linejoin="round"/>
+
+    <!-- Node 5: top-left — arc reversed symbol -->
+    <circle cx="-73.6" cy="-42.5" r="17" fill="white"/>
+    <circle cx="-73.6" cy="-42.5" r="16" fill="none" stroke="#2A9DA8" stroke-width="3"/>
+    <path d="M -81.6,-47.5 A 10,10 0 0,0 -65.6,-37.5" fill="none" stroke="#2A9DA8" stroke-width="3" stroke-linecap="round"/>
+
+    <!-- ===== Layer 4: Center hub (on top of everything) ===== -->
+    <circle cx="0" cy="0" r="25" fill="white"/>
+    <circle cx="0" cy="0" r="24" fill="none" stroke="#5B5FD6" stroke-width="4"/>
+    <!-- Mini bars inside center -->
+    <rect x="-12" y="-2" width="7" height="14" rx="1.5" fill="none" stroke="#5B5FD6" stroke-width="2"/>
+    <rect x="-3" y="-10" width="7" height="22" rx="1.5" fill="none" stroke="#3D8FD6" stroke-width="2"/>
+    <rect x="6" y="-5" width="7" height="17" rx="1.5" fill="none" stroke="#2ABBC8" stroke-width="2"/>
+
+    <!-- ===== Accent dots (in open spaces on hexagon edges) ===== -->
+    <circle cx="40" cy="-67" r="4" fill="#5B5FD6"/>
+    <circle cx="78" cy="0" r="3.5" fill="#3D8FD6"/>
+    <circle cx="40" cy="67" r="3" fill="#2ABBC8"/>
+    <circle cx="-40" cy="67" r="3" fill="#2ABBC8"/>
+    <circle cx="-78" cy="0" r="3.5" fill="#2A9DA8"/>
+    <circle cx="-40" cy="-67" r="3" fill="#2A9DA8"/>
   </g>
 </svg>
