@@ -64,7 +64,7 @@ describe('D3Blueprint', () => {
   });
 
   describe('attach', () => {
-    it('attaches a sub-chart and draws it', async () => {
+    it('attaches a sub-chart instance and draws it (legacy API)', async () => {
       const base = createBase();
       const chart = new D3Blueprint<number[]>(base);
       const drawSpy = jest.fn<() => Promise<void>>().mockResolvedValue(undefined);
@@ -76,6 +76,48 @@ describe('D3Blueprint', () => {
       await chart.draw([1, 2]);
 
       expect(drawSpy).toHaveBeenCalledTimes(1);
+    });
+
+    it('creates and attaches a sub-chart from a class (new API)', async () => {
+      const base = createBase();
+
+      class SubChart extends D3Blueprint<number[]> {
+        drawCalled = false;
+        protected override preDraw(): void {
+          this.drawCalled = true;
+        }
+      }
+
+      const chart = new D3Blueprint<number[]>(base);
+      const g = base.append('g');
+      chart.attach('sub', SubChart, g);
+      await chart.draw([1, 2]);
+
+      expect((chart.attached.sub as SubChart).drawCalled).toBe(true);
+    });
+
+    it('provides getter access via attached proxy', () => {
+      const base = createBase();
+      const chart = new D3Blueprint<number[]>(base);
+      const subChart = new D3Blueprint<number[]>(base);
+
+      chart.attach('sub', subChart);
+
+      expect(chart.attached.sub).toBe(subChart);
+    });
+
+    it('throws for unknown attachment name via proxy', () => {
+      const chart = new D3Blueprint(createBase());
+      expect(() => chart.attached.nope).toThrow('[d3-blueprint]');
+    });
+
+    it('supports "in" operator on attached proxy', () => {
+      const base = createBase();
+      const chart = new D3Blueprint<number[]>(base);
+      chart.attach('sub', new D3Blueprint<number[]>(base));
+
+      expect('sub' in chart.attached).toBe(true);
+      expect('nope' in chart.attached).toBe(false);
     });
   });
 
