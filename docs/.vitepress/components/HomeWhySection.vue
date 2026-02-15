@@ -9,7 +9,7 @@
     </div>
 
     <div class="why-section__grid">
-      <div class="why-section__card">
+      <div class="why-section__card why-section__card--raw-d3">
         <div class="why-section__icon">
           <svg width="32" height="32" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round">
             <polyline points="16 18 22 12 16 6" />
@@ -17,7 +17,9 @@
           </svg>
         </div>
         <h3>Raw D3</h3>
-        <p>Full control, but every chart is a one-off script. No reuse, no structure, lots of repeated setup code.</p>
+        <p class="why-section__description">
+          ull control, but every chart is a one-off script. No reuse, no structure, lots of repeated setup code.
+        </p>
         <ul class="why-section__traits">
           <li class="why-section__trait why-section__trait--pro">Total flexibility</li>
           <li class="why-section__trait why-section__trait--con">No structure</li>
@@ -25,26 +27,7 @@
         </ul>
       </div>
 
-      <div class="why-section__card why-section__card--highlight">
-        <div class="why-section__border-glow"></div>
-        <div class="why-section__card-inner">
-          <span class="why-section__badge">Best of both</span>
-          <div class="why-section__icon why-section__icon--brand">
-            <svg width="32" height="32" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round">
-              <polygon points="12 2 15.09 8.26 22 9.27 17 14.14 18.18 21.02 12 17.77 5.82 21.02 7 14.14 2 9.27 8.91 8.26 12 2" />
-            </svg>
-          </div>
-          <h3>d3-blueprint</h3>
-          <p>Structure without abstraction. You still write D3 code, but layers, configs, and lifecycle hooks make it composable and reusable.</p>
-          <ul class="why-section__traits">
-            <li class="why-section__trait why-section__trait--pro">Full D3 access</li>
-            <li class="why-section__trait why-section__trait--pro">Composable layers</li>
-            <li class="why-section__trait why-section__trait--pro">Reusable by design</li>
-          </ul>
-        </div>
-      </div>
-
-      <div class="why-section__card">
+      <div class="why-section__card why-section__card--high-level">
         <div class="why-section__icon">
           <svg width="32" height="32" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round">
             <rect x="3" y="3" width="7" height="7" />
@@ -54,13 +37,37 @@
           </svg>
         </div>
         <h3>High-level libraries</h3>
-        <p>Quick to start, but you hit walls fast. Custom behavior means fighting the abstraction or ejecting entirely.</p>
+        <p class="why-section__description">
+          Quick to start, but you hit walls fast. Custom behavior means fighting the abstraction or ejecting entirely.
+        </p>
         <ul class="why-section__traits">
           <li class="why-section__trait why-section__trait--pro">Quick prototyping</li>
           <li class="why-section__trait why-section__trait--con">Limited customization</li>
           <li class="why-section__trait why-section__trait--con">Abstraction lock-in</li>
         </ul>
       </div>
+
+      <div class="why-section__card why-section__card--highlight why-section__card--d3-blueprint">
+        <div class="why-section__border-glow"></div>
+        <div class="why-section__card-inner">
+          <span class="why-section__badge">Best of both</span>
+          <div class="why-section__icon why-section__icon--brand">
+            <svg width="32" height="32" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round">
+              <polygon points="12 2 15.09 8.26 22 9.27 17 14.14 18.18 21.02 12 17.77 5.82 21.02 7 14.14 2 9.27 8.91 8.26 12 2" />
+            </svg>
+          </div>
+          <h3>d3-blueprint</h3>
+          <p class="why-section__description">
+            Structure without abstraction. You still write D3 code, but layers, configs, and lifecycle hooks make it composable and reusable.
+          </p>
+          <ul class="why-section__traits">
+            <li class="why-section__trait why-section__trait--pro">Full D3 access</li>
+            <li class="why-section__trait why-section__trait--pro">Composable layers</li>
+            <li class="why-section__trait why-section__trait--pro">Reusable by design</li>
+          </ul>
+        </div>
+      </div>
+
     </div>
   </div>
 </template>
@@ -108,14 +115,15 @@
   }
 
   &__grid {
-    display: grid;
-    grid-template-columns: 1fr;
     gap: 16px;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
 
     @media (min-width: 768px) {
-      grid-template-columns: 1fr 1.15fr 1fr;
       gap: 20px;
-      align-items: start;
+      flex-direction: row;
     }
   }
 
@@ -170,6 +178,22 @@
         transform: scale(1.02);
       }
     }
+
+    &--raw-d3 {
+      order: 0;
+    }
+
+    &--high-level {
+      order: 20;
+    }
+    
+    &--d3-blueprint {
+      order: 30;
+
+      @media (min-width: 768px) {
+        order: 10;
+      }
+    }
   }
 
   &__card-inner {
@@ -199,7 +223,8 @@
   &__badge {
     position: absolute;
     top: -11px;
-    left: 24px;
+    left: 50%;
+    transform: translateX(-50%);
     font-size: 11px;
     font-weight: 600;
     letter-spacing: 0.05em;
@@ -209,6 +234,15 @@
     background: var(--vp-c-brand-1);
     color: #fff;
     z-index: 2;
+
+    @media (min-width: 768px) {
+      left: 24px;
+      transform: none;
+    }
+  }
+
+  &__description {
+    text-wrap: balance;
   }
 
   &__icon {
@@ -224,6 +258,10 @@
     &--brand {
       background: var(--vp-c-brand-soft);
       color: var(--vp-c-brand-1);
+    }
+
+    @media (max-width: 767px) {
+      display: none;
     }
   }
 
