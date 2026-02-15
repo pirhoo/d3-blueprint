@@ -28,6 +28,9 @@ export interface Plugin<TData = unknown> {
   destroy?(chart: D3Blueprint<TData>): void;
 }
 
+/** Constructor type for D3Blueprint subclasses. */
+type D3BlueprintConstructor<TData, C extends D3Blueprint<TData>> = new (selection: D3Selection) => C;
+
 /**
  * Base class for composable D3 charts.
  * Subclass and override lifecycle hooks (`initialize`, `transform`, `preDraw`, `postDraw`, `postTransition`).
@@ -40,6 +43,29 @@ export class D3Blueprint<TData = unknown> {
   private readonly attachments = new Map<string, D3Blueprint<TData>>();
   private readonly configs: ConfigManager = new ConfigManager();
   private readonly dispatcher: Dispatch<object>;
+
+  /**
+   * Proxy that provides getter access to attached sub-charts by name.
+   *
+   * @example
+   * this.attach('axes', AxisChart, chartGroup);
+   * this.attached.axes.config({ xScale, yScale });
+   */
+  readonly attached: Record<string, D3Blueprint<TData>> = new Proxy(
+    {} as Record<string, D3Blueprint<TData>>,
+    {
+      get: (_target, prop: string) => {
+        const chart = this.attachments.get(prop);
+        if (!chart) {
+          throw new Error(`[d3-blueprint] attachment "${prop}" is not defined`);
+        }
+        return chart;
+      },
+      has: (_target, prop: string) => {
+        return this.attachments.has(prop);
+      },
+    },
+  );
 
   constructor(selection: D3Selection) {
     this.base = selection;
@@ -83,9 +109,23 @@ export class D3Blueprint<TData = unknown> {
     return handleLayerOverloads(this.layers, name, selection, options);
   }
 
-  /** Attaches a sub-chart that will be drawn alongside this chart. */
-  attach(name: string, chart: D3Blueprint<TData>): this {
-    this.attachments.set(name, chart);
+  /** Attaches a sub-chart instance that will be drawn alongside this chart (legacy). */
+  attach(name: string, chart: D3Blueprint<TData>): this;
+  /** Creates and attaches a sub-chart from a class and selection. */
+  attach<C extends D3Blueprint<TData>>(name: string, ChartClass: D3BlueprintConstructor<TData, C>, selection: D3Selection): this;
+  attach<C extends D3Blueprint<TData>>(
+    name: string,
+    chartOrClass: D3Blueprint<TData> | D3BlueprintConstructor<TData, C>,
+    selection?: D3Selection,
+  ): this {
+    if (selection !== undefined) {
+      // New API: attach(name, Class, selection)
+      const ChartClass = chartOrClass as D3BlueprintConstructor<TData, C>;
+      this.attachments.set(name, new ChartClass(selection));
+    } else {
+      // Legacy API: attach(name, instance)
+      this.attachments.set(name, chartOrClass as D3Blueprint<TData>);
+    }
     return this;
   }
 
