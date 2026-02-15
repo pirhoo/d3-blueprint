@@ -37,6 +37,26 @@ const PAGES = [
   'donut-chart',
   'alluvial-diagram',
   'arc-diagram',
+  'rounded-bar-chart',
+  'step-line-chart',
+  'bar-line-combo',
+  'sorted-bar-chart',
+  'grouped-bar-chart',
+  'stacked-bar-line',
+  'scatter-trend-line',
+  'histogram-density',
+  'lollipop-area-range',
+  'diverging-lollipop',
+  'dual-axis-chart',
+  'area-bar-overlay',
+  'sparkline-grid',
+  'confidence-band-chart',
+  'moving-average-chart',
+  'gradient-area-chart',
+  'bump-chart',
+  'normalized-chart',
+  'annotated-line-chart',
+  'connected-scatterplot',
 ];
 
 const MIME = {
@@ -90,7 +110,7 @@ async function capturePage(context, baseUrl, slug, scheme) {
   }
 
   try {
-    await page.waitForSelector('.chart-container svg', { timeout: 8000 });
+    await page.waitForSelector('.chart-demo__container svg', { timeout: 8000 });
   } catch {
     console.warn(`  ⚠ No .chart-container svg found on ${slug} (${scheme}), skipping`);
     await page.close();
@@ -99,7 +119,7 @@ async function capturePage(context, baseUrl, slug, scheme) {
 
   await page.waitForTimeout(2000);
 
-  const container = page.locator('.chart-container').first();
+  const container = page.locator('.chart-demo__container').first();
   const outPath = resolve(OUT_DIR, `${slug}${suffix}.png`);
   await container.screenshot({ path: outPath, type: 'png' });
   console.log(`  ✓ ${slug}${suffix}.png`);
