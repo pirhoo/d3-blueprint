@@ -9,7 +9,7 @@
 
 |      | Status |
 | ---: | :--- |
-| **CI checks** | [![Github Actions](https://img.shields.io/github/actions/workflow/status/pirhoo/d3-blueprint/main.yml?style=flat-square)](https://github.com/pirhoo/d3-blueprint/actions/workflows/main.yml) |
+| **CI checks** | [![Github Actions](https://img.shields.io/github/actions/workflow/status/pirhoo/d3-blueprint/ci.yml?style=flat-square)](https://github.com/pirhoo/d3-blueprint/actions/workflows/ci.yml) |
 | **Latest version** | [![Latest version](https://img.shields.io/npm/v/d3-blueprint?style=flat-square&color=success)](https://www.npmjs.com/package/d3-blueprint) |
 |   **Release date** | [![Release date](https://img.shields.io/npm/last-update/d3-blueprint?style=flat-square&color=success)](https://github.com/pirhoo/d3-blueprint/releases/latest) |
 |    **Open issues** | [![Open issues](https://img.shields.io/github/issues/pirhoo/d3-blueprint?style=flat-square&color=success)](https://github.com/pirhoo/d3-blueprint/issues/) |
