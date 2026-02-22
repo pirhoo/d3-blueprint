@@ -1,6 +1,6 @@
 <p align="center">
   <a href="https://blueprint.pirhoo.com" align="center">
-    <img src="./docs/public/images/logo-card.svg" width="800" alt="d3-compose">
+    <img src="https://raw.githubusercontent.com/pirhoo/d3-blueprint/main/docs/public/images/logo-card.svg" width="800" alt="d3-compose">
   </a>
 </p>
 <p align="center"><strong>A modern micro-framework for building reusable, composable D3 charts with TypeScript.</strong></p>
