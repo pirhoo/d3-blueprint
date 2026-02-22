@@ -27,6 +27,10 @@
     "composable",
     "visualization"
   ],
+  "repository": {
+    "type": "git",
+    "url": "https://github.com/pirhoo/d3-blueprint"
+  },
   "license": "MIT",
   "dependencies": {
     "@floating-ui/dom": "^1.7.5",
