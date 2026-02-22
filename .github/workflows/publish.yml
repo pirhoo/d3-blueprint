@@ -35,7 +35,7 @@ jobs:
         run: make build
 
       - name: Publish
-        run: npm publish --provenance --access public
+        run: npm publish
 
   deploy-docs:
     runs-on: ubuntu-latest
