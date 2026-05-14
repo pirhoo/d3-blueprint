@@ -1,6 +1,6 @@
 {
   "name": "d3-blueprint",
-  "version": "0.1.5",
+  "version": "0.1.6",
   "private": false,
   "description": "A modern micro-framework for building reusable, composable D3 charts",
   "type": "module",
