@@ -5,7 +5,7 @@ import stylistic from '@stylistic/eslint-plugin';
 export default tseslint.config(
   eslint.configs.recommended,
   ...tseslint.configs.recommended,
-  stylistic.configs['recommended-flat'],
+  stylistic.configs.recommended,
   {
     rules: {
       '@stylistic/semi': ['error', 'always'],
@@ -14,6 +14,7 @@ export default tseslint.config(
         singleline: { delimiter: 'semi', requireLast: false },
       }],
       '@stylistic/brace-style': ['error', '1tbs'],
+      '@stylistic/operator-linebreak': ['error', 'before', { overrides: { '=': 'after' } }],
     },
   },
   {
