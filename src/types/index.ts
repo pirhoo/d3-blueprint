@@ -2,11 +2,19 @@ import type { Selection, BaseType } from 'd3-selection';
 import type { Transition } from 'd3-transition';
 import type { LifecycleEventKey } from '../layer/lifecycle-events.js';
 
-/** A generic D3 selection. */
-export type D3Selection = Selection<BaseType, unknown, BaseType, unknown>;
+/**
+ * A generic D3 selection accepted across the public API. The generics are
+ * `any` so callers can pass results of `d3.select(...)` / `d3.selectAll(...)`
+ * directly without casting through d3-selection's invariant generics
+ * (e.g. `Selection<SVGGElement, unknown, null, undefined>` returned by
+ * `d3.select(svgElement)` unifies with this type).
+ */
+// eslint-disable-next-line @typescript-eslint/no-explicit-any
+export type D3Selection = Selection<any, any, any, any>;
 
-/** A generic D3 transition. */
-export type D3Transition = Transition<BaseType, unknown, BaseType, unknown>;
+/** A generic D3 transition. See {@link D3Selection} for the widening rationale. */
+// eslint-disable-next-line @typescript-eslint/no-explicit-any
+export type D3Transition = Transition<any, any, any, any>;
 
 /** Handler invoked during a non-transition lifecycle phase. */
 export type LifecycleHandler<TData> = (
